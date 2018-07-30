@@ -10,6 +10,10 @@ TextureImporter:
     21300010: GreenPlayer
     21300012: BluePlayer
     21300014: YellowPlayer
+    21300016: NWWall
+    21300018: NEWall
+    21300020: SWWall
+    21300022: SEWall
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -51,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 1
   spritePivot: {x: 0, y: 1}
-  spritePixelsToUnits: 1.5
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,9 +109,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 30
-        width: 30
-        height: 30
+        y: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,10 +128,10 @@ TextureImporter:
       name: NorthWall
       rect:
         serializedVersion: 2
-        x: 30
-        y: 30
-        width: 30
-        height: 30
+        x: 32
+        y: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +148,10 @@ TextureImporter:
       name: EastWall
       rect:
         serializedVersion: 2
-        x: 90
-        y: 30
-        width: 30
-        height: 30
+        x: 96
+        y: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +168,10 @@ TextureImporter:
       name: South
       rect:
         serializedVersion: 2
-        x: 60
-        y: 30
-        width: 30
-        height: 30
+        x: 64
+        y: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +188,10 @@ TextureImporter:
       name: RedPlayer
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 25
-        height: 25
+        x: 4
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +208,10 @@ TextureImporter:
       name: GreenPlayer
       rect:
         serializedVersion: 2
-        x: 32
-        y: 2
-        width: 25
-        height: 25
+        x: 36
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +228,10 @@ TextureImporter:
       name: BluePlayer
       rect:
         serializedVersion: 2
-        x: 62
-        y: 2
-        width: 25
-        height: 25
+        x: 68
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +248,10 @@ TextureImporter:
       name: YellowPlayer
       rect:
         serializedVersion: 2
-        x: 92
-        y: 2
-        width: 25
-        height: 25
+        x: 100
+        y: 0
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,6 +260,86 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 06ce52a1f3db8f5419c0f2fb2e41245e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NWWall
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04eb2b1c15b7f4419dc83863d16772e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NEWall
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 56
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2f489280336a943ad8c4aad12e4b33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SWWall
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 56
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecfd003fb16c81b4d80af92fc95c4e20
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SEWall
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 56
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cab60f7c61187d479b9435615f4a6c3
       vertices: []
       indices: 
       edges: []
