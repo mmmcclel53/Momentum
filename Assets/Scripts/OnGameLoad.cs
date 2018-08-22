@@ -7,6 +7,9 @@ using UnityEditor;
 using System.IO;
 
 public class OnGameLoad : MonoBehaviour {
+
+  private GameManager GameManager;
+
   public Tilemap tilemap;
   public Tile nwWall;
   public Tile neWall;
