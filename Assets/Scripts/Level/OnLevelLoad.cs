@@ -30,13 +30,13 @@ public class OnLevelLoad : MonoBehaviour {
     for (int i=0; i<movableTileStrings.Length; i++) {
       int movableTile = Int32.Parse(movableTileStrings[i]);
       movableObjects[i].transform.position =
-        GridUtility.addOffset(northTilemap.CellToWorld(new Vector3Int(GridUtility.calculateX(movableTile), GridUtility.calculateY(movableTile), 0)));
-      playersAndGoal.SetTile(new Vector3Int(GridUtility.calculateX(movableTile), GridUtility.calculateY(movableTile), 0), i == 0 ? ship : asteroid);
+        LevelUtility.addOffset(northTilemap.CellToWorld(new Vector3Int(LevelUtility.calculateX(movableTile), LevelUtility.calculateY(movableTile), 0)));
+      playersAndGoal.SetTile(new Vector3Int(LevelUtility.calculateX(movableTile), LevelUtility.calculateY(movableTile), 0), i == 0 ? ship : asteroid);
     }
     int goalTile = Int32.Parse(goalString);
     goalObj.transform.position =
-      GridUtility.addOffset(northTilemap.CellToWorld(new Vector3Int(GridUtility.calculateX(goalTile), GridUtility.calculateY(goalTile), 0)));
-    playersAndGoal.SetTile(new Vector3Int(GridUtility.calculateX(goalTile), GridUtility.calculateY(goalTile), 0), goal);
+      LevelUtility.addOffset(northTilemap.CellToWorld(new Vector3Int(LevelUtility.calculateX(goalTile), LevelUtility.calculateY(goalTile), 0)));
+    playersAndGoal.SetTile(new Vector3Int(LevelUtility.calculateX(goalTile), LevelUtility.calculateY(goalTile), 0), goal);
   }
 
   private void setTiles(string[] tiles) {
@@ -80,9 +80,8 @@ public class OnLevelLoad : MonoBehaviour {
 
   // Use this for initialization
   void Start() {
-    // string difficulty = GameManager.getParam("difficulty");
-    string path = "Assets/Resources/beginner.txt";
-    // string path = "Assets/Resources/" + difficulty + ".txt";
+    // string path = "Assets/Resources/Levels/" + GameManager.getParam("difficulty") + GameManager.getParam("level") + ".txt";
+    string path = "Assets/Resources/Levels/master2.txt";
 
     // Read the tiles directly from the difficulty file
     StreamReader reader = new StreamReader(path);
@@ -90,8 +89,7 @@ public class OnLevelLoad : MonoBehaviour {
     string[] tiles = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
     string[] players = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
     string goal = reader.ReadLine();
-    // GameManager.SOLUTION = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
-    // GameManager.COMPLEXITY = Int32.Parse(reader.ReadLine());
+    GameManager.setParam("solution", reader.ReadLine());
 
     reader.Close();
 

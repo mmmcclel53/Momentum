@@ -6,17 +6,9 @@ using UnityEngine.SceneManagement;
 public static class GameManager {
  
   private static Dictionary<string, string> parameters;
-  public static int COMPLEXITY = 0;
-  public static string[] SOLUTION;
 
   public static void Load(string sceneName, Dictionary<string, string> newParams = null) {
     parameters = newParams;
-    SceneManager.LoadScene(sceneName);
-  }
-
-  public static void Load(string sceneName, string paramKey, string paramValue) {
-    parameters = new Dictionary<string, string>();
-    parameters.Add(paramKey, paramValue);
     SceneManager.LoadScene(sceneName);
   }
 
@@ -25,13 +17,20 @@ public static class GameManager {
   }
 
   public static string getParam(string paramKey) {
-    if (parameters == null) return "";
+    if (parameters == null || !parameters.ContainsKey(paramKey)) {
+      return "";
+    }
     return parameters[paramKey];
   }
 
   public static void setParam(string paramKey, string paramValue) {
-    if (parameters == null)
+    if (parameters == null) {
       parameters = new Dictionary<string, string>();
-    parameters.Add(paramKey, paramValue);
+      parameters.Add(paramKey, paramValue);
+    } else if (parameters.ContainsKey(paramKey)) {
+      parameters[paramKey] = paramValue;
+    } else {
+      parameters.Add(paramKey, paramValue);
+    }
   }
 }
