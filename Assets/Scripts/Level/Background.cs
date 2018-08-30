@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Background : MonoBehaviour {
 	void Start () {
+    Sprite easyBG = Resources.Load <Sprite> ("Backgrounds/EasyBackground");
 		switch(GameManager.getParam("difficulty")) {
       case "easy":
-        Sprite easyBG = Resources.Load <Sprite> ("Backgrounds/EasyBackground");
         this.gameObject.GetComponent<SpriteRenderer>().sprite = easyBG;
         break;
       case "medium":
@@ -26,7 +26,6 @@ public class Background : MonoBehaviour {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = impossibleBG;
         break;
       default:
-        Sprite easyBG = Resources.Load <Sprite> ("Backgrounds/EasyBackground");
         this.gameObject.GetComponent<SpriteRenderer>().sprite = easyBG;
         break;
     }
