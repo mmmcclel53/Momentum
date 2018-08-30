@@ -80,8 +80,12 @@ public class OnLevelLoad : MonoBehaviour {
 
   // Use this for initialization
   void Start() {
+
+    // Disable screen capture (you filthy cheaters!)
+    // getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);
+
     // string path = "Assets/Resources/Levels/" + GameManager.getParam("difficulty") + GameManager.getParam("level") + ".txt";
-    string path = "Assets/Resources/Levels/master2.txt";
+    string path = "Assets/Resources/Levels/master1.txt";
 
     // Read the tiles directly from the difficulty file
     StreamReader reader = new StreamReader(path);
@@ -89,7 +93,7 @@ public class OnLevelLoad : MonoBehaviour {
     string[] tiles = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
     string[] players = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
     string goal = reader.ReadLine();
-    GameManager.setParam("solution", reader.ReadLine());
+    LevelManager.solution = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
     reader.Close();
 

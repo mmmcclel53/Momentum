@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 
 public class OnMenuClick : MonoBehaviour {
@@ -39,7 +40,15 @@ public class OnMenuClick : MonoBehaviour {
 		GameManager.Load("Game", GameManager.getSceneParameters());
   }
   
+  public void onMainMenuClick() {
+    GameManager.Load("MainMenu");
+  }
+
   public void onPlayClick() {
     GameManager.setParam("gameType", "play");
+  }
+
+  public void onRestartClick() {
+    GameManager.Load(SceneManager.GetActiveScene().name);
   }
 }

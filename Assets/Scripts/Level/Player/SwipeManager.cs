@@ -132,12 +132,11 @@ public class SwipeManager : MonoBehaviour {
     // Make sure it was a legit swipe, not a tap
     if (!MovingObject.getIsMoving() && currentSwipe.magnitude >= minSwipeLength) {
       Swipe swipe = getSwipeDirection(currentSwipe);
-      int moves = Int32.Parse(GameManager.getParam("moves")) + 1;
       MovingObject.setSwipeDirection(swipe);
       MovingObject.setIsMoving(true);
       MovingObject.setObject(this.gameObject);
       MovingObject.setPosition(LevelUtility.addOffset(calculateNewPosition(swipe)));
-      GameManager.setParam("moves", moves.ToString());
+      LevelManager.moves++;
     }
   }
 
@@ -170,7 +169,7 @@ public class SwipeManager : MonoBehaviour {
       
       // Winner!
       if (isCurrentShipObj() && playersAndGoal.GetTile(tilePos) == goal) {
-        Debug.Log(GameManager.getParam("time"));
+        Debug.Log(LevelManager.time);
       }
 
       playersAndGoal.SetTile(tilePos, isCurrentShipObj() ? ship : asteroid);

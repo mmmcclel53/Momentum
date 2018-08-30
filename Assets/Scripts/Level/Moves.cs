@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Moves : MonoBehaviour {
-	
+
   void Start() {
-    GameManager.setParam("moves", "0");
+    LevelManager.moves = 0;
   }
 
   void Update() {
-    this.gameObject.GetComponent<UnityEngine.UI.Text>().text = GameManager.getParam("moves");
+    this.gameObject.GetComponent<UnityEngine.UI.Text>().text = LevelManager.moves.ToString();
 	}
 }
