@@ -84,7 +84,7 @@ public class OnLevelLoad : MonoBehaviour {
     // Disable screen capture (you filthy cheaters!)
     // getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);
 
-    string path = "Assets/Resources/Levels/Puzzles/" + GameManager.getParam("difficulty") + GameManager.getParam("level") + ".txt";
+    string path = "Assets/Resources/Levels/Puzzles/" + GameManager.getParam("difficulty") + "/" + GameManager.getParam("difficulty") + GameManager.getParam("level") + ".txt";
     // string path = "Assets/Resources/Levels/master1.txt";
 
     // Read the tiles directly from the difficulty file
