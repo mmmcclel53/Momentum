@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public enum Swipe { None, Up, Down, Left, Right };
 
@@ -13,6 +14,7 @@ public class SwipeManager : MonoBehaviour {
   public GameObject shipObj;
   public float minSwipeLength = 5f;
   public float speed;
+  public GameObject solvedModal;
   public Tilemap playersAndGoal;
   public Tilemap northTilemap;
   public Tilemap eastTilemap;
@@ -33,6 +35,23 @@ public class SwipeManager : MonoBehaviour {
 
   private bool isTileShipOrAsteroid(TileBase tile) {
     return tile == ship || tile == asteroid;
+  }
+
+  private bool isCurrentShipObj() {
+    return MovingObject.getObject() == shipObj;
+  }
+
+  private int calculateScore() {
+    int bestSolution = LevelManager.solution.Length;
+    int moves = LevelManager.moves;
+    int twoStarBuffer = 2;
+    if (moves <= bestSolution) {
+      return 3;
+    } else if (moves <= bestSolution + twoStarBuffer) {
+      return 2;
+    } else {
+      return 1;
+    }
   }
 
   private Vector3 calculateNewPosition(Swipe swipe) {
@@ -140,6 +159,19 @@ public class SwipeManager : MonoBehaviour {
     }
   }
 
+  public void saveScore() {
+    BinaryFormatter bf = new BinaryFormatter();
+    FileStream file = File.Create(
+      Application.persistentDataPath + "/" + GameManager.difficulty + GameManager.level + ".dat"
+    );
+
+    Stars stars = new Stars();
+    stars.score = calculateScore();
+
+    bf.Serialize(file, stars);
+    file.Close();
+  }
+
   void Start() {
     northWall = Resources.Load <Tile> ("Tiles/NorthWall");
     southWall = Resources.Load <Tile> ("Tiles/SouthWall");
@@ -155,11 +187,6 @@ public class SwipeManager : MonoBehaviour {
     MovingObject.setPosition(shipObj.transform.position);
   }
 
-
-  private bool isCurrentShipObj() {
-    return MovingObject.getObject() == shipObj;
-  }
-
   void Update() {
     GameObject movingObj = MovingObject.getObject();
     Vector3 newPos = MovingObject.getPosition();
@@ -169,7 +196,10 @@ public class SwipeManager : MonoBehaviour {
       
       // Winner!
       if (isCurrentShipObj() && playersAndGoal.GetTile(tilePos) == goal) {
-        Debug.Log(LevelManager.time);
+        LevelManager.paused = true;
+        LevelManager.time = 0;
+        solvedModal.SetActive(true);
+        saveScore();
       }
 
       playersAndGoal.SetTile(tilePos, isCurrentShipObj() ? ship : asteroid);

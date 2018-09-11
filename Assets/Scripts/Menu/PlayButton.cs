@@ -5,6 +5,6 @@ using UnityEngine.UI;
 
 public class PlayButton : MonoBehaviour {
   public void onPlayClick() {
-    GameManager.setParam("gameType", "play");
+    GameManager.gameType = "play";
   }
 }

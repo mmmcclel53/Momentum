@@ -5,6 +5,6 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour {
 	public void togglePause() {
-    LevelManager.pause = !LevelManager.pause;
+    LevelManager.paused = !LevelManager.paused;
   }
 }
