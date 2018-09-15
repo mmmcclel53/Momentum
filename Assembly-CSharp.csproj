@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_2_5;UNITY_2018_2;UNITY_2018;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_IOS_NATIVE_CRASH_REPORTING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;PLATFORM_HAS_NO_SUPPORT_FOR_BUCKET_ALLOCATOR;STRICTCPP_NEW_DELETE_SIGNATURES;HAS_NEON_SKINNING;UNITY_GFX_USE_PLATFORM_VSYNC;UNITY_INPUT_SIMULATE_EVENTS;PLATFORM_ALWAYS_USES_STDOUT_FOR_LOG;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;PLATFORM_IOS;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;SUPPORT_MULTIPLE_DISPLAYS;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_IL2CPP;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;UNITY_HAS_GOOGLEVR;ENABLE_MONO</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_2_7;UNITY_2018_2;UNITY_2018;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_IOS_NATIVE_CRASH_REPORTING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;PLATFORM_HAS_NO_SUPPORT_FOR_BUCKET_ALLOCATOR;STRICTCPP_NEW_DELETE_SIGNATURES;HAS_NEON_SKINNING;UNITY_GFX_USE_PLATFORM_VSYNC;UNITY_INPUT_SIMULATE_EVENTS;PLATFORM_ALWAYS_USES_STDOUT_FOR_LOG;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;PLATFORM_IOS;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;SUPPORT_MULTIPLE_DISPLAYS;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_IL2CPP;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;UNITY_HAS_GOOGLEVR;ENABLE_MONO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -53,35 +53,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ASMaterialIcon\Scripts\MaterialVectorIcon.cs" />
-     <Compile Include="Assets\Scripts\Level\Background.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Initialize.cs" />
+     <Compile Include="Assets\Scripts\Level\Displays\Background.cs" />
+     <Compile Include="Assets\Scripts\Level\Displays\Difficulty.cs" />
+     <Compile Include="Assets\Scripts\Level\Displays\Moves.cs" />
+     <Compile Include="Assets\Scripts\Level\Displays\Puzzle\CurrentScore.cs" />
+     <Compile Include="Assets\Scripts\Level\Displays\Ranked\Timer.cs" />
      <Compile Include="Assets\Scripts\Level\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Level\LevelUtility.cs" />
-     <Compile Include="Assets\Scripts\Level\Moves.cs" />
+     <Compile Include="Assets\Scripts\Level\Modals\Puzzle\MainMenuButton.cs" />
+     <Compile Include="Assets\Scripts\Level\Modals\Puzzle\NextLevel.cs" />
+     <Compile Include="Assets\Scripts\Level\Modals\Puzzle\OnPuzzleSolve.cs" />
+     <Compile Include="Assets\Scripts\Level\Modals\Puzzle\ResetButton.cs" />
+     <Compile Include="Assets\Scripts\Level\Modals\Ranked\Continue.cs" />
+     <Compile Include="Assets\Scripts\Level\Modals\Ranked\OnRankedSolve.cs" />
      <Compile Include="Assets\Scripts\Level\OnLevelLoad.cs" />
      <Compile Include="Assets\Scripts\Level\Pause.cs" />
      <Compile Include="Assets\Scripts\Level\Player\MovingObject.cs" />
      <Compile Include="Assets\Scripts\Level\Player\Rotation.cs" />
      <Compile Include="Assets\Scripts\Level\Player\ShipRotation.cs" />
      <Compile Include="Assets\Scripts\Level\Player\SwipeManager.cs" />
-     <Compile Include="Assets\Scripts\Level\Timer.cs" />
-     <Compile Include="Assets\Scripts\Menu\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Menu\Levels\DifficultyButton.cs" />
-     <Compile Include="Assets\Scripts\Menu\Levels\LevelButton.cs" />
-     <Compile Include="Assets\Scripts\Menu\Levels\MainMenuButton.cs" />
-     <Compile Include="Assets\Scripts\Menu\Levels\ResetButton.cs" />
+     <Compile Include="Assets\Scripts\Menu\Displays\Rank.cs" />
+     <Compile Include="Assets\Scripts\Menu\Displays\StarsTotal.cs" />
+     <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\DifficultyButton.cs" />
+     <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\DifficultyStarCount.cs" />
+     <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\Level\LevelButton.cs" />
      <Compile Include="Assets\Scripts\Menu\LevelsButton.cs" />
      <Compile Include="Assets\Scripts\Menu\PlayButton.cs" />
-     <Compile Include="Assets\Scripts\ScrollView\Common\HtmlColor.cs" />
-     <Compile Include="Assets\Scripts\ScrollView\Common\RichText.cs" />
-     <Compile Include="Assets\Scripts\ScrollView\Common\ScrollbarHandleSize.cs" />
-     <Compile Include="Assets\Scripts\ScrollView\DynamicHScrollView.cs" />
-     <Compile Include="Assets\Scripts\ScrollView\DynamicScrollView.cs" />
-     <Compile Include="Assets\Scripts\ScrollView\DynamicScrollViewItem.cs" />
-     <Compile Include="Assets\Scripts\ScrollView\DynamicScrollViewItemExample.cs" />
-     <Compile Include="Assets\Scripts\ScrollView\DynamicVScrollView.cs" />
-     <Compile Include="Assets\Scripts\ScrollView\Extensions\GameObjectEx.cs" />
-     <Compile Include="Assets\Scripts\ScrollView\Extensions\RectTransformEx.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ASMaterialIcon\Scripts\MaterialVectorIcon.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ScrollView\Common\HtmlColor.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ScrollView\Common\RichText.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ScrollView\Common\ScrollbarHandleSize.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ScrollView\DynamicHScrollView.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ScrollView\DynamicScrollView.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ScrollView\DynamicScrollViewItem.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ScrollView\DynamicScrollViewItemExample.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ScrollView\DynamicVScrollView.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ScrollView\Extensions\GameObjectEx.cs" />
+     <Compile Include="Assets\Scripts\Utilities\ScrollView\Extensions\RectTransformEx.cs" />
      <None Include="Assets\Resources\Levels\Ranked\master16_40.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible20_99.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard10_77.txt" />
@@ -286,7 +296,7 @@
      <None Include="Assets\Resources\Levels\Ranked\easy1_20.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy3_87.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible20_194.txt" />
-     <None Include="Assets\ASMaterialIcon\Documentation\Documentation.txt" />
+     <None Include="Assets\Scripts\Utilities\ASMaterialIcon\Documentation\Documentation.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master15_1.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy1_49.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard13_85.txt" />
@@ -902,7 +912,7 @@
      <None Include="Assets\Resources\Levels\Ranked\impossible24_38.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master16_31.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy0_9.txt" />
-     <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
+     <None Include="Assets\Resources\Fonts\Jupiter\LICENSE.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy4_44.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master17_13.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master18_88.txt" />
@@ -1948,7 +1958,6 @@
      <None Include="Assets\Resources\Levels\Ranked\medium6_43.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard12_9.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master19_94.txt" />
-     <None Include="Assets\Resources\Levels\Ranked\impossible20_76.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\impossible\impossible20_16.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard11_73.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard13_36.txt" />
@@ -2239,7 +2248,6 @@
      <None Include="Assets\Resources\Levels\Puzzles\easy\easy2_9.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard10_15.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible25_73.txt" />
-     <None Include="Assets\Resources\Levels\Ranked\impossible20_70.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible26_120.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard13_48.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy2_86.txt" />
@@ -2353,7 +2361,6 @@
      <None Include="Assets\Resources\Levels\Ranked\easy3_24.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy4_4.txt" />
      <None Include="Assets\Resources\Levels\Ranked\medium6_48.txt" />
-     <None Include="Assets\Resources\Levels\Ranked\impossible20_201.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master19_95.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\medium\medium5_4.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy3_85.txt" />

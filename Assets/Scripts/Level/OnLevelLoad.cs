@@ -78,14 +78,22 @@ public class OnLevelLoad : MonoBehaviour {
     }       
   }
 
+  private string getPath() {
+    if (GameManager.gameType == "puzzles") {
+      return "Assets/Resources/Levels/Puzzles/" + LevelManager.difficulty + "/" + LevelManager.difficulty + LevelManager.level + ".txt";
+    }
+
+    return "Assets/Resources/Levels/Ranked/" + LevelUtility.calculateRankedDifficulty() + LevelUtility.calculateRankedLevel();
+  }
+
   // Use this for initialization
   void Start() {
 
     // Disable screen capture (you filthy cheaters!)
     // getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);
 
-    string path = "Assets/Resources/Levels/Puzzles/" + GameManager.difficulty + "/" + GameManager.difficulty + GameManager.level + ".txt";
-    // string path = "Assets/Resources/Levels/master1.txt";
+    string path = getPath();
+    // string path =  "Assets/Resources/Levels/Puzzles/easy/easy0_1.txt";
 
     // Read the tiles directly from the difficulty file
     StreamReader reader = new StreamReader(path);

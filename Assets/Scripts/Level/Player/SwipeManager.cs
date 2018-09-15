@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public enum Swipe { None, Up, Down, Left, Right };
 
@@ -14,7 +12,10 @@ public class SwipeManager : MonoBehaviour {
   public GameObject shipObj;
   public float minSwipeLength = 5f;
   public float speed;
-  public GameObject solvedModal;
+
+  public GameObject puzzleSolvedModal;
+  public GameObject rankedSolvedModal;
+
   public Tilemap playersAndGoal;
   public Tilemap northTilemap;
   public Tilemap eastTilemap;
@@ -39,19 +40,6 @@ public class SwipeManager : MonoBehaviour {
 
   private bool isCurrentShipObj() {
     return MovingObject.getObject() == shipObj;
-  }
-
-  private int calculateScore() {
-    int bestSolution = LevelManager.solution.Length;
-    int moves = LevelManager.moves;
-    int twoStarBuffer = 2;
-    if (moves <= bestSolution) {
-      return 3;
-    } else if (moves <= bestSolution + twoStarBuffer) {
-      return 2;
-    } else {
-      return 1;
-    }
   }
 
   private Vector3 calculateNewPosition(Swipe swipe) {
@@ -159,19 +147,6 @@ public class SwipeManager : MonoBehaviour {
     }
   }
 
-  public void saveScore() {
-    BinaryFormatter bf = new BinaryFormatter();
-    FileStream file = File.Create(
-      Application.persistentDataPath + "/" + GameManager.difficulty + GameManager.level + ".dat"
-    );
-
-    Stars stars = new Stars();
-    stars.score = calculateScore();
-
-    bf.Serialize(file, stars);
-    file.Close();
-  }
-
   void Start() {
     northWall = Resources.Load <Tile> ("Tiles/NorthWall");
     southWall = Resources.Load <Tile> ("Tiles/SouthWall");
@@ -197,9 +172,11 @@ public class SwipeManager : MonoBehaviour {
       // Winner!
       if (isCurrentShipObj() && playersAndGoal.GetTile(tilePos) == goal) {
         LevelManager.paused = true;
-        LevelManager.time = 0;
-        solvedModal.SetActive(true);
-        saveScore();
+        if (GameManager.gameType == "ranked") {
+          rankedSolvedModal.SetActive(true);
+        } else {
+          puzzleSolvedModal.SetActive(true);
+        }
       }
 
       playersAndGoal.SetTile(tilePos, isCurrentShipObj() ? ship : asteroid);

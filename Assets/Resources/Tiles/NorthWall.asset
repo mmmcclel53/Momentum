@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: NorthWall
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300002, guid: c62cc198e7a49a345807890e98cd0e17, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
   m_Transform:
     e00: 1
     e01: 0

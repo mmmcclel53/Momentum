@@ -5,7 +5,7 @@ using UnityEngine;
 public class Background : MonoBehaviour {
 	void Start () {
     Sprite easyBG = Resources.Load <Sprite> ("Backgrounds/EasyBackground");
-		switch(GameManager.difficulty) {
+		switch (LevelManager.difficulty) {
       case "easy":
         this.gameObject.GetComponent<SpriteRenderer>().sprite = easyBG;
         break;

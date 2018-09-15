@@ -14,6 +14,7 @@ public class ShipRotation : MonoBehaviour {
 
   void Start() {
     rotationVector = this.gameObject.transform.rotation.eulerAngles;
+    MovingObject.setSwipeDirection(Swipe.Up);
   }
 
 	// Update is called once per frame

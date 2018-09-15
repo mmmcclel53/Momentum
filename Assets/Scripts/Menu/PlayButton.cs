@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayButton : MonoBehaviour {
   public void onPlayClick() {
-    GameManager.gameType = "play";
+    GameManager.gameType = "ranked";
+    GameManager.Load("Game");
   }
 }
