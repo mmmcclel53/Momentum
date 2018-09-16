@@ -50,52 +50,52 @@ public static class LevelUtility {
 
     int exp = GameManager.playerExperience;
     if (exp < 200) {
-      return "0_" + randomLevel + ".txt";
+      return "0_" + randomLevel;
     } else if (exp < 400) {
-      return "1_" + randomLevel + ".txt";
+      return "1_" + randomLevel;
     } else if (exp < 600) {
-      return "2_" + randomLevel + ".txt";
+      return "2_" + randomLevel;
     } else if (exp < 800) {
-      return "3_" + randomLevel + ".txt";
+      return "3_" + randomLevel;
     } else if (exp < 1000) {
-      return "4_" + randomLevel + ".txt";
+      return "4_" + randomLevel;
     } else if (exp < 1200) {
-      return "5_" + randomLevel + ".txt";
+      return "5_" + randomLevel;
     } else if (exp < 1400) {
-      return "6_" + randomLevel + ".txt";
+      return "6_" + randomLevel;
     } else if (exp < 1600) {
-      return "7_" + randomLevel + ".txt";
+      return "7_" + randomLevel;
     } else if (exp < 1800) {
-      return "8_" + randomLevel + ".txt";
+      return "8_" + randomLevel;
     } else if (exp < 2000) {
-      return "9_" + randomLevel + ".txt";
+      return "9_" + randomLevel;
     } else if (exp < 2200) {
-      return "10_" + randomLevel + ".txt";
+      return "10_" + randomLevel;
     } else if (exp < 2400) {
-      return "11_" + randomLevel + ".txt";
+      return "11_" + randomLevel;
     } else if (exp < 2600) {
-      return "12_" + randomLevel + ".txt";
+      return "12_" + randomLevel;
     } else if (exp < 2800) {
-      return "13_" + randomLevel + ".txt";
+      return "13_" + randomLevel;
     } else if (exp < 3000) {
-      return "14_" + randomLevel + ".txt";
+      return "14_" + randomLevel;
     } else if (exp < 3200) {
-      return "15_" + randomLevel + ".txt";
+      return "15_" + randomLevel;
     } else if (exp < 3400) {
-      return "16_" + randomLevel + ".txt";
+      return "16_" + randomLevel;
     } else if (exp < 3600) {
-      return "17_" + randomLevel + ".txt";
+      return "17_" + randomLevel;
     } else if (exp < 3800) {
-      return "18_" + randomLevel + ".txt";
+      return "18_" + randomLevel;
     } else if (exp < 4000) {
-      return "19_" + randomLevel + ".txt";
+      return "19_" + randomLevel;
     } else { // > 4000
       int level = random.Next(1, 200);
       DirectoryInfo directory = new DirectoryInfo("Assets/Resources/Levels/Ranked/");
       FileInfo[] files = directory.GetFiles("impossible*.txt");
 
       // Random impossible puzzle
-      return files[level].Name.Replace("impossible", "");
+      return files[level].Name.Replace("impossible", "").Replace(".txt", "");
     }
   }
 

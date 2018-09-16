@@ -2,10 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEditor;
-using System.IO;
-
 
 public static class MovingObject {
   private static bool isMoving = false;

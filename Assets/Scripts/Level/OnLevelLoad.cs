@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
-using System.IO;
 
 public class OnLevelLoad : MonoBehaviour {
   
@@ -75,15 +74,15 @@ public class OnLevelLoad : MonoBehaviour {
         westTilemap.SetTile(new Vector3Int(x, y, 0), westWall);
       }
       x++;
-    }       
+    }
   }
 
-  private string getPath() {
+  private TextAsset getPath() {
     if (GameManager.gameType == "puzzles") {
-      return "Assets/Resources/Levels/Puzzles/" + LevelManager.difficulty + "/" + LevelManager.difficulty + LevelManager.level + ".txt";
+      return (TextAsset)Resources.Load("Levels/Puzzles/" + LevelManager.difficulty + "/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
     }
 
-    return "Assets/Resources/Levels/Ranked/" + LevelUtility.calculateRankedDifficulty() + LevelUtility.calculateRankedLevel();
+    return (TextAsset)Resources.Load("Levels/Ranked/" + LevelUtility.calculateRankedDifficulty() + LevelUtility.calculateRankedLevel(), typeof(TextAsset));
   }
 
   // Use this for initialization
@@ -92,18 +91,18 @@ public class OnLevelLoad : MonoBehaviour {
     // Disable screen capture (you filthy cheaters!)
     // getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);
 
-    string path = getPath();
-    // string path =  "Assets/Resources/Levels/Puzzles/easy/easy0_1.txt";
+    TextAsset file = getPath();
+    // TextAsset file =  (TextAsset)Resources.Load("Levels/Puzzles/easy/easy0_1.txt", typeof(TextAsset));
 
     // Read the tiles directly from the difficulty file
-    StreamReader reader = new StreamReader(path);
     string[] separators = {" "};
-    string[] tiles = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
-    string[] players = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
-    string goal = reader.ReadLine();
-    LevelManager.solution = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
+    string[] newLineSeparators = new string[] { "\r\n", "\r", "\n" };    
 
-    reader.Close();
+    string[] lines = file.text.Split(newLineSeparators, StringSplitOptions.None);
+    string[] tiles = lines[0].Split(separators, StringSplitOptions.RemoveEmptyEntries);
+    string[] players = lines[1].Split(separators, StringSplitOptions.RemoveEmptyEntries);
+    string goal = lines[2];
+    LevelManager.solution = lines[3].Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
     setTiles(tiles);
     setPlayersAndGoal(players, goal);

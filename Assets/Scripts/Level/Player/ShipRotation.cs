@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
-using System.IO;
 
 public class ShipRotation : MonoBehaviour {
   

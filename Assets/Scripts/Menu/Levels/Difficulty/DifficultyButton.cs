@@ -28,8 +28,10 @@ public class DifficultyButton : MonoBehaviour {
   public void onDifficultyClick(string difficulty) {
     LevelManager.difficulty = difficulty;
     GameManager.currentStars = getCurrentStars(difficulty);
-    DirectoryInfo directory = new DirectoryInfo("Assets/Resources/Levels/Puzzles/" + difficulty);
-		FileInfo[] files = directory.GetFiles("*.txt");
-    levelsScrollView.GetComponent<Mosframe.DynamicVScrollView>().totalItemCount = files.Length;
+    int levels = 75;
+    if (difficulty == "impossible") {
+      levels = 33;
+    }
+    levelsScrollView.GetComponent<Mosframe.DynamicVScrollView>().totalItemCount = levels;
 	}
 }

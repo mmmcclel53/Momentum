@@ -369,10 +369,10 @@
     <Compile Include="Packages\com.unity.standardevents\Editor\Importer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
     <None Include="Assets\Resources\ASMaterialIcon\Fonts\LICENSE.txt" />
     <None Include="Assets\Resources\ASMaterialIcon\Fonts\MaterialIcons.txt" />
+    <None Include="Assets\Resources\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\Resources\Levels\Puzzles\easy\easy0_1.txt" />
     <None Include="Assets\Resources\Levels\Puzzles\easy\easy0_10.txt" />
     <None Include="Assets\Resources\Levels\Puzzles\easy\easy0_11.txt" />
@@ -1742,7 +1742,6 @@
     <None Include="Assets\Resources\Levels\Ranked\impossible20_194.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_199.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_200.txt" />
-    <None Include="Assets\Resources\Levels\Ranked\impossible20_201.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_27.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_45.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_46.txt" />
@@ -1754,8 +1753,6 @@
     <None Include="Assets\Resources\Levels\Ranked\impossible20_58.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_66.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_69.txt" />
-    <None Include="Assets\Resources\Levels\Ranked\impossible20_70.txt" />
-    <None Include="Assets\Resources\Levels\Ranked\impossible20_76.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_77.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_78.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_79.txt" />

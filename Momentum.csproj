@@ -331,24 +331,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Initialize.cs" />
     <Compile Include="Assets\Scripts\Level\Displays\Background.cs" />
     <Compile Include="Assets\Scripts\Level\Displays\Difficulty.cs" />
     <Compile Include="Assets\Scripts\Level\Displays\Moves.cs" />
-    <Compile Include="Assets\Scripts\Level\Displays\Timer.cs" />
+    <Compile Include="Assets\Scripts\Level\Displays\Puzzle\CurrentScore.cs" />
+    <Compile Include="Assets\Scripts\Level\Displays\Ranked\Timer.cs" />
     <Compile Include="Assets\Scripts\Level\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Level\LevelUtility.cs" />
+    <Compile Include="Assets\Scripts\Level\Modals\Puzzle\MainMenuButton.cs" />
+    <Compile Include="Assets\Scripts\Level\Modals\Puzzle\NextLevel.cs" />
+    <Compile Include="Assets\Scripts\Level\Modals\Puzzle\OnPuzzleSolve.cs" />
+    <Compile Include="Assets\Scripts\Level\Modals\Puzzle\ResetButton.cs" />
+    <Compile Include="Assets\Scripts\Level\Modals\Ranked\Continue.cs" />
+    <Compile Include="Assets\Scripts\Level\Modals\Ranked\OnRankedSolve.cs" />
     <Compile Include="Assets\Scripts\Level\OnLevelLoad.cs" />
     <Compile Include="Assets\Scripts\Level\Pause.cs" />
     <Compile Include="Assets\Scripts\Level\Player\MovingObject.cs" />
     <Compile Include="Assets\Scripts\Level\Player\Rotation.cs" />
     <Compile Include="Assets\Scripts\Level\Player\ShipRotation.cs" />
     <Compile Include="Assets\Scripts\Level\Player\SwipeManager.cs" />
-    <Compile Include="Assets\Scripts\Menu\Levels\DifficultyButton.cs" />
-    <Compile Include="Assets\Scripts\Menu\Levels\Displays\DifficultyStarCount.cs" />
-    <Compile Include="Assets\Scripts\Menu\Levels\LevelButton.cs" />
-    <Compile Include="Assets\Scripts\Menu\Levels\MainMenuButton.cs" />
-    <Compile Include="Assets\Scripts\Menu\Levels\NextLevel.cs" />
-    <Compile Include="Assets\Scripts\Menu\Levels\ResetButton.cs" />
+    <Compile Include="Assets\Scripts\Menu\Displays\Rank.cs" />
+    <Compile Include="Assets\Scripts\Menu\Displays\StarsTotal.cs" />
+    <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\DifficultyButton.cs" />
+    <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\DifficultyStarCount.cs" />
+    <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\Level\LevelButton.cs" />
     <Compile Include="Assets\Scripts\Menu\LevelsButton.cs" />
     <Compile Include="Assets\Scripts\Menu\PlayButton.cs" />
     <Compile Include="Assets\Scripts\Utilities\ASMaterialIcon\Scripts\MaterialVectorIcon.cs" />
@@ -364,10 +371,10 @@
     <Compile Include="Assets\Scripts\Utilities\ScrollView\Extensions\RectTransformEx.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
     <None Include="Assets\Resources\ASMaterialIcon\Fonts\LICENSE.txt" />
     <None Include="Assets\Resources\ASMaterialIcon\Fonts\MaterialIcons.txt" />
+    <None Include="Assets\Resources\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\Resources\Levels\Puzzles\easy\easy0_1.txt" />
     <None Include="Assets\Resources\Levels\Puzzles\easy\easy0_10.txt" />
     <None Include="Assets\Resources\Levels\Puzzles\easy\easy0_11.txt" />
@@ -1737,7 +1744,6 @@
     <None Include="Assets\Resources\Levels\Ranked\impossible20_194.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_199.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_200.txt" />
-    <None Include="Assets\Resources\Levels\Ranked\impossible20_201.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_27.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_45.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_46.txt" />
@@ -1749,8 +1755,6 @@
     <None Include="Assets\Resources\Levels\Ranked\impossible20_58.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_66.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_69.txt" />
-    <None Include="Assets\Resources\Levels\Ranked\impossible20_70.txt" />
-    <None Include="Assets\Resources\Levels\Ranked\impossible20_76.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_77.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_78.txt" />
     <None Include="Assets\Resources\Levels\Ranked\impossible20_79.txt" />
