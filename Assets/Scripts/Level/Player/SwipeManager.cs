@@ -165,7 +165,11 @@ public class SwipeManager : MonoBehaviour {
   void Update() {
     GameObject movingObj = MovingObject.getObject();
     Vector3 newPos = MovingObject.getPosition();
-    if (movingObj.transform.position == newPos) {
+    if (movingObj == null) {
+      return;
+    }
+    
+    if (movingObj.transform.position == newPos) { // App crashed here!
       MovingObject.setIsMoving(false);
       Vector3Int tilePos = playersAndGoal.WorldToCell(newPos);
       

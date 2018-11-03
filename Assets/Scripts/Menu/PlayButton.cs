@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayButton : MonoBehaviour {
   public void onPlayClick() {
     GameManager.gameType = "ranked";
+    LevelManager.difficulty = LevelUtility.calculateRankedDifficulty();
     GameManager.Load("Game");
   }
 }

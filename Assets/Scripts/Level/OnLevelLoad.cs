@@ -92,7 +92,7 @@ public class OnLevelLoad : MonoBehaviour {
     // getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);
 
     TextAsset file = getPath();
-    // TextAsset file =  (TextAsset)Resources.Load("Levels/Puzzles/easy/easy0_1.txt", typeof(TextAsset));
+    // TextAsset file =  (TextAsset)Resources.Load("Levels/Puzzles/easy/easy0_1", typeof(TextAsset));
 
     // Read the tiles directly from the difficulty file
     string[] separators = {" "};

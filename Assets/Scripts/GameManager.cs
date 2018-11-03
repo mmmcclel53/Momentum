@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public static class GameManager {
-  public static string gameType;  
+  public static string gameType = "puzzles";
 
   // TODO: Player class/object
-  public static int playerExperience;
-  public static string playerRank;
+  public static int playerExperience = 0;
+  public static string playerRank = "Novice";
 
-  public static int totalStars;
+  public static int totalStars = 0;
   public static int[] currentStars;
   public static int[] easyStars;
   public static int[] mediumStars;
