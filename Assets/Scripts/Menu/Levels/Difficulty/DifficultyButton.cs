@@ -57,7 +57,7 @@ public class DifficultyButton : MonoBehaviour {
     LevelsListView.SetActive(true);
 	}
 
-  public void Start() {
+  void Start() {
     if (difficulty == "medium" && GameManager.totalStars >= STARS_TO_UNLOCK_MEDIUM) {
       this.gameObject.transform.GetChild(2).gameObject.SetActive(false);
     } else if (difficulty == "hard" && GameManager.totalStars >= STARS_TO_UNLOCK_HARD) {

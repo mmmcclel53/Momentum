@@ -23,7 +23,7 @@ public class NextLevel : MonoBehaviour {
     GameManager.Load("Game");
   }
 
-  public void Start() {
+  void Start() {
     // If we're on the last level of a difficulty, don't display
     if (LevelManager.level == "4_15" || LevelManager.level == "9_15" || LevelManager.level == "14_15" || LevelManager.level == "19_15" || LevelManager.level == "20_33") {
       Destroy(this.gameObject);

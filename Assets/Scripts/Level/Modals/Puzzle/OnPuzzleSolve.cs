@@ -18,7 +18,7 @@ public class OnPuzzleSolve : MonoBehaviour {
     }
   }
 
-  public void Start() {
+  void Start() {
     int newScore = LevelUtility.calculateStarScore();
     int currentScore = GameManager.currentStars[LevelUtility.calculateIndex(LevelManager.level)-1];
     if (newScore > currentScore) {

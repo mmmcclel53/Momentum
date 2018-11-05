@@ -67,7 +67,7 @@ public class OnRankedSolve : MonoBehaviour {
     }
   }
 
-  public void Start() {
+  void Start() {
     int newXP = getStarXP() + getTimeXP();
     GameManager.adjustPlayerExperience(newXP);
     GameManager.playerRank = getNewRank();

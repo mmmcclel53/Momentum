@@ -91,8 +91,8 @@ public class OnLevelLoad : MonoBehaviour {
     // Disable screen capture (you filthy cheaters!)
     // getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);
 
-    TextAsset file = getPath();
-    // TextAsset file =  (TextAsset)Resources.Load("Levels/Puzzles/easy/easy0_1", typeof(TextAsset));
+    // TextAsset file = getPath();
+    TextAsset file =  (TextAsset)Resources.Load("Levels/Puzzles/easy/easy0_1", typeof(TextAsset));
 
     // Read the tiles directly from the difficulty file
     string[] separators = {" "};
