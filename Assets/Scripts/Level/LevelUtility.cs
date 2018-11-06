@@ -6,12 +6,6 @@ using UnityEngine;
 using UnityEditor;
 
 public static class LevelUtility {
-  // This is dumb...
-  public static Vector3 addOffset(Vector3 pos) {
-    pos.x += 1.5f;
-    pos.y += 1.5f;
-    return pos;
-  }
 
   // Change levels to 1-75 index. Delete this later.
   public static int calculateIndex(string level) {

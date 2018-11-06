@@ -4,12 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ResetButton : MonoBehaviour {
-  public void onResetClick() {
-    if (GameManager.gameType == "ranked") {
-      LevelManager.time = 0;
-    }
-    
+public class RestartButton : MonoBehaviour {
+  public void onRestartClick() {
     GameManager.Load("Game");
   }
 }

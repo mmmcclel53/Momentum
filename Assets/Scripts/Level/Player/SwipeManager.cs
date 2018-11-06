@@ -142,7 +142,7 @@ public class SwipeManager : MonoBehaviour {
       MovingObject.setSwipeDirection(swipe);
       MovingObject.setIsMoving(true);
       MovingObject.setObject(this.gameObject);
-      MovingObject.setPosition(LevelUtility.addOffset(calculateNewPosition(swipe)));
+      MovingObject.setPosition(calculateNewPosition(swipe));
       LevelManager.moves++;
     }
   }

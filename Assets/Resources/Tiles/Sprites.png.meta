@@ -5,7 +5,7 @@ TextureImporter:
     21300000: WestWall
     21300002: NorthWall
     21300004: EastWall
-    21300006: South
+    21300006: SouthWall
     21300008: Asteroid
     21300010: GreenStar
     21300012: BlueStar
@@ -15,7 +15,7 @@ TextureImporter:
     21300020: SWWall
     21300022: SEWall
     21300024: Ship
-    21300026: Sprites_0
+    21300026: GridModal
     21300028: Grid
   externalObjects: {}
   serializedVersion: 7
@@ -170,7 +170,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: South
+      name: SouthWall
       rect:
         serializedVersion: 2
         x: 64

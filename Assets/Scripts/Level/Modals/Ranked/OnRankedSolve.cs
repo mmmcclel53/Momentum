@@ -52,14 +52,15 @@ public class OnRankedSolve : MonoBehaviour {
   }
 
   private int getStarXP() {
-    double starEfficiency = LevelUtility.calculateStarScore() / 3;
+    double starEfficiency = (double)LevelUtility.calculateStarScore() / 3;
     return Convert.ToInt32(Math.Floor(starEfficiency * MAX_EXPERIENCE_POSSIBLE));
   }
 
   private int getTimeXP() {
     double timeEfficiency = getParTime() / LevelManager.time;
     if (timeEfficiency > 1) {
-      return Convert.ToInt32(Math.Min(Math.Round(timeEfficiency * MAX_EXPERIENCE_POSSIBLE, 0), MAX_EXPERIENCE_POSSIBLE));
+      double timeBonus = 1 - (LevelManager.time / getParTime());
+      return Convert.ToInt32(Math.Round(timeBonus * MAX_EXPERIENCE_POSSIBLE, 0));
     } else if (timeEfficiency == 1) {
       return 0;
     } else {

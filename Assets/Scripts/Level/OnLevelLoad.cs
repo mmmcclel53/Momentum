@@ -28,13 +28,11 @@ public class OnLevelLoad : MonoBehaviour {
 
     for (int i=0; i<movableTileStrings.Length; i++) {
       int movableTile = Int32.Parse(movableTileStrings[i]);
-      movableObjects[i].transform.position =
-        LevelUtility.addOffset(northTilemap.CellToWorld(new Vector3Int(LevelUtility.calculateX(movableTile), LevelUtility.calculateY(movableTile), 0)));
+      movableObjects[i].transform.position = northTilemap.CellToWorld(new Vector3Int(LevelUtility.calculateX(movableTile), LevelUtility.calculateY(movableTile), 0));
       playersAndGoal.SetTile(new Vector3Int(LevelUtility.calculateX(movableTile), LevelUtility.calculateY(movableTile), 0), i == 0 ? ship : asteroid);
     }
     int goalTile = Int32.Parse(goalString);
-    goalObj.transform.position =
-      LevelUtility.addOffset(northTilemap.CellToWorld(new Vector3Int(LevelUtility.calculateX(goalTile), LevelUtility.calculateY(goalTile), 0)));
+    goalObj.transform.position = northTilemap.CellToWorld(new Vector3Int(LevelUtility.calculateX(goalTile), LevelUtility.calculateY(goalTile), 0));
     playersAndGoal.SetTile(new Vector3Int(LevelUtility.calculateX(goalTile), LevelUtility.calculateY(goalTile), 0), goal);
   }
 
@@ -82,7 +80,7 @@ public class OnLevelLoad : MonoBehaviour {
       return (TextAsset)Resources.Load("Levels/Puzzles/" + LevelManager.difficulty + "/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
     }
 
-    return (TextAsset)Resources.Load("Levels/Ranked/" + LevelUtility.calculateRankedDifficulty() + LevelUtility.calculateRankedLevel(), typeof(TextAsset));
+    return (TextAsset)Resources.Load("Levels/Ranked/easy0_1", typeof(TextAsset)); //+ LevelUtility.calculateRankedDifficulty() + LevelUtility.calculateRankedLevel(), typeof(TextAsset));
   }
 
   // Use this for initialization
@@ -91,8 +89,8 @@ public class OnLevelLoad : MonoBehaviour {
     // Disable screen capture (you filthy cheaters!)
     // getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);
 
-    // TextAsset file = getPath();
-    TextAsset file =  (TextAsset)Resources.Load("Levels/Puzzles/easy/easy0_1", typeof(TextAsset));
+    TextAsset file = getPath();
+    // TextAsset file =  (TextAsset)Resources.Load("Levels/Puzzles/easy/easy0_1", typeof(TextAsset));
 
     // Read the tiles directly from the difficulty file
     string[] separators = {" "};
