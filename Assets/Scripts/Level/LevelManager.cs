@@ -1,4 +1,6 @@
-﻿// Getters/Setters
+﻿using UnityEngine;
+
+// Getters/Setters
 public static class LevelManager {
 
   // "Level/" + difficulty + level ".txt"
@@ -9,5 +11,6 @@ public static class LevelManager {
   public static int moves = 0;
 
   public static bool paused = false;
+  public static Vector3Int goalTile;
   public static string[] solution = null;
 }

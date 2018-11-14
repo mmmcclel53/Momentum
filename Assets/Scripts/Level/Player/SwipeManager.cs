@@ -33,6 +33,7 @@ public class SwipeManager : MonoBehaviour {
 
   private Vector2 firstClickPos;
   private Vector2 secondClickPos;
+  private bool shouldUpdate = true;
 
   private bool isTileShipOrAsteroid(TileBase tile) {
     return tile == ship || tile == asteroid;
@@ -53,7 +54,11 @@ public class SwipeManager : MonoBehaviour {
     Vector3Int pos = playersAndGoal.WorldToCell(this.gameObject.transform.position);
     Vector3Int newPos;
 
-    playersAndGoal.SetTile(pos, null);
+    if (pos == LevelManager.goalTile) {
+      playersAndGoal.SetTile(pos, goal);
+    } else {
+      playersAndGoal.SetTile(pos, null);
+    }
 
     bool newPositionFound = false;
     while (!newPositionFound) {
@@ -139,11 +144,14 @@ public class SwipeManager : MonoBehaviour {
     // Make sure it was a legit swipe, not a tap
     if (!MovingObject.getIsMoving() && currentSwipe.magnitude >= minSwipeLength) {
       Swipe swipe = getSwipeDirection(currentSwipe);
+      Vector3 newPos = calculateNewPosition(swipe);
+
       MovingObject.setSwipeDirection(swipe);
       MovingObject.setIsMoving(true);
       MovingObject.setObject(this.gameObject);
-      MovingObject.setPosition(calculateNewPosition(swipe));
+      MovingObject.setPosition(newPos);
       LevelManager.moves++;
+      shouldUpdate = true;
     }
   }
 
@@ -164,15 +172,15 @@ public class SwipeManager : MonoBehaviour {
 
   void Update() {
     GameObject movingObj = MovingObject.getObject();
-    Vector3 newPos = MovingObject.getPosition();
-    if (movingObj == null) {
+    if (!shouldUpdate || movingObj == null) {
       return;
     }
-    
-    if (movingObj.transform.position == newPos) { // App crashed here!
+
+    Vector3 newPos = MovingObject.getPosition();
+    if (movingObj.transform.position == newPos) {
       MovingObject.setIsMoving(false);
       Vector3Int tilePos = playersAndGoal.WorldToCell(newPos);
-      
+
       // Winner!
       if (isCurrentShipObj() && playersAndGoal.GetTile(tilePos) == goal) {
         LevelManager.paused = true;
@@ -184,6 +192,7 @@ public class SwipeManager : MonoBehaviour {
       }
 
       playersAndGoal.SetTile(tilePos, isCurrentShipObj() ? ship : asteroid);
+      shouldUpdate = false;
     }
     movingObj.transform.position = Vector3.MoveTowards(movingObj.transform.position, newPos, speed * Time.deltaTime);
 	}

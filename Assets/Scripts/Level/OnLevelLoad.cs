@@ -27,13 +27,17 @@ public class OnLevelLoad : MonoBehaviour {
     Tile goal = Resources.Load <Tile> ("Tiles/Goal");
 
     for (int i=0; i<movableTileStrings.Length; i++) {
-      int movableTile = Int32.Parse(movableTileStrings[i]);
-      movableObjects[i].transform.position = northTilemap.CellToWorld(new Vector3Int(LevelUtility.calculateX(movableTile), LevelUtility.calculateY(movableTile), 0));
-      playersAndGoal.SetTile(new Vector3Int(LevelUtility.calculateX(movableTile), LevelUtility.calculateY(movableTile), 0), i == 0 ? ship : asteroid);
+      int movableInt = Int32.Parse(movableTileStrings[i]);
+      Vector3Int movableTile = new Vector3Int(LevelUtility.calculateX(movableInt), LevelUtility.calculateY(movableInt), 0);
+      movableObjects[i].transform.position = northTilemap.CellToWorld(movableTile);
+      playersAndGoal.SetTile(movableTile, i == 0 ? ship : asteroid);
     }
-    int goalTile = Int32.Parse(goalString);
-    goalObj.transform.position = northTilemap.CellToWorld(new Vector3Int(LevelUtility.calculateX(goalTile), LevelUtility.calculateY(goalTile), 0));
-    playersAndGoal.SetTile(new Vector3Int(LevelUtility.calculateX(goalTile), LevelUtility.calculateY(goalTile), 0), goal);
+    int goalInt = Int32.Parse(goalString);
+    Vector3Int goalTile = new Vector3Int(LevelUtility.calculateX(goalInt), LevelUtility.calculateY(goalInt), 0);
+    goalObj.transform.position = northTilemap.CellToWorld(goalTile);
+    playersAndGoal.SetTile(goalTile, goal);
+
+    LevelManager.goalTile = goalTile;
   }
 
   private void setTiles(string[] tiles) {
@@ -80,7 +84,7 @@ public class OnLevelLoad : MonoBehaviour {
       return (TextAsset)Resources.Load("Levels/Puzzles/" + LevelManager.difficulty + "/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
     }
 
-    return (TextAsset)Resources.Load("Levels/Ranked/easy0_1", typeof(TextAsset)); //+ LevelUtility.calculateRankedDifficulty() + LevelUtility.calculateRankedLevel(), typeof(TextAsset));
+    return (TextAsset)Resources.Load("Levels/Ranked/" + LevelUtility.calculateRankedDifficulty() + LevelUtility.calculateRankedLevel(), typeof(TextAsset));
   }
 
   // Use this for initialization
