@@ -9,12 +9,7 @@ public enum Swipe { None, Up, Down, Left, Right };
 
 public class SwipeManager : MonoBehaviour {
 
-  public GameObject shipObj;
   public float minSwipeLength = 5f;
-  public float speed;
-
-  public GameObject puzzleSolvedModal;
-  public GameObject rankedSolvedModal;
 
   public Tilemap playersAndGoal;
   public Tilemap northTilemap;
@@ -31,16 +26,12 @@ public class SwipeManager : MonoBehaviour {
   private Tile asteroid;
   private Tile goal;
 
-  private Vector2 firstClickPos;
-  private Vector2 secondClickPos;
-  private bool shouldUpdate = true;
+  private Vector2 startPos;
+  private Vector2 endPos;
+  private GameObject selectedObj;
 
   private bool isTileShipOrAsteroid(TileBase tile) {
     return tile == ship || tile == asteroid;
-  }
-
-  private bool isCurrentShipObj() {
-    return MovingObject.getObject() == shipObj;
   }
 
   private Vector3 calculateNewPosition(Swipe swipe) {
@@ -51,7 +42,7 @@ public class SwipeManager : MonoBehaviour {
     TileBase eastTile;
     TileBase westTile;
 
-    Vector3Int pos = playersAndGoal.WorldToCell(this.gameObject.transform.position);
+    Vector3Int pos = playersAndGoal.WorldToCell(MovingObject.getObject().transform.position);
     Vector3Int newPos;
 
     if (pos == LevelManager.goalTile) {
@@ -112,6 +103,9 @@ public class SwipeManager : MonoBehaviour {
           }
           pos.x++;
           break;
+        default:
+          newPositionFound = true;
+          break;
       }
     }
     return northTilemap.CellToWorld(pos);
@@ -131,30 +125,6 @@ public class SwipeManager : MonoBehaviour {
     return Swipe.None;
   }
 
-  public void OnMouseDown() {
-    Vector3 pos = Input.mousePosition;
-    firstClickPos = new Vector2(pos.x, pos.y);
-  }
-
-  public void OnMouseUp() {
-    Vector3 pos = Input.mousePosition;
-    secondClickPos = new Vector2(pos.x, pos.y);
-    Vector2 currentSwipe = new Vector3(secondClickPos.x - firstClickPos.x, secondClickPos.y - firstClickPos.y);
-    
-    // Make sure it was a legit swipe, not a tap
-    if (!MovingObject.getIsMoving() && currentSwipe.magnitude >= minSwipeLength) {
-      Swipe swipe = getSwipeDirection(currentSwipe);
-      Vector3 newPos = calculateNewPosition(swipe);
-
-      MovingObject.setSwipeDirection(swipe);
-      MovingObject.setIsMoving(true);
-      MovingObject.setObject(this.gameObject);
-      MovingObject.setPosition(newPos);
-      LevelManager.moves++;
-      shouldUpdate = true;
-    }
-  }
-
   void Start() {
     northWall = Resources.Load <Tile> ("Tiles/NorthWall");
     southWall = Resources.Load <Tile> ("Tiles/SouthWall");
@@ -164,36 +134,45 @@ public class SwipeManager : MonoBehaviour {
     ship = Resources.Load <Tile> ("Tiles/Ship");
     asteroid = Resources.Load <Tile> ("Tiles/Asteroid");
     goal = Resources.Load <Tile> ("Tiles/Goal");
-
-    // To avoid silly null check in update
-    MovingObject.setObject(shipObj);
-    MovingObject.setPosition(shipObj.transform.position);
   }
 
   void Update() {
-    GameObject movingObj = MovingObject.getObject();
-    if (!shouldUpdate || movingObj == null) {
-      return;
-    }
+    if (Input.touches.Length > 0) {
+      Touch touch = Input.GetTouch(0);
+      Vector3 screenPoint = new Vector3(touch.position.x, touch.position.y, -Camera.main.transform.position.z);
+      Vector3 touchPosWorld = Camera.main.ScreenToWorldPoint(screenPoint);
+      Vector2 touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
+      RaycastHit2D hitInformation = Physics2D.Raycast(touchPosWorld2D, Camera.main.transform.forward);
 
-    Vector3 newPos = MovingObject.getPosition();
-    if (movingObj.transform.position == newPos) {
-      MovingObject.setIsMoving(false);
-      Vector3Int tilePos = playersAndGoal.WorldToCell(newPos);
-
-      // Winner!
-      if (isCurrentShipObj() && playersAndGoal.GetTile(tilePos) == goal) {
-        LevelManager.paused = true;
-        if (GameManager.gameType == "ranked") {
-          rankedSolvedModal.SetActive(true);
-        } else {
-          puzzleSolvedModal.SetActive(true);
-        }
+      // Select object to move (could add highlighter here)
+      if (hitInformation.collider != null) {
+        selectedObj = hitInformation.transform.gameObject;
       }
 
-      playersAndGoal.SetTile(tilePos, isCurrentShipObj() ? ship : asteroid);
-      shouldUpdate = false;
+      // Detect swipe direction
+      if (touch.phase == TouchPhase.Began) {
+        startPos = touch.position;
+        endPos = touch.position;
+      }
+      if (touch.phase == TouchPhase.Ended) {
+        endPos = touch.position;
+      }
+
+      // Make sure it was a legit swipe and on a movable game object
+      Vector2 currentSwipe = new Vector3(endPos.x - startPos.x, endPos.y - startPos.y);
+      if (currentSwipe.magnitude >= minSwipeLength && selectedObj != null) {
+        MovingObject.setObject(selectedObj);
+
+        Swipe swipe = getSwipeDirection(currentSwipe);
+        MovingObject.setSwipeDirection(swipe);
+
+        Vector3 newPos = calculateNewPosition(swipe);
+        MovingObject.setPosition(newPos);
+
+        MovingObject.setIsMoving(true);
+        LevelManager.moves++;
+        selectedObj = null;
+      }
     }
-    movingObj.transform.position = Vector3.MoveTowards(movingObj.transform.position, newPos, speed * Time.deltaTime);
-	}
+  }
 }

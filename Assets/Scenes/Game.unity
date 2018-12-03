@@ -5217,7 +5217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.61344, y: -98.999985}
+  m_AnchoredPosition: {x: 121.613525, y: -99}
   m_SizeDelta: {x: 230, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &249884375
@@ -5677,7 +5677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.61344, y: -32.999992}
+  m_AnchoredPosition: {x: 121.613525, y: -33}
   m_SizeDelta: {x: 230, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &399809498
@@ -6705,7 +6705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.61344, y: -164.99998}
+  m_AnchoredPosition: {x: 121.613525, y: -165}
   m_SizeDelta: {x: 230, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682458238
@@ -7304,7 +7304,6 @@ GameObject:
   m_Component:
   - component: {fileID: 797417946}
   - component: {fileID: 797417945}
-  - component: {fileID: 797417947}
   - component: {fileID: 797417949}
   - component: {fileID: 797417948}
   m_Layer: 0
@@ -7373,27 +7372,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &797417947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 797417944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8fb3c32464a07408be690ee66df027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipObj: {fileID: 1364175737}
-  minSwipeLength: 5
-  speed: 500
-  puzzleSolvedModal: {fileID: 141678872}
-  rankedSolvedModal: {fileID: 1024159825}
-  playersAndGoal: {fileID: 1342605505}
-  northTilemap: {fileID: 2120731038}
-  eastTilemap: {fileID: 2044936456}
-  southTilemap: {fileID: 1620748017}
-  westTilemap: {fileID: 1426406356}
 --- !u!61 &797417948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7515,7 +7493,6 @@ GameObject:
   m_Component:
   - component: {fileID: 869936287}
   - component: {fileID: 869936286}
-  - component: {fileID: 869936288}
   - component: {fileID: 869936290}
   - component: {fileID: 869936289}
   m_Layer: 0
@@ -7584,27 +7561,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &869936288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 869936285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8fb3c32464a07408be690ee66df027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipObj: {fileID: 1364175737}
-  minSwipeLength: 5
-  speed: 500
-  puzzleSolvedModal: {fileID: 141678872}
-  rankedSolvedModal: {fileID: 1024159825}
-  playersAndGoal: {fileID: 1342605505}
-  northTilemap: {fileID: 2120731038}
-  eastTilemap: {fileID: 2044936456}
-  southTilemap: {fileID: 1620748017}
-  westTilemap: {fileID: 1426406356}
 --- !u!61 &869936289
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7823,7 +7779,6 @@ GameObject:
   m_Component:
   - component: {fileID: 942497539}
   - component: {fileID: 942497538}
-  - component: {fileID: 942497540}
   - component: {fileID: 942497541}
   m_Layer: 0
   m_Name: Goal
@@ -7891,31 +7846,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &942497540
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 942497537}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 24, y: 24}
-    newSize: {x: 24, y: 24}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 24, y: 24}
-  m_EdgeRadius: 0
 --- !u!114 &942497541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11552,6 +11482,7 @@ GameObject:
   - component: {fileID: 1226604236}
   - component: {fileID: 1226604235}
   - component: {fileID: 1226604237}
+  - component: {fileID: 1226604238}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -11606,6 +11537,26 @@ MonoBehaviour:
   - {fileID: 797417944}
   - {fileID: 869936285}
   goalObj: {fileID: 942497537}
+  shipObj: {fileID: 1364175737}
+  puzzleSolvedModal: {fileID: 141678872}
+  rankedSolvedModal: {fileID: 1024159825}
+  playersAndGoal: {fileID: 1342605505}
+  northTilemap: {fileID: 2120731038}
+  eastTilemap: {fileID: 2044936456}
+  southTilemap: {fileID: 1620748017}
+  westTilemap: {fileID: 1426406356}
+--- !u!114 &1226604238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1226604234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8fb3c32464a07408be690ee66df027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSwipeLength: 5
   playersAndGoal: {fileID: 1342605505}
   northTilemap: {fileID: 2120731038}
   eastTilemap: {fileID: 2044936456}
@@ -12128,7 +12079,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1364175739}
   - component: {fileID: 1364175738}
-  - component: {fileID: 1364175740}
   - component: {fileID: 1364175742}
   - component: {fileID: 1364175741}
   m_Layer: 0
@@ -12197,27 +12147,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1364175740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1364175737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8fb3c32464a07408be690ee66df027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipObj: {fileID: 1364175737}
-  minSwipeLength: 5
-  speed: 500
-  puzzleSolvedModal: {fileID: 141678872}
-  rankedSolvedModal: {fileID: 1024159825}
-  playersAndGoal: {fileID: 1342605505}
-  northTilemap: {fileID: 2120731038}
-  eastTilemap: {fileID: 2044936456}
-  southTilemap: {fileID: 1620748017}
-  westTilemap: {fileID: 1426406356}
 --- !u!61 &1364175741
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13987,7 +13916,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1965401740}
   - component: {fileID: 1965401739}
-  - component: {fileID: 1965401741}
   - component: {fileID: 1965401743}
   - component: {fileID: 1965401742}
   m_Layer: 0
@@ -14050,33 +13978,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1965401738}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 0.65, y: 0.65, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1965401741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1965401738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8fb3c32464a07408be690ee66df027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipObj: {fileID: 1364175737}
-  minSwipeLength: 5
-  speed: 500
-  puzzleSolvedModal: {fileID: 141678872}
-  rankedSolvedModal: {fileID: 1024159825}
-  playersAndGoal: {fileID: 1342605505}
-  northTilemap: {fileID: 2120731038}
-  eastTilemap: {fileID: 2044936456}
-  southTilemap: {fileID: 1620748017}
-  westTilemap: {fileID: 1426406356}
 --- !u!61 &1965401742
 BoxCollider2D:
   m_ObjectHideFlags: 0

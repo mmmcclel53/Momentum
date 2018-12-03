@@ -330,6 +330,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CameraPosition.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Initialize.cs" />
     <Compile Include="Assets\Scripts\Level\Displays\Background.cs" />
@@ -342,9 +343,9 @@
     <Compile Include="Assets\Scripts\Level\Modals\Puzzle\MainMenuButton.cs" />
     <Compile Include="Assets\Scripts\Level\Modals\Puzzle\NextLevel.cs" />
     <Compile Include="Assets\Scripts\Level\Modals\Puzzle\OnPuzzleSolve.cs" />
-    <Compile Include="Assets\Scripts\Level\Modals\Puzzle\ResetButton.cs" />
     <Compile Include="Assets\Scripts\Level\Modals\Ranked\Continue.cs" />
     <Compile Include="Assets\Scripts\Level\Modals\Ranked\OnRankedSolve.cs" />
+    <Compile Include="Assets\Scripts\Level\Modals\RestartButton.cs" />
     <Compile Include="Assets\Scripts\Level\OnLevelLoad.cs" />
     <Compile Include="Assets\Scripts\Level\Pause.cs" />
     <Compile Include="Assets\Scripts\Level\Player\MovingObject.cs" />

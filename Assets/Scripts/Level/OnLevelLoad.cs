@@ -9,6 +9,10 @@ public class OnLevelLoad : MonoBehaviour {
   
   public GameObject[] movableObjects;  
   public GameObject goalObj;
+  public GameObject shipObj;
+
+  public GameObject puzzleSolvedModal;
+  public GameObject rankedSolvedModal;
 
   public Tilemap playersAndGoal;
   public Tilemap northTilemap;
@@ -16,15 +20,23 @@ public class OnLevelLoad : MonoBehaviour {
   public Tilemap southTilemap;
   public Tilemap westTilemap;
 
+  private Tile ship;
+  private Tile asteroid;
+  private Tile goal;
+
   private bool hasWall(int tile, int wall) {
     return (tile & wall) != 0;
   }
 
+  private bool isCurrentShipObj() {
+    return MovingObject.getObject() == shipObj;
+  }
+
   // Set both tile and real object positions
   private void setPlayersAndGoal(string[] movableTileStrings, string goalString) {
-    Tile ship = Resources.Load <Tile> ("Tiles/Ship");
-    Tile asteroid = Resources.Load <Tile> ("Tiles/Asteroid");
-    Tile goal = Resources.Load <Tile> ("Tiles/Goal");
+    ship = Resources.Load <Tile> ("Tiles/Ship");
+    asteroid = Resources.Load <Tile> ("Tiles/Asteroid");
+    goal = Resources.Load <Tile> ("Tiles/Goal");
 
     for (int i=0; i<movableTileStrings.Length; i++) {
       int movableInt = Int32.Parse(movableTileStrings[i]);
@@ -104,9 +116,37 @@ public class OnLevelLoad : MonoBehaviour {
     string[] tiles = lines[0].Split(separators, StringSplitOptions.RemoveEmptyEntries);
     string[] players = lines[1].Split(separators, StringSplitOptions.RemoveEmptyEntries);
     string goal = lines[2];
+
     LevelManager.solution = lines[3].Split(separators, StringSplitOptions.RemoveEmptyEntries);
+    LevelManager.solved = false;
 
     setTiles(tiles);
     setPlayersAndGoal(players, goal);
+  }
+
+  // Win condition 
+  void Update() {
+    GameObject movingObj = MovingObject.getObject();
+    if (LevelManager.solved || movingObj == null) {
+      return;
+    }
+
+    Vector3 newPos = MovingObject.getPosition();
+    if (movingObj.transform.position == newPos) {
+      Vector3Int tilePos = playersAndGoal.WorldToCell(newPos);
+
+      if (isCurrentShipObj() && playersAndGoal.GetTile(tilePos) == goal) {
+        LevelManager.paused = true;
+        LevelManager.solved = true;
+        if (GameManager.gameType == "ranked") {
+          rankedSolvedModal.SetActive(true);
+        } else {
+          puzzleSolvedModal.SetActive(true);
+        }
+      }
+      playersAndGoal.SetTile(tilePos, isCurrentShipObj() ? ship : asteroid);
+      MovingObject.setIsMoving(false);
+    }
+    movingObj.transform.position = Vector3.MoveTowards(movingObj.transform.position, newPos, 500 * Time.deltaTime);
   }
 }

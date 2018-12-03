@@ -11,6 +11,7 @@ public static class LevelManager {
   public static int moves = 0;
 
   public static bool paused = false;
+  public static bool solved = false;
   public static Vector3Int goalTile;
   public static string[] solution = null;
 }
