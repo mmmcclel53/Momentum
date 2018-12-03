@@ -5,7 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class LevelButton : UIBehaviour, Mosframe.IDynamicScrollViewItem {
+public class LevelButton : UIBehaviour {
 
   // Kinda gross
   private string calculateLevel(int level) {
@@ -29,7 +29,7 @@ public class LevelButton : UIBehaviour, Mosframe.IDynamicScrollViewItem {
 
   public void onLevelClick() {
     // This is ghetto. Fix when possible.
-    string level = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text.Replace("Level ","");
+    string level = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text;
     LevelManager.level = calculateLevel(Int32.Parse(level));
 		GameManager.Load("Game");
   }

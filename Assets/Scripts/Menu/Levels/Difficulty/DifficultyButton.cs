@@ -8,13 +8,36 @@ public class DifficultyButton : MonoBehaviour {
   
   public GameObject DifficultyListView;
   public GameObject LevelsListView;
-  public GameObject levelsScrollView;
+  public GameObject Level;
   public string difficulty;
 
   private int STARS_TO_UNLOCK_MEDIUM = 150;
-  private int STARS_TO_UNLOCK_HARD = 375;
-  private int STARS_TO_UNLOCK_MASTER = 600;
+  private int STARS_TO_UNLOCK_HARD = 350;
+  private int STARS_TO_UNLOCK_MASTER = 550;
   private int STARS_TO_UNLOCK_IMPOSSIBLE = 900;
+
+  private string EASY_BG_COLOR = "#1978D6";
+  private string MEDIUM_BG_COLOR = "#00730C";
+  private string HARD_BG_COLOR = "#CC922D";
+  private string MASTER_BG_COLOR = "#CC312D";
+  private string IMPOSSIBLE_BG_COLOR = "#202020";
+
+  private string getBackgroundColor(string difficulty) {
+    switch (difficulty) {
+      case "easy":
+        return EASY_BG_COLOR;
+      case "medium":
+        return MEDIUM_BG_COLOR;
+      case "hard":
+        return HARD_BG_COLOR;
+      case "master":
+        return MASTER_BG_COLOR;
+      case "impossible":
+        return IMPOSSIBLE_BG_COLOR;
+      default:
+        return IMPOSSIBLE_BG_COLOR;
+    }
+  }
 
   private int[] getCurrentStars(string difficulty) {
     switch (difficulty) {
@@ -33,12 +56,41 @@ public class DifficultyButton : MonoBehaviour {
     }
   }
 
-  private void setLevelListItemCount() {
-    int levels = 75;
-    if (difficulty == "impossible") {
-      levels = 33;
+  private void resetLevelContentItems(GameObject listContent) {
+    for (int i=1; i<listContent.transform.childCount; i++) {
+      Destroy(listContent.transform.GetChild(i).gameObject);
     }
-    levelsScrollView.GetComponent<Mosframe.DynamicVScrollView>().totalItemCount = levels;
+    Level.SetActive(true);
+  }
+
+  private void setLevelContentItems(GameObject listContent) {
+    
+    resetLevelContentItems(listContent);
+
+    // Set Levels Background
+    Color color;
+    if (ColorUtility.TryParseHtmlString(getBackgroundColor(LevelManager.difficulty), out color)) {
+      Level.GetComponent<Image>().color = color;
+    }
+
+    for (int i=0; i<GameManager.currentStars.Length; i++) {
+      GameObject clone = Instantiate(Level);
+      clone.transform.parent = listContent.transform;
+      clone.transform.localScale = new Vector3(1,1,1);
+
+      // Set Level #
+      GameObject itemTextContainer = clone.transform.GetChild(0).gameObject;
+      itemTextContainer.GetComponent<Text>().text = (i + 1).ToString();
+
+      // Set Star Icons
+      Transform itemStarContainer = clone.transform.GetChild(1).gameObject.transform;
+      if (GameManager.currentStars[i] > 0) {
+        for (int j=0; j<GameManager.currentStars[i]; j++) {
+          itemStarContainer.GetChild(j).gameObject.SetActive(true);
+        }
+      }
+    }
+    Level.SetActive(false);
   }
 
   public void onDifficultyClick(string difficulty) {
@@ -51,7 +103,9 @@ public class DifficultyButton : MonoBehaviour {
 
     LevelManager.difficulty = difficulty;
     GameManager.currentStars = getCurrentStars(difficulty);
-    setLevelListItemCount();
+
+    GameObject listContent = LevelsListView.transform.GetChild(2).transform.GetChild(0).gameObject;    
+    setLevelContentItems(listContent);
 
     DifficultyListView.SetActive(false);
     LevelsListView.SetActive(true);
