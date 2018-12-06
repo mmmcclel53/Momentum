@@ -10,13 +10,14 @@ public static class GameManager {
   public static int playerExperience = 0;
   public static string playerRank = "Novice";
 
-  public static int totalStars = 0;
+  public static int currentBest;
   public static int[] currentStars;
   public static int[] easyStars;
   public static int[] mediumStars;
   public static int[] hardStars;
   public static int[] masterStars;
   public static int[] impossibleStars;
+  public static int totalStars = 0;
 
   public static void Load(string sceneName) {
     SceneManager.LoadScene(sceneName);
@@ -32,6 +33,18 @@ public static class GameManager {
     }
   }
 
+  public static void loadCurrentBest() {
+    try {
+      FileStream file = File.Open(Application.persistentDataPath + "/" + LevelManager.difficulty + LevelManager.level + ".dat", FileMode.Open);
+      BinaryFormatter bf = new BinaryFormatter();
+      PuzzleScore puzzleScore = (PuzzleScore)bf.Deserialize(file);
+      currentBest = puzzleScore.best;
+      file.Close();
+    } catch {
+      currentBest = 0;
+    }
+  }
+
   // Total stars per difficulty, from memory
   private static int[] getStars(string difficulty) {
     int[] stars = new int[75];
@@ -41,11 +54,11 @@ public static class GameManager {
     foreach (FileInfo f in files) {
       if (f.Name.Contains(difficulty)) {
         FileStream file = File.Open(Application.persistentDataPath + "/" + f.Name, FileMode.Open);
-        Stars starScore = (Stars)bf.Deserialize(file);
+        PuzzleScore puzzleScore = (PuzzleScore)bf.Deserialize(file);
         file.Close();
 
         int index = LevelUtility.calculateIndex(f.Name.Replace(difficulty, "").Replace(".dat", "")) - 1;
-        stars[index] = starScore.score;
+        stars[index] = puzzleScore.stars;
       }
     }
     return stars;
@@ -82,16 +95,17 @@ public static class GameManager {
     impossibleStars = getStars("impossible");
   }
 
-  public static void saveStars(int score) {
+  public static void saveScore(int best, int stars) {
     BinaryFormatter bf = new BinaryFormatter();
     FileStream file = File.Create(
       Application.persistentDataPath + "/" + LevelManager.difficulty + LevelManager.level + ".dat"
     );
 
-    Stars stars = new Stars();
-    stars.score = score;
+    PuzzleScore puzzleScore = new PuzzleScore();
+    puzzleScore.best = best;
+    puzzleScore.stars = stars;
 
-    bf.Serialize(file, stars);
+    bf.Serialize(file, puzzleScore);
     file.Close();
   }
 }
@@ -103,6 +117,7 @@ public class PlayerDetails {
 }
 
 [System.Serializable]
-public class Stars {
-  public int score;
+public class PuzzleScore {
+  public int best;
+  public int stars;
 }

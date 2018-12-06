@@ -14,17 +14,21 @@ public class OnPuzzleSolve : MonoBehaviour {
       case 1:
         return "Nice Job!";
       default:
-          return "Nice Job!";
+        return "Nice Job!";
     }
   }
 
   void Start() {
     int newScore = LevelUtility.calculateStarScore();
-    int currentScore = GameManager.currentStars[LevelUtility.calculateIndex(LevelManager.level)-1];
-    if (newScore > currentScore) {
-      int level = LevelUtility.calculateIndex(LevelManager.level);
-      GameManager.currentStars[level-1] = newScore;
-      GameManager.saveStars(newScore);
+    int level = LevelUtility.calculateIndex(LevelManager.level) - 1;
+    int currentBest = GameManager.currentBest;
+    int currentScore = GameManager.currentStars[level];
+    
+    // New High Score OR New Best Move Solution
+    if (newScore > currentScore || (currentBest == 0 || currentBest > LevelManager.moves)) {
+      GameManager.currentBest = (currentBest == 0 || currentBest > LevelManager.moves) ? LevelManager.moves : currentBest;
+      GameManager.currentStars[level] = newScore > currentScore ? newScore : currentScore;
+      GameManager.saveScore(GameManager.currentBest, GameManager.currentStars[level]);
     }
 
     this.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = getSuccessText(newScore);

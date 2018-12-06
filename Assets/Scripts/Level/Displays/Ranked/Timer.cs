@@ -14,17 +14,11 @@ public class Timer : MonoBehaviour {
       Destroy(this.gameObject.transform.parent.gameObject);
       return;
     }
-
     time = LevelManager.time;
-    LevelManager.paused = false;
   }
 
 	// Update is called once per frame
 	void Update() {
-    if (LevelManager.paused) {
-      return;
-    }
-    
     time += Time.deltaTime;
     int minutes = Mathf.FloorToInt(time / 60F);
     int seconds = Mathf.FloorToInt(time - minutes * 60);

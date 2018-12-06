@@ -136,7 +136,6 @@ public class OnLevelLoad : MonoBehaviour {
       Vector3Int tilePos = playersAndGoal.WorldToCell(newPos);
 
       if (isCurrentShipObj() && playersAndGoal.GetTile(tilePos) == goal) {
-        LevelManager.paused = true;
         LevelManager.solved = true;
         if (GameManager.gameType == "ranked") {
           rankedSolvedModal.SetActive(true);

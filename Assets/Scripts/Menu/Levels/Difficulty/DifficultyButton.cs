@@ -63,6 +63,13 @@ public class DifficultyButton : MonoBehaviour {
     Level.SetActive(true);
   }
 
+  private void setColumnCount(GameObject listContent) {
+    GridLayoutGroup listGrid = listContent.GetComponent<GridLayoutGroup>();
+    float gridWidth = listContent.GetComponent<RectTransform>().rect.width;
+    int columnCount = Mathf.FloorToInt(gridWidth / (listGrid.cellSize.x + (listGrid.spacing.x * 2)) );
+    listGrid.constraintCount = columnCount;
+  }
+
   private void setLevelContentItems(GameObject listContent) {
     
     resetLevelContentItems(listContent);
@@ -104,7 +111,8 @@ public class DifficultyButton : MonoBehaviour {
     LevelManager.difficulty = difficulty;
     GameManager.currentStars = getCurrentStars(difficulty);
 
-    GameObject listContent = LevelsListView.transform.GetChild(2).transform.GetChild(0).gameObject;    
+    GameObject listContent = LevelsListView.transform.GetChild(1).transform.GetChild(0).gameObject;
+    setColumnCount(listContent);
     setLevelContentItems(listContent);
 
     DifficultyListView.SetActive(false);
