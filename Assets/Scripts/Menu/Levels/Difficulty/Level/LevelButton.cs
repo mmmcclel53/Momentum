@@ -31,8 +31,6 @@ public class LevelButton : UIBehaviour {
     // This is ghetto. Fix when possible.
     string level = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text;
     LevelManager.level = calculateLevel(Int32.Parse(level));
-    
-    GameManager.loadCurrentBest(); // A little strange placement here
 		GameManager.Load("Game");
   }
 

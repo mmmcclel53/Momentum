@@ -19,6 +19,10 @@ public class Timer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+    if (LevelManager.solved) {
+      return;
+    }
+
     time += Time.deltaTime;
     int minutes = Mathf.FloorToInt(time / 60F);
     int seconds = Mathf.FloorToInt(time - minutes * 60);

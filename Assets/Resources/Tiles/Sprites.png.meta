@@ -106,6 +106,17 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -113,10 +124,10 @@ TextureImporter:
       name: WestWall
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
+        x: 5
+        y: 306
+        width: 225
+        height: 225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,10 +144,10 @@ TextureImporter:
       name: NorthWall
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 239
+        y: 306
+        width: 225
+        height: 225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +164,10 @@ TextureImporter:
       name: EastWall
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
+        x: 799
+        y: 306
+        width: 225
+        height: 225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +184,10 @@ TextureImporter:
       name: SouthWall
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
+        x: 494
+        y: 306
+        width: 225
+        height: 225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +204,10 @@ TextureImporter:
       name: Asteroid
       rect:
         serializedVersion: 2
-        x: 36
-        y: 8
-        width: 24
-        height: 24
+        x: 243
+        y: 60
+        width: 225
+        height: 225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +224,10 @@ TextureImporter:
       name: Goal
       rect:
         serializedVersion: 2
-        x: 100
-        y: 8
-        width: 24
-        height: 24
+        x: 783
+        y: 52
+        width: 225
+        height: 225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +244,10 @@ TextureImporter:
       name: Ship
       rect:
         serializedVersion: 2
-        x: 4
-        y: 8
-        width: 24
-        height: 24
+        x: 15
+        y: 63
+        width: 225
+        height: 225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +264,10 @@ TextureImporter:
       name: Grid
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 494
+        y: 64
+        width: 225
+        height: 225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

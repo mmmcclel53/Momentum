@@ -21,12 +21,21 @@ public class OnRankedSolve : MonoBehaviour {
   private int[] XP_TO_NEXT_RANK = new int[10] {0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000};
   
   private void updateDisplays(int newXP) {
-    this.gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = GameManager.playerRank;
+    // Icon and Rank
+    Sprite icon = Resources.Load <Sprite> (("Ranks/" + GameManager.playerRank).ToString());
+    this.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = icon;
+    this.gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<Text>().text = GameManager.playerRank;
+
+    // +XP
     this.gameObject.transform.GetChild(1).gameObject.GetComponent<Text>().text = (newXP > 0 ? "+" : "") + newXP.ToString();
 
     int indexOfNextRank = Array.FindIndex(RANKS, x => x.Contains(GameManager.playerRank)) + 1;
     int XP_OF_CURRENT_RANK = XP_TO_NEXT_RANK[indexOfNextRank-1];
+    
+    // Slider
     this.gameObject.transform.GetChild(2).gameObject.GetComponent<Slider>().value = (float)(GameManager.playerExperience-XP_OF_CURRENT_RANK) / (float)(XP_TO_NEXT_RANK[indexOfNextRank]-XP_OF_CURRENT_RANK);    
+    
+    // Current XP
     this.gameObject.transform.GetChild(3).gameObject.GetComponent<Text>().text = GameManager.playerExperience == 5000 ? "MAX RANK" : GameManager.playerExperience + " / " + XP_TO_NEXT_RANK[indexOfNextRank];
   }
 

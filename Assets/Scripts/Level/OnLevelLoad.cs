@@ -122,6 +122,7 @@ public class OnLevelLoad : MonoBehaviour {
 
     setTiles(tiles);
     setPlayersAndGoal(players, goal);
+    GameManager.loadCurrentBest();
   }
 
   // Win condition 
