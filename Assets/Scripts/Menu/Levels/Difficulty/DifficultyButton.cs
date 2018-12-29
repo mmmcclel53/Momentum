@@ -11,7 +11,7 @@ public class DifficultyButton : MonoBehaviour {
   public GameObject Level;
   public string difficulty;
 
-  private static bool isGridWidthSet = false;
+  private static int gridColumnCount = 0;
 
   private int STARS_TO_UNLOCK_MEDIUM = 150;
   private int STARS_TO_UNLOCK_HARD = 350;
@@ -66,10 +66,14 @@ public class DifficultyButton : MonoBehaviour {
 
   private void setGridWidth(GameObject listContent) {
     GridLayoutGroup listGrid = listContent.GetComponent<GridLayoutGroup>();
-    float gridWidth = listContent.GetComponent<RectTransform>().rect.width;
-    int columnCount = Mathf.FloorToInt(gridWidth / (listGrid.cellSize.x + (listGrid.spacing.x * 2)) );
-    listGrid.constraintCount = columnCount;
-    isGridWidthSet = true;
+    
+    // If the grid width hasn't been set yet
+    if (gridColumnCount == 0) {
+      float gridWidth = listContent.GetComponent<RectTransform>().rect.width;
+      gridColumnCount = Mathf.FloorToInt(gridWidth / (listGrid.cellSize.x + (listGrid.spacing.x * 2)) );
+    }
+    
+    listGrid.constraintCount = gridColumnCount;
   }
 
   private void setLevelContentItems(GameObject listContent) {
@@ -84,7 +88,7 @@ public class DifficultyButton : MonoBehaviour {
 
     for (int i=0; i<GameManager.currentStars.Length; i++) {
       GameObject clone = Instantiate(Level);
-      clone.transform.parent = listContent.transform;
+      clone.transform.SetParent(listContent.transform);
       clone.transform.localScale = new Vector3(1,1,1);
 
       // Set Level #
@@ -114,10 +118,8 @@ public class DifficultyButton : MonoBehaviour {
     GameManager.currentStars = getCurrentStars(difficulty);
 
     GameObject listContent = LevelsListView.transform.GetChild(1).transform.GetChild(0).gameObject;
-    // If the grid width hasn't been set yet
-    if (!isGridWidthSet) {
-      setGridWidth(listContent);
-    }
+
+    setGridWidth(listContent);
     setLevelContentItems(listContent);
 
     DifficultyListView.SetActive(false);

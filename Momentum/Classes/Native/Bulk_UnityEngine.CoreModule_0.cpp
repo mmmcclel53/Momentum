@@ -1335,8 +1335,6 @@ extern const uint32_t RectTransform_GetParentSize_m3947930162_MetadataUsageId;
 extern const uint32_t RectTransform_GetWorldCorners_m3553547973_MetadataUsageId;
 extern const uint32_t RectTransform_SendReapplyDrivenProperties_m187867097_MetadataUsageId;
 extern const uint32_t RectTransform_add_reapplyDrivenProperties_m1374850920_MetadataUsageId;
-extern const uint32_t RectTransform_get_offsetMax_m2788861343_MetadataUsageId;
-extern const uint32_t RectTransform_get_offsetMin_m30225325_MetadataUsageId;
 extern const uint32_t RectTransform_remove_reapplyDrivenProperties_m1119724599_MetadataUsageId;
 extern const uint32_t RectTransform_set_offsetMax_m2526664592_MetadataUsageId;
 extern const uint32_t RectTransform_set_offsetMin_m1512629941_MetadataUsageId;
@@ -3436,6 +3434,26 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // CLASSLIBRARYINITIALIZER_T2339504045_H
+#ifndef COLORUTILITY_T2838219897_H
+#define COLORUTILITY_T2838219897_H
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+
+// UnityEngine.ColorUtility
+struct  ColorUtility_t2838219897  : public RuntimeObject
+{
+public:
+
+public:
+};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#endif // COLORUTILITY_T2838219897_H
 #ifndef CURSOR_T1422555833_H
 #define CURSOR_T1422555833_H
 #ifdef __clang__
@@ -18552,6 +18570,10 @@ extern "C" IL2CPP_METHOD_ATTR void Vector4__ctor_m2498754347 (Vector4_t331902893
 extern "C" IL2CPP_METHOD_ATTR void Color32__ctor_m4150508762 (Color32_t2600501292 * __this, uint8_t ___r0, uint8_t ___g1, uint8_t ___b2, uint8_t ___a3, const RuntimeMethod* method);
 // System.String UnityEngine.Color32::ToString()
 extern "C" IL2CPP_METHOD_ATTR String_t* Color32_ToString_m403383053 (Color32_t2600501292 * __this, const RuntimeMethod* method);
+// System.Boolean UnityEngine.ColorUtility::DoTryParseHtmlColor(System.String,UnityEngine.Color32&)
+extern "C" IL2CPP_METHOD_ATTR bool ColorUtility_DoTryParseHtmlColor_m2969606472 (RuntimeObject * __this /* static, unused */, String_t* ___htmlString0, Color32_t2600501292 * ___color1, const RuntimeMethod* method);
+// UnityEngine.Color UnityEngine.Color32::op_Implicit(UnityEngine.Color32)
+extern "C" IL2CPP_METHOD_ATTR Color_t2555686324  Color32_op_Implicit_m213813866 (RuntimeObject * __this /* static, unused */, Color32_t2600501292  ___c0, const RuntimeMethod* method);
 // System.Void UnityEngine.Object::.ctor()
 extern "C" IL2CPP_METHOD_ATTR void Object__ctor_m1087895580 (Object_t631007953 * __this, const RuntimeMethod* method);
 // UnityEngine.GameObject UnityEngine.Component::get_gameObject()
@@ -19475,24 +19497,12 @@ extern "C" IL2CPP_METHOD_ATTR float Rect_get_xMin_m581135837 (Rect_t2360479859 *
 extern "C" IL2CPP_METHOD_ATTR float Rect_get_yMin_m2601414109 (Rect_t2360479859 * __this, const RuntimeMethod* method);
 // UnityEngine.Vector2 UnityEngine.Rect::get_min()
 extern "C" IL2CPP_METHOD_ATTR Vector2_t2156229523  Rect_get_min_m847841034 (Rect_t2360479859 * __this, const RuntimeMethod* method);
-// System.Void UnityEngine.Rect::set_xMin(System.Single)
-extern "C" IL2CPP_METHOD_ATTR void Rect_set_xMin_m2413290617 (Rect_t2360479859 * __this, float ___value0, const RuntimeMethod* method);
-// System.Void UnityEngine.Rect::set_yMin(System.Single)
-extern "C" IL2CPP_METHOD_ATTR void Rect_set_yMin_m2724127720 (Rect_t2360479859 * __this, float ___value0, const RuntimeMethod* method);
-// System.Void UnityEngine.Rect::set_min(UnityEngine.Vector2)
-extern "C" IL2CPP_METHOD_ATTR void Rect_set_min_m1811906777 (Rect_t2360479859 * __this, Vector2_t2156229523  ___value0, const RuntimeMethod* method);
 // System.Single UnityEngine.Rect::get_xMax()
 extern "C" IL2CPP_METHOD_ATTR float Rect_get_xMax_m3018144503 (Rect_t2360479859 * __this, const RuntimeMethod* method);
 // System.Single UnityEngine.Rect::get_yMax()
 extern "C" IL2CPP_METHOD_ATTR float Rect_get_yMax_m743455479 (Rect_t2360479859 * __this, const RuntimeMethod* method);
 // UnityEngine.Vector2 UnityEngine.Rect::get_max()
 extern "C" IL2CPP_METHOD_ATTR Vector2_t2156229523  Rect_get_max_m350137314 (Rect_t2360479859 * __this, const RuntimeMethod* method);
-// System.Void UnityEngine.Rect::set_xMax(System.Single)
-extern "C" IL2CPP_METHOD_ATTR void Rect_set_xMax_m1720695099 (Rect_t2360479859 * __this, float ___value0, const RuntimeMethod* method);
-// System.Void UnityEngine.Rect::set_yMax(System.Single)
-extern "C" IL2CPP_METHOD_ATTR void Rect_set_yMax_m2031532394 (Rect_t2360479859 * __this, float ___value0, const RuntimeMethod* method);
-// System.Void UnityEngine.Rect::set_max(UnityEngine.Vector2)
-extern "C" IL2CPP_METHOD_ATTR void Rect_set_max_m2325348518 (Rect_t2360479859 * __this, Vector2_t2156229523  ___value0, const RuntimeMethod* method);
 // System.Single UnityEngine.Rect::get_width()
 extern "C" IL2CPP_METHOD_ATTR float Rect_get_width_m3421484486 (Rect_t2360479859 * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.Rect::set_width(System.Single)
@@ -19503,6 +19513,14 @@ extern "C" IL2CPP_METHOD_ATTR float Rect_get_height_m1358425599 (Rect_t236047985
 extern "C" IL2CPP_METHOD_ATTR void Rect_set_height_m1625569324 (Rect_t2360479859 * __this, float ___value0, const RuntimeMethod* method);
 // UnityEngine.Vector2 UnityEngine.Rect::get_size()
 extern "C" IL2CPP_METHOD_ATTR Vector2_t2156229523  Rect_get_size_m477575021 (Rect_t2360479859 * __this, const RuntimeMethod* method);
+// System.Void UnityEngine.Rect::set_xMin(System.Single)
+extern "C" IL2CPP_METHOD_ATTR void Rect_set_xMin_m2413290617 (Rect_t2360479859 * __this, float ___value0, const RuntimeMethod* method);
+// System.Void UnityEngine.Rect::set_yMin(System.Single)
+extern "C" IL2CPP_METHOD_ATTR void Rect_set_yMin_m2724127720 (Rect_t2360479859 * __this, float ___value0, const RuntimeMethod* method);
+// System.Void UnityEngine.Rect::set_xMax(System.Single)
+extern "C" IL2CPP_METHOD_ATTR void Rect_set_xMax_m1720695099 (Rect_t2360479859 * __this, float ___value0, const RuntimeMethod* method);
+// System.Void UnityEngine.Rect::set_yMax(System.Single)
+extern "C" IL2CPP_METHOD_ATTR void Rect_set_yMax_m2031532394 (Rect_t2360479859 * __this, float ___value0, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Rect::Contains(UnityEngine.Vector2)
 extern "C" IL2CPP_METHOD_ATTR bool Rect_Contains_m3188543637 (Rect_t2360479859 * __this, Vector2_t2156229523  ___point0, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Rect::Contains(UnityEngine.Vector3)
@@ -23214,25 +23232,6 @@ IL_0078:
 		return L_19;
 	}
 }
-// UnityEngine.Color UnityEngine.Color::get_green()
-extern "C" IL2CPP_METHOD_ATTR Color_t2555686324  Color_get_green_m490390750 (RuntimeObject * __this /* static, unused */, const RuntimeMethod* method)
-{
-	Color_t2555686324  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		Color_t2555686324  L_0;
-		memset(&L_0, 0, sizeof(L_0));
-		Color__ctor_m2943235014((&L_0), (0.0f), (1.0f), (0.0f), (1.0f), /*hidden argument*/NULL);
-		V_0 = L_0;
-		goto IL_0020;
-	}
-
-IL_0020:
-	{
-		Color_t2555686324  L_1 = V_0;
-		return L_1;
-	}
-}
 // UnityEngine.Color UnityEngine.Color::get_white()
 extern "C" IL2CPP_METHOD_ATTR Color_t2555686324  Color_get_white_m332174077 (RuntimeObject * __this /* static, unused */, const RuntimeMethod* method)
 {
@@ -23261,25 +23260,6 @@ extern "C" IL2CPP_METHOD_ATTR Color_t2555686324  Color_get_black_m719512684 (Run
 		Color_t2555686324  L_0;
 		memset(&L_0, 0, sizeof(L_0));
 		Color__ctor_m2943235014((&L_0), (0.0f), (0.0f), (0.0f), (1.0f), /*hidden argument*/NULL);
-		V_0 = L_0;
-		goto IL_0020;
-	}
-
-IL_0020:
-	{
-		Color_t2555686324  L_1 = V_0;
-		return L_1;
-	}
-}
-// UnityEngine.Color UnityEngine.Color::get_cyan()
-extern "C" IL2CPP_METHOD_ATTR Color_t2555686324  Color_get_cyan_m765383084 (RuntimeObject * __this /* static, unused */, const RuntimeMethod* method)
-{
-	Color_t2555686324  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		Color_t2555686324  L_0;
-		memset(&L_0, 0, sizeof(L_0));
-		Color__ctor_m2943235014((&L_0), (0.0f), (1.0f), (1.0f), (1.0f), /*hidden argument*/NULL);
 		V_0 = L_0;
 		goto IL_0020;
 	}
@@ -23482,6 +23462,50 @@ extern "C"  String_t* Color32_ToString_m403383053_AdjustorThunk (RuntimeObject *
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Boolean UnityEngine.ColorUtility::DoTryParseHtmlColor(System.String,UnityEngine.Color32&)
+extern "C" IL2CPP_METHOD_ATTR bool ColorUtility_DoTryParseHtmlColor_m2969606472 (RuntimeObject * __this /* static, unused */, String_t* ___htmlString0, Color32_t2600501292 * ___color1, const RuntimeMethod* method)
+{
+	typedef bool (*ColorUtility_DoTryParseHtmlColor_m2969606472_ftn) (String_t*, Color32_t2600501292 *);
+	static ColorUtility_DoTryParseHtmlColor_m2969606472_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (ColorUtility_DoTryParseHtmlColor_m2969606472_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ColorUtility::DoTryParseHtmlColor(System.String,UnityEngine.Color32&)");
+	bool retVal = _il2cpp_icall_func(___htmlString0, ___color1);
+	return retVal;
+}
+// System.Boolean UnityEngine.ColorUtility::TryParseHtmlString(System.String,UnityEngine.Color&)
+extern "C" IL2CPP_METHOD_ATTR bool ColorUtility_TryParseHtmlString_m1532239634 (RuntimeObject * __this /* static, unused */, String_t* ___htmlString0, Color_t2555686324 * ___color1, const RuntimeMethod* method)
+{
+	Color32_t2600501292  V_0;
+	memset(&V_0, 0, sizeof(V_0));
+	bool V_1 = false;
+	bool V_2 = false;
+	{
+		String_t* L_0 = ___htmlString0;
+		bool L_1 = ColorUtility_DoTryParseHtmlColor_m2969606472(NULL /*static, unused*/, L_0, (Color32_t2600501292 *)(&V_0), /*hidden argument*/NULL);
+		V_1 = L_1;
+		Color_t2555686324 * L_2 = ___color1;
+		Color32_t2600501292  L_3 = V_0;
+		Color_t2555686324  L_4 = Color32_op_Implicit_m213813866(NULL /*static, unused*/, L_3, /*hidden argument*/NULL);
+		*(Color_t2555686324 *)L_2 = L_4;
+		bool L_5 = V_1;
+		V_2 = L_5;
+		goto IL_001d;
+	}
+
+IL_001d:
+	{
+		bool L_6 = V_2;
+		return L_6;
+	}
+}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -31630,23 +31654,6 @@ IL_000e:
 		return L_2;
 	}
 }
-// System.Int32 UnityEngine.Mathf::Abs(System.Int32)
-extern "C" IL2CPP_METHOD_ATTR int32_t Mathf_Abs_m2460432655 (RuntimeObject * __this /* static, unused */, int32_t ___value0, const RuntimeMethod* method)
-{
-	int32_t V_0 = 0;
-	{
-		int32_t L_0 = ___value0;
-		int32_t L_1 = il2cpp_codegen_abs(L_0);
-		V_0 = L_1;
-		goto IL_000d;
-	}
-
-IL_000d:
-	{
-		int32_t L_2 = V_0;
-		return L_2;
-	}
-}
 // System.Single UnityEngine.Mathf::Min(System.Single,System.Single)
 extern "C" IL2CPP_METHOD_ATTR float Mathf_Min_m1073399594 (RuntimeObject * __this /* static, unused */, float ___a0, float ___b1, const RuntimeMethod* method)
 {
@@ -39062,22 +39069,6 @@ extern "C"  Vector2_t2156229523  Rect_get_min_m847841034_AdjustorThunk (RuntimeO
 	Rect_t2360479859 * _thisAdjusted = reinterpret_cast<Rect_t2360479859 *>(__this + 1);
 	return Rect_get_min_m847841034(_thisAdjusted, method);
 }
-// System.Void UnityEngine.Rect::set_min(UnityEngine.Vector2)
-extern "C" IL2CPP_METHOD_ATTR void Rect_set_min_m1811906777 (Rect_t2360479859 * __this, Vector2_t2156229523  ___value0, const RuntimeMethod* method)
-{
-	{
-		float L_0 = (&___value0)->get_x_0();
-		Rect_set_xMin_m2413290617((Rect_t2360479859 *)__this, L_0, /*hidden argument*/NULL);
-		float L_1 = (&___value0)->get_y_1();
-		Rect_set_yMin_m2724127720((Rect_t2360479859 *)__this, L_1, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void Rect_set_min_m1811906777_AdjustorThunk (RuntimeObject * __this, Vector2_t2156229523  ___value0, const RuntimeMethod* method)
-{
-	Rect_t2360479859 * _thisAdjusted = reinterpret_cast<Rect_t2360479859 *>(__this + 1);
-	Rect_set_min_m1811906777(_thisAdjusted, ___value0, method);
-}
 // UnityEngine.Vector2 UnityEngine.Rect::get_max()
 extern "C" IL2CPP_METHOD_ATTR Vector2_t2156229523  Rect_get_max_m350137314 (Rect_t2360479859 * __this, const RuntimeMethod* method)
 {
@@ -39103,22 +39094,6 @@ extern "C"  Vector2_t2156229523  Rect_get_max_m350137314_AdjustorThunk (RuntimeO
 {
 	Rect_t2360479859 * _thisAdjusted = reinterpret_cast<Rect_t2360479859 *>(__this + 1);
 	return Rect_get_max_m350137314(_thisAdjusted, method);
-}
-// System.Void UnityEngine.Rect::set_max(UnityEngine.Vector2)
-extern "C" IL2CPP_METHOD_ATTR void Rect_set_max_m2325348518 (Rect_t2360479859 * __this, Vector2_t2156229523  ___value0, const RuntimeMethod* method)
-{
-	{
-		float L_0 = (&___value0)->get_x_0();
-		Rect_set_xMax_m1720695099((Rect_t2360479859 *)__this, L_0, /*hidden argument*/NULL);
-		float L_1 = (&___value0)->get_y_1();
-		Rect_set_yMax_m2031532394((Rect_t2360479859 *)__this, L_1, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void Rect_set_max_m2325348518_AdjustorThunk (RuntimeObject * __this, Vector2_t2156229523  ___value0, const RuntimeMethod* method)
-{
-	Rect_t2360479859 * _thisAdjusted = reinterpret_cast<Rect_t2360479859 *>(__this + 1);
-	Rect_set_max_m2325348518(_thisAdjusted, ___value0, method);
 }
 // System.Single UnityEngine.Rect::get_width()
 extern "C" IL2CPP_METHOD_ATTR float Rect_get_width_m3421484486 (Rect_t2360479859 * __this, const RuntimeMethod* method)
@@ -40487,34 +40462,6 @@ extern "C" IL2CPP_METHOD_ATTR void RectTransform_set_pivot_m909387058 (RectTrans
 		return;
 	}
 }
-// UnityEngine.Vector2 UnityEngine.RectTransform::get_offsetMin()
-extern "C" IL2CPP_METHOD_ATTR Vector2_t2156229523  RectTransform_get_offsetMin_m30225325 (RectTransform_t3704657025 * __this, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (RectTransform_get_offsetMin_m30225325_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	Vector2_t2156229523  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		Vector2_t2156229523  L_0 = RectTransform_get_anchoredPosition_m1813443094(__this, /*hidden argument*/NULL);
-		Vector2_t2156229523  L_1 = RectTransform_get_sizeDelta_m2183112744(__this, /*hidden argument*/NULL);
-		Vector2_t2156229523  L_2 = RectTransform_get_pivot_m3425744470(__this, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Vector2_t2156229523_il2cpp_TypeInfo_var);
-		Vector2_t2156229523  L_3 = Vector2_Scale_m165605769(NULL /*static, unused*/, L_1, L_2, /*hidden argument*/NULL);
-		Vector2_t2156229523  L_4 = Vector2_op_Subtraction_m73004381(NULL /*static, unused*/, L_0, L_3, /*hidden argument*/NULL);
-		V_0 = L_4;
-		goto IL_0023;
-	}
-
-IL_0023:
-	{
-		Vector2_t2156229523  L_5 = V_0;
-		return L_5;
-	}
-}
 // System.Void UnityEngine.RectTransform::set_offsetMin(UnityEngine.Vector2)
 extern "C" IL2CPP_METHOD_ATTR void RectTransform_set_offsetMin_m1512629941 (RectTransform_t3704657025 * __this, Vector2_t2156229523  ___value0, const RuntimeMethod* method)
 {
@@ -40549,36 +40496,6 @@ extern "C" IL2CPP_METHOD_ATTR void RectTransform_set_offsetMin_m1512629941 (Rect
 		Vector2_t2156229523  L_16 = Vector2_op_Addition_m800700293(NULL /*static, unused*/, L_10, L_15, /*hidden argument*/NULL);
 		RectTransform_set_anchoredPosition_m4126691837(__this, L_16, /*hidden argument*/NULL);
 		return;
-	}
-}
-// UnityEngine.Vector2 UnityEngine.RectTransform::get_offsetMax()
-extern "C" IL2CPP_METHOD_ATTR Vector2_t2156229523  RectTransform_get_offsetMax_m2788861343 (RectTransform_t3704657025 * __this, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (RectTransform_get_offsetMax_m2788861343_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	Vector2_t2156229523  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		Vector2_t2156229523  L_0 = RectTransform_get_anchoredPosition_m1813443094(__this, /*hidden argument*/NULL);
-		Vector2_t2156229523  L_1 = RectTransform_get_sizeDelta_m2183112744(__this, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Vector2_t2156229523_il2cpp_TypeInfo_var);
-		Vector2_t2156229523  L_2 = Vector2_get_one_m738793577(NULL /*static, unused*/, /*hidden argument*/NULL);
-		Vector2_t2156229523  L_3 = RectTransform_get_pivot_m3425744470(__this, /*hidden argument*/NULL);
-		Vector2_t2156229523  L_4 = Vector2_op_Subtraction_m73004381(NULL /*static, unused*/, L_2, L_3, /*hidden argument*/NULL);
-		Vector2_t2156229523  L_5 = Vector2_Scale_m165605769(NULL /*static, unused*/, L_1, L_4, /*hidden argument*/NULL);
-		Vector2_t2156229523  L_6 = Vector2_op_Addition_m800700293(NULL /*static, unused*/, L_0, L_5, /*hidden argument*/NULL);
-		V_0 = L_6;
-		goto IL_002d;
-	}
-
-IL_002d:
-	{
-		Vector2_t2156229523  L_7 = V_0;
-		return L_7;
 	}
 }
 // System.Void UnityEngine.RectTransform::set_offsetMax(UnityEngine.Vector2)

@@ -147,6 +147,6 @@ public class OnLevelLoad : MonoBehaviour {
       playersAndGoal.SetTile(tilePos, isCurrentShipObj() ? ship : asteroid);
       MovingObject.setIsMoving(false);
     }
-    movingObj.transform.position = Vector3.MoveTowards(movingObj.transform.position, newPos, 500 * Time.deltaTime);
+    movingObj.transform.position = Vector3.MoveTowards(movingObj.transform.position, newPos, 10000 * Time.deltaTime);
   }
 }

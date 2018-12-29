@@ -1190,7 +1190,6 @@ extern const RuntimeMethod* FormatterConverter_ToInt16_m4282804414_RuntimeMethod
 extern const RuntimeMethod* FormatterConverter_ToInt32_m2929341202_RuntimeMethod_var;
 extern const RuntimeMethod* FormatterConverter_ToInt64_m495840699_RuntimeMethod_var;
 extern const RuntimeMethod* FormatterConverter_ToString_m1584725205_RuntimeMethod_var;
-extern const RuntimeMethod* FormatterConverter_ToUInt32_m2336213161_RuntimeMethod_var;
 extern const RuntimeMethod* FormatterServices_GetObjectData_m4284691678_RuntimeMethod_var;
 extern const RuntimeMethod* FormatterServices_GetSerializableMembers_m3934333240_RuntimeMethod_var;
 extern const RuntimeMethod* FormatterServices_GetUninitializedObject_m3413592581_RuntimeMethod_var;
@@ -1333,7 +1332,6 @@ extern const uint32_t FormatterConverter_ToInt16_m4282804414_MetadataUsageId;
 extern const uint32_t FormatterConverter_ToInt32_m2929341202_MetadataUsageId;
 extern const uint32_t FormatterConverter_ToInt64_m495840699_MetadataUsageId;
 extern const uint32_t FormatterConverter_ToString_m1584725205_MetadataUsageId;
-extern const uint32_t FormatterConverter_ToUInt32_m2336213161_MetadataUsageId;
 extern const uint32_t FormatterServices_GetFields_m2777940282_MetadataUsageId;
 extern const uint32_t FormatterServices_GetObjectData_m4284691678_MetadataUsageId;
 extern const uint32_t FormatterServices_GetSerializableMembers_m3934333240_MetadataUsageId;
@@ -1517,7 +1515,6 @@ extern const uint32_t SerializationInfo_AddValue_m2020653395_MetadataUsageId;
 extern const uint32_t SerializationInfo_AddValue_m2780248522_MetadataUsageId;
 extern const uint32_t SerializationInfo_AddValue_m2872281893_MetadataUsageId;
 extern const uint32_t SerializationInfo_AddValue_m3427199315_MetadataUsageId;
-extern const uint32_t SerializationInfo_AddValue_m3594631505_MetadataUsageId;
 extern const uint32_t SerializationInfo_AddValue_m3906743584_MetadataUsageId;
 extern const uint32_t SerializationInfo_AddValue_m3963995439_MetadataUsageId;
 extern const uint32_t SerializationInfo_AddValue_m412754688_MetadataUsageId;
@@ -1527,7 +1524,6 @@ extern const uint32_t SerializationInfo_GetInt16_m3858430398_MetadataUsageId;
 extern const uint32_t SerializationInfo_GetInt32_m2640574809_MetadataUsageId;
 extern const uint32_t SerializationInfo_GetInt64_m2503729515_MetadataUsageId;
 extern const uint32_t SerializationInfo_GetString_m3155282843_MetadataUsageId;
-extern const uint32_t SerializationInfo_GetUInt32_m776835457_MetadataUsageId;
 extern const uint32_t SerializationInfo_GetValue_m42271953_MetadataUsageId;
 extern const uint32_t SerializationInfo_SetType_m3923964808_MetadataUsageId;
 extern const uint32_t SerializationInfo__ctor_m2923079689_MetadataUsageId;
@@ -19565,8 +19561,6 @@ extern "C" IL2CPP_METHOD_ATTR int32_t Convert_ToInt32_m2608095889 (RuntimeObject
 extern "C" IL2CPP_METHOD_ATTR int64_t Convert_ToInt64_m3240678588 (RuntimeObject * __this /* static, unused */, RuntimeObject * ___value0, const RuntimeMethod* method);
 // System.String System.Convert::ToString(System.Object)
 extern "C" IL2CPP_METHOD_ATTR String_t* Convert_ToString_m2219349533 (RuntimeObject * __this /* static, unused */, RuntimeObject * ___value0, const RuntimeMethod* method);
-// System.UInt32 System.Convert::ToUInt32(System.Object)
-extern "C" IL2CPP_METHOD_ATTR uint32_t Convert_ToUInt32_m668801151 (RuntimeObject * __this /* static, unused */, RuntimeObject * ___value0, const RuntimeMethod* method);
 // System.Boolean System.Type::get_IsSerializable()
 extern "C" IL2CPP_METHOD_ATTR bool Type_get_IsSerializable_m1040556850 (Type_t * __this, const RuntimeMethod* method);
 // System.Void System.Runtime.Serialization.FormatterServices::GetFields(System.Type,System.Type,System.Collections.ArrayList)
@@ -27064,36 +27058,6 @@ IL_0011:
 		RuntimeObject * L_2 = ___value0;
 		IL2CPP_RUNTIME_CLASS_INIT(Convert_t2465617642_il2cpp_TypeInfo_var);
 		String_t* L_3 = Convert_ToString_m2219349533(NULL /*static, unused*/, L_2, /*hidden argument*/NULL);
-		return L_3;
-	}
-}
-// System.UInt32 System.Runtime.Serialization.FormatterConverter::ToUInt32(System.Object)
-extern "C" IL2CPP_METHOD_ATTR uint32_t FormatterConverter_ToUInt32_m2336213161 (FormatterConverter_t2760117746 * __this, RuntimeObject * ___value0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (FormatterConverter_ToUInt32_m2336213161_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		RuntimeObject * L_0 = ___value0;
-		if (L_0)
-		{
-			goto IL_0011;
-		}
-	}
-	{
-		ArgumentNullException_t1615371798 * L_1 = (ArgumentNullException_t1615371798 *)il2cpp_codegen_object_new(ArgumentNullException_t1615371798_il2cpp_TypeInfo_var);
-		ArgumentNullException__ctor_m1170824041(L_1, _stringLiteral2046370954, /*hidden argument*/NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_1, NULL, FormatterConverter_ToUInt32_m2336213161_RuntimeMethod_var);
-	}
-
-IL_0011:
-	{
-		RuntimeObject * L_2 = ___value0;
-		IL2CPP_RUNTIME_CLASS_INIT(Convert_t2465617642_il2cpp_TypeInfo_var);
-		uint32_t L_3 = Convert_ToUInt32_m668801151(NULL /*static, unused*/, L_2, /*hidden argument*/NULL);
 		return L_3;
 	}
 }
@@ -44735,27 +44699,6 @@ extern "C" IL2CPP_METHOD_ATTR void SerializationInfo_AddValue_m1803776749 (Seria
 		return;
 	}
 }
-// System.Void System.Runtime.Serialization.SerializationInfo::AddValue(System.String,System.UInt32)
-extern "C" IL2CPP_METHOD_ATTR void SerializationInfo_AddValue_m3594631505 (SerializationInfo_t950877179 * __this, String_t* ___name0, uint32_t ___value1, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (SerializationInfo_AddValue_m3594631505_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		String_t* L_0 = ___name0;
-		uint32_t L_1 = ___value1;
-		uint32_t L_2 = L_1;
-		RuntimeObject * L_3 = Box(UInt32_t2560061978_il2cpp_TypeInfo_var, &L_2);
-		RuntimeTypeHandle_t3027515415  L_4 = { reinterpret_cast<intptr_t> (UInt32_t2560061978_0_0_0_var) };
-		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
-		Type_t * L_5 = Type_GetTypeFromHandle_m1620074514(NULL /*static, unused*/, L_4, /*hidden argument*/NULL);
-		SerializationInfo_AddValue_m3906743584(__this, L_0, L_3, L_5, /*hidden argument*/NULL);
-		return;
-	}
-}
 // System.Void System.Runtime.Serialization.SerializationInfo::AddValue(System.String,System.Int64)
 extern "C" IL2CPP_METHOD_ATTR void SerializationInfo_AddValue_m3963995439 (SerializationInfo_t950877179 * __this, String_t* ___name0, int64_t ___value1, const RuntimeMethod* method)
 {
@@ -44969,30 +44912,6 @@ IL_001a:
 		NullCheck(L_5);
 		String_t* L_7 = InterfaceFuncInvoker1< String_t*, RuntimeObject * >::Invoke(5 /* System.String System.Runtime.Serialization.IFormatterConverter::ToString(System.Object) */, IFormatterConverter_t2171992254_il2cpp_TypeInfo_var, L_5, L_6);
 		return L_7;
-	}
-}
-// System.UInt32 System.Runtime.Serialization.SerializationInfo::GetUInt32(System.String)
-extern "C" IL2CPP_METHOD_ATTR uint32_t SerializationInfo_GetUInt32_m776835457 (SerializationInfo_t950877179 * __this, String_t* ___name0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (SerializationInfo_GetUInt32_m776835457_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	RuntimeObject * V_0 = NULL;
-	{
-		String_t* L_0 = ___name0;
-		RuntimeTypeHandle_t3027515415  L_1 = { reinterpret_cast<intptr_t> (UInt32_t2560061978_0_0_0_var) };
-		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
-		Type_t * L_2 = Type_GetTypeFromHandle_m1620074514(NULL /*static, unused*/, L_1, /*hidden argument*/NULL);
-		RuntimeObject * L_3 = SerializationInfo_GetValue_m42271953(__this, L_0, L_2, /*hidden argument*/NULL);
-		V_0 = L_3;
-		RuntimeObject* L_4 = __this->get_converter_4();
-		RuntimeObject * L_5 = V_0;
-		NullCheck(L_4);
-		uint32_t L_6 = InterfaceFuncInvoker1< uint32_t, RuntimeObject * >::Invoke(6 /* System.UInt32 System.Runtime.Serialization.IFormatterConverter::ToUInt32(System.Object) */, IFormatterConverter_t2171992254_il2cpp_TypeInfo_var, L_4, L_5);
-		return L_6;
 	}
 }
 #ifdef __clang__

@@ -7863,20 +7863,16 @@ extern const int32_t g_FieldOffsetTable1097[1] =
 	MonoTODOAttribute_t4131080582::get_offset_of_comment_0(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1098 = { 0, 0, 0, 0 };
-extern const int32_t g_FieldOffsetTable1098[7] = 
+extern const int32_t g_FieldOffsetTable1098[4] = 
 {
-	0,
-	0,
-	0,
 	0,
 	0,
 	0,
 	0,
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1099 = { 0, 0, 0, 0 };
-extern const int32_t g_FieldOffsetTable1099[4] = 
+extern const int32_t g_FieldOffsetTable1099[3] = 
 {
-	0,
 	0,
 	0,
 	0,

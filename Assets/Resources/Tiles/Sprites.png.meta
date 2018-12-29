@@ -124,10 +124,10 @@ TextureImporter:
       name: WestWall
       rect:
         serializedVersion: 2
-        x: 5
-        y: 306
-        width: 225
-        height: 225
+        x: 15
+        y: 596
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +144,10 @@ TextureImporter:
       name: NorthWall
       rect:
         serializedVersion: 2
-        x: 239
-        y: 306
-        width: 225
-        height: 225
+        x: 584
+        y: 596
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: EastWall
       rect:
         serializedVersion: 2
-        x: 799
-        y: 306
-        width: 225
-        height: 225
+        x: 1776
+        y: 596
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: SouthWall
       rect:
         serializedVersion: 2
-        x: 494
-        y: 306
-        width: 225
-        height: 225
+        x: 1200
+        y: 600
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: Asteroid
       rect:
         serializedVersion: 2
-        x: 243
-        y: 60
-        width: 225
-        height: 225
+        x: 600
+        y: 30
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +224,10 @@ TextureImporter:
       name: Goal
       rect:
         serializedVersion: 2
-        x: 783
-        y: 52
-        width: 225
-        height: 225
+        x: 1761
+        y: 24
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: Ship
       rect:
         serializedVersion: 2
-        x: 15
-        y: 63
-        width: 225
-        height: 225
+        x: 1187
+        y: 30
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,10 +264,10 @@ TextureImporter:
       name: Grid
       rect:
         serializedVersion: 2
-        x: 494
-        y: 64
-        width: 225
-        height: 225
+        x: 21
+        y: 30
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

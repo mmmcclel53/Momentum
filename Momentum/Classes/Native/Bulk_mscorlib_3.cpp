@@ -1220,7 +1220,6 @@ extern const RuntimeMethod* Stream_BeginWrite_m1696564506_RuntimeMethod_var;
 extern const RuntimeMethod* Stream_EndRead_m1896469262_RuntimeMethod_var;
 extern const RuntimeMethod* Stream_EndWrite_m1721488587_RuntimeMethod_var;
 extern const RuntimeMethod* TextInfo_ToLower_m2989196362_RuntimeMethod_var;
-extern const RuntimeMethod* TextInfo_ToTitleCase_m2598547923_RuntimeMethod_var;
 extern const RuntimeType* DateTimeFormatInfo_t2405853701_0_0_0_var;
 extern const RuntimeType* Exception_t_0_0_0_var;
 extern const RuntimeType* FlagsAttribute_t2262502849_0_0_0_var;
@@ -1549,7 +1548,6 @@ extern const uint32_t TextInfo_Equals_m3029092201_MetadataUsageId;
 extern const uint32_t TextInfo_ToLower_m2744057472_MetadataUsageId;
 extern const uint32_t TextInfo_ToLower_m2989196362_MetadataUsageId;
 extern const uint32_t TextInfo_ToString_m3431897261_MetadataUsageId;
-extern const uint32_t TextInfo_ToTitleCase_m2598547923_MetadataUsageId;
 extern const uint32_t TextInfo_ToUpper_m4031511609_MetadataUsageId;
 extern const uint32_t WriteDelegate_BeginInvoke_m39624777_MetadataUsageId;
 
@@ -13829,8 +13827,6 @@ extern "C" IL2CPP_METHOD_ATTR void ArgumentOutOfRangeException__ctor_m282481429 
 extern "C" IL2CPP_METHOD_ATTR void CultureInfo_ConstructInvariant_m3774343375 (CultureInfo_t4157843068 * __this, bool ___read_only0, const RuntimeMethod* method);
 // System.Boolean System.Globalization.CultureInfo::ConstructInternalLocaleFromLcid(System.Int32)
 extern "C" IL2CPP_METHOD_ATTR bool CultureInfo_ConstructInternalLocaleFromLcid_m2304903600 (CultureInfo_t4157843068 * __this, int32_t ___lcid0, const RuntimeMethod* method);
-// System.Void System.Globalization.CultureInfo::.ctor(System.String,System.Boolean,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void CultureInfo__ctor_m1132565265 (CultureInfo_t4157843068 * __this, String_t* ___name0, bool ___useUserOverride1, bool ___read_only2, const RuntimeMethod* method);
 // System.String System.String::ToLowerInvariant()
 extern "C" IL2CPP_METHOD_ATTR String_t* String_ToLowerInvariant_m110751226 (String_t* __this, const RuntimeMethod* method);
 // System.Boolean System.Globalization.CultureInfo::ConstructInternalLocaleFromName(System.String)
@@ -13900,6 +13896,8 @@ extern "C" IL2CPP_METHOD_ATTR DateTimeFormatInfo_t2405853701 * DateTimeFormatInf
 extern "C" IL2CPP_METHOD_ATTR void TextInfo__ctor_m2985371296 (TextInfo_t3810425522 * __this, CultureInfo_t4157843068 * ___ci0, int32_t ___lcid1, void* ___data2, bool ___read_only3, const RuntimeMethod* method);
 // System.Void System.Globalization.CultureInfo::insert_into_shared_tables(System.Globalization.CultureInfo)
 extern "C" IL2CPP_METHOD_ATTR void CultureInfo_insert_into_shared_tables_m4239017467 (RuntimeObject * __this /* static, unused */, CultureInfo_t4157843068 * ___c0, const RuntimeMethod* method);
+// System.Void System.Globalization.CultureInfo::.ctor(System.String,System.Boolean,System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void CultureInfo__ctor_m1132565265 (CultureInfo_t4157843068 * __this, String_t* ___name0, bool ___useUserOverride1, bool ___read_only2, const RuntimeMethod* method);
 // System.Void System.Globalization.GregorianCalendar::.ctor()
 extern "C" IL2CPP_METHOD_ATTR void GregorianCalendar__ctor_m3097541152 (GregorianCalendar_t2054525052 * __this, const RuntimeMethod* method);
 // System.Globalization.DateTimeFormatInfo System.Globalization.DateTimeFormatInfo::get_CurrentInfo()
@@ -13996,18 +13994,6 @@ extern "C" IL2CPP_METHOD_ATTR String_t* String_Concat_m2971454694 (RuntimeObject
 extern "C" IL2CPP_METHOD_ATTR String_t* TextInfo_get_CultureName_m3892243949 (TextInfo_t3810425522 * __this, const RuntimeMethod* method);
 // System.String System.Char::ToString()
 extern "C" IL2CPP_METHOD_ATTR String_t* Char_ToString_m3588025615 (Il2CppChar* __this, const RuntimeMethod* method);
-// System.Boolean System.Char::IsLetter(System.Char)
-extern "C" IL2CPP_METHOD_ATTR bool Char_IsLetter_m3996985877 (RuntimeObject * __this /* static, unused */, Il2CppChar ___c0, const RuntimeMethod* method);
-// System.Char System.Globalization.TextInfo::ToTitleCase(System.Char)
-extern "C" IL2CPP_METHOD_ATTR Il2CppChar TextInfo_ToTitleCase_m1969553686 (TextInfo_t3810425522 * __this, Il2CppChar ___c0, const RuntimeMethod* method);
-// System.Boolean System.Char::IsWhiteSpace(System.Char)
-extern "C" IL2CPP_METHOD_ATTR bool Char_IsWhiteSpace_m2148390798 (RuntimeObject * __this /* static, unused */, Il2CppChar ___c0, const RuntimeMethod* method);
-// System.Void System.Text.StringBuilder::.ctor(System.Int32)
-extern "C" IL2CPP_METHOD_ATTR void StringBuilder__ctor_m2367297767 (StringBuilder_t * __this, int32_t ___capacity0, const RuntimeMethod* method);
-// System.Text.StringBuilder System.Text.StringBuilder::Append(System.String,System.Int32,System.Int32)
-extern "C" IL2CPP_METHOD_ATTR StringBuilder_t * StringBuilder_Append_m3214161208 (StringBuilder_t * __this, String_t* ___value0, int32_t ___startIndex1, int32_t ___count2, const RuntimeMethod* method);
-// System.Text.StringBuilder System.Text.StringBuilder::Append(System.Char)
-extern "C" IL2CPP_METHOD_ATTR StringBuilder_t * StringBuilder_Append_m2383614642 (StringBuilder_t * __this, Il2CppChar ___value0, const RuntimeMethod* method);
 // System.Char System.Char::ToLowerInvariant(System.Char)
 extern "C" IL2CPP_METHOD_ATTR Il2CppChar Char_ToLowerInvariant_m1926695830 (RuntimeObject * __this /* static, unused */, Il2CppChar ___c0, const RuntimeMethod* method);
 // System.Char System.Char::ToUpperInvariant(System.Char)
@@ -14068,6 +14054,10 @@ extern "C" IL2CPP_METHOD_ATTR RandomNumberGenerator_t386037858 * RandomNumberGen
 extern "C" IL2CPP_METHOD_ATTR void RNGCryptoServiceProvider__ctor_m2355451105 (RNGCryptoServiceProvider_t3397414743 * __this, const RuntimeMethod* method);
 // System.Char System.Guid::ToHex(System.Int32)
 extern "C" IL2CPP_METHOD_ATTR Il2CppChar Guid_ToHex_m2592644778 (RuntimeObject * __this /* static, unused */, int32_t ___b0, const RuntimeMethod* method);
+// System.Text.StringBuilder System.Text.StringBuilder::Append(System.Char)
+extern "C" IL2CPP_METHOD_ATTR StringBuilder_t * StringBuilder_Append_m2383614642 (StringBuilder_t * __this, Il2CppChar ___value0, const RuntimeMethod* method);
+// System.Void System.Text.StringBuilder::.ctor(System.Int32)
+extern "C" IL2CPP_METHOD_ATTR void StringBuilder__ctor_m2367297767 (StringBuilder_t * __this, int32_t ___capacity0, const RuntimeMethod* method);
 // System.Void System.Guid::AppendInt(System.Text.StringBuilder,System.Int32)
 extern "C" IL2CPP_METHOD_ATTR void Guid_AppendInt_m1995455822 (RuntimeObject * __this /* static, unused */, StringBuilder_t * ___builder0, int32_t ___value1, const RuntimeMethod* method);
 // System.Void System.Guid::AppendShort(System.Text.StringBuilder,System.Int16)
@@ -14184,6 +14174,8 @@ extern "C" IL2CPP_METHOD_ATTR void DirectoryInfo_Initialize_m1389772934 (Directo
 extern "C" IL2CPP_METHOD_ATTR void FileSystemInfo__ctor_m3769019897 (FileSystemInfo_t3745885336 * __this, SerializationInfo_t950877179 * ___info0, StreamingContext_t3711869237  ___context1, const RuntimeMethod* method);
 // System.Int32 System.String::LastIndexOf(System.Char,System.Int32)
 extern "C" IL2CPP_METHOD_ATTR int32_t String_LastIndexOf_m578673845 (String_t* __this, Il2CppChar ___value0, int32_t ___startIndex1, const RuntimeMethod* method);
+// System.Boolean System.Char::IsLetter(System.Char)
+extern "C" IL2CPP_METHOD_ATTR bool Char_IsLetter_m3996985877 (RuntimeObject * __this /* static, unused */, Il2CppChar ___c0, const RuntimeMethod* method);
 // System.Void System.IO.FileSystemInfo::Refresh(System.Boolean)
 extern "C" IL2CPP_METHOD_ATTR void FileSystemInfo_Refresh_m1497191506 (FileSystemInfo_t3745885336 * __this, bool ___force0, const RuntimeMethod* method);
 // System.Void System.IO.DirectoryInfo::.ctor(System.String)
@@ -22168,16 +22160,6 @@ IL_0069:
 		return;
 	}
 }
-// System.Void System.Globalization.CultureInfo::.ctor(System.String,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void CultureInfo__ctor_m1798203683 (CultureInfo_t4157843068 * __this, String_t* ___name0, bool ___useUserOverride1, const RuntimeMethod* method)
-{
-	{
-		String_t* L_0 = ___name0;
-		bool L_1 = ___useUserOverride1;
-		CultureInfo__ctor_m1132565265(__this, L_0, L_1, (bool)0, /*hidden argument*/NULL);
-		return;
-	}
-}
 // System.Void System.Globalization.CultureInfo::.ctor(System.String,System.Boolean,System.Boolean)
 extern "C" IL2CPP_METHOD_ATTR void CultureInfo__ctor_m1132565265 (CultureInfo_t4157843068 * __this, String_t* ___name0, bool ___useUserOverride1, bool ___read_only2, const RuntimeMethod* method)
 {
@@ -27638,371 +27620,6 @@ extern "C" IL2CPP_METHOD_ATTR String_t* TextInfo_ToString_m3431897261 (TextInfo_
 		return L_3;
 	}
 }
-// System.String System.Globalization.TextInfo::ToTitleCase(System.String)
-extern "C" IL2CPP_METHOD_ATTR String_t* TextInfo_ToTitleCase_m2598547923 (TextInfo_t3810425522 * __this, String_t* ___str0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (TextInfo_ToTitleCase_m2598547923_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	StringBuilder_t * V_0 = NULL;
-	int32_t V_1 = 0;
-	int32_t V_2 = 0;
-	Il2CppChar V_3 = 0x0;
-	bool V_4 = false;
-	bool V_5 = false;
-	int32_t V_6 = 0;
-	String_t* G_B35_0 = NULL;
-	{
-		String_t* L_0 = ___str0;
-		if (L_0)
-		{
-			goto IL_0011;
-		}
-	}
-	{
-		ArgumentNullException_t1615371798 * L_1 = (ArgumentNullException_t1615371798 *)il2cpp_codegen_object_new(ArgumentNullException_t1615371798_il2cpp_TypeInfo_var);
-		ArgumentNullException__ctor_m1170824041(L_1, _stringLiteral1391532509, /*hidden argument*/NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_1, NULL, TextInfo_ToTitleCase_m2598547923_RuntimeMethod_var);
-	}
-
-IL_0011:
-	{
-		V_0 = (StringBuilder_t *)NULL;
-		V_1 = 0;
-		V_2 = 0;
-		goto IL_018b;
-	}
-
-IL_001c:
-	{
-		String_t* L_2 = ___str0;
-		int32_t L_3 = V_1;
-		int32_t L_4 = L_3;
-		V_1 = ((int32_t)il2cpp_codegen_add((int32_t)L_4, (int32_t)1));
-		NullCheck(L_2);
-		Il2CppChar L_5 = String_get_Chars_m2986988803(L_2, L_4, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Char_t3634460470_il2cpp_TypeInfo_var);
-		bool L_6 = Char_IsLetter_m3996985877(NULL /*static, unused*/, L_5, /*hidden argument*/NULL);
-		if (L_6)
-		{
-			goto IL_0036;
-		}
-	}
-	{
-		goto IL_018b;
-	}
-
-IL_0036:
-	{
-		int32_t L_7 = V_1;
-		V_1 = ((int32_t)il2cpp_codegen_subtract((int32_t)L_7, (int32_t)1));
-		String_t* L_8 = ___str0;
-		int32_t L_9 = V_1;
-		NullCheck(L_8);
-		Il2CppChar L_10 = String_get_Chars_m2986988803(L_8, L_9, /*hidden argument*/NULL);
-		Il2CppChar L_11 = TextInfo_ToTitleCase_m1969553686(__this, L_10, /*hidden argument*/NULL);
-		V_3 = L_11;
-		V_4 = (bool)1;
-		Il2CppChar L_12 = V_3;
-		String_t* L_13 = ___str0;
-		int32_t L_14 = V_1;
-		NullCheck(L_13);
-		Il2CppChar L_15 = String_get_Chars_m2986988803(L_13, L_14, /*hidden argument*/NULL);
-		if ((!(((uint32_t)L_12) == ((uint32_t)L_15))))
-		{
-			goto IL_010d;
-		}
-	}
-	{
-		V_4 = (bool)0;
-		V_5 = (bool)1;
-		int32_t L_16 = V_1;
-		V_6 = L_16;
-		goto IL_009f;
-	}
-
-IL_0066:
-	{
-		String_t* L_17 = ___str0;
-		int32_t L_18 = V_1;
-		NullCheck(L_17);
-		Il2CppChar L_19 = String_get_Chars_m2986988803(L_17, L_18, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Char_t3634460470_il2cpp_TypeInfo_var);
-		bool L_20 = Char_IsWhiteSpace_m2148390798(NULL /*static, unused*/, L_19, /*hidden argument*/NULL);
-		if (!L_20)
-		{
-			goto IL_007c;
-		}
-	}
-	{
-		goto IL_00af;
-	}
-
-IL_007c:
-	{
-		String_t* L_21 = ___str0;
-		int32_t L_22 = V_1;
-		NullCheck(L_21);
-		Il2CppChar L_23 = String_get_Chars_m2986988803(L_21, L_22, /*hidden argument*/NULL);
-		Il2CppChar L_24 = TextInfo_ToTitleCase_m1969553686(__this, L_23, /*hidden argument*/NULL);
-		V_3 = L_24;
-		Il2CppChar L_25 = V_3;
-		String_t* L_26 = ___str0;
-		int32_t L_27 = V_1;
-		NullCheck(L_26);
-		Il2CppChar L_28 = String_get_Chars_m2986988803(L_26, L_27, /*hidden argument*/NULL);
-		if ((((int32_t)L_25) == ((int32_t)L_28)))
-		{
-			goto IL_009f;
-		}
-	}
-	{
-		V_5 = (bool)0;
-		goto IL_00af;
-	}
-
-IL_009f:
-	{
-		int32_t L_29 = V_1;
-		int32_t L_30 = ((int32_t)il2cpp_codegen_add((int32_t)L_29, (int32_t)1));
-		V_1 = L_30;
-		String_t* L_31 = ___str0;
-		NullCheck(L_31);
-		int32_t L_32 = String_get_Length_m3847582255(L_31, /*hidden argument*/NULL);
-		if ((((int32_t)L_30) < ((int32_t)L_32)))
-		{
-			goto IL_0066;
-		}
-	}
-
-IL_00af:
-	{
-		bool L_33 = V_5;
-		if (!L_33)
-		{
-			goto IL_00bb;
-		}
-	}
-	{
-		goto IL_018b;
-	}
-
-IL_00bb:
-	{
-		int32_t L_34 = V_6;
-		V_1 = L_34;
-		goto IL_00fd;
-	}
-
-IL_00c3:
-	{
-		String_t* L_35 = ___str0;
-		int32_t L_36 = V_1;
-		NullCheck(L_35);
-		Il2CppChar L_37 = String_get_Chars_m2986988803(L_35, L_36, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Char_t3634460470_il2cpp_TypeInfo_var);
-		bool L_38 = Char_IsWhiteSpace_m2148390798(NULL /*static, unused*/, L_37, /*hidden argument*/NULL);
-		if (!L_38)
-		{
-			goto IL_00d9;
-		}
-	}
-	{
-		goto IL_010d;
-	}
-
-IL_00d9:
-	{
-		String_t* L_39 = ___str0;
-		int32_t L_40 = V_1;
-		NullCheck(L_39);
-		Il2CppChar L_41 = String_get_Chars_m2986988803(L_39, L_40, /*hidden argument*/NULL);
-		Il2CppChar L_42 = VirtFuncInvoker1< Il2CppChar, Il2CppChar >::Invoke(7 /* System.Char System.Globalization.TextInfo::ToLower(System.Char) */, __this, L_41);
-		String_t* L_43 = ___str0;
-		int32_t L_44 = V_1;
-		NullCheck(L_43);
-		Il2CppChar L_45 = String_get_Chars_m2986988803(L_43, L_44, /*hidden argument*/NULL);
-		if ((((int32_t)L_42) == ((int32_t)L_45)))
-		{
-			goto IL_00fd;
-		}
-	}
-	{
-		V_4 = (bool)1;
-		int32_t L_46 = V_6;
-		V_1 = L_46;
-		goto IL_010d;
-	}
-
-IL_00fd:
-	{
-		int32_t L_47 = V_1;
-		int32_t L_48 = ((int32_t)il2cpp_codegen_add((int32_t)L_47, (int32_t)1));
-		V_1 = L_48;
-		String_t* L_49 = ___str0;
-		NullCheck(L_49);
-		int32_t L_50 = String_get_Length_m3847582255(L_49, /*hidden argument*/NULL);
-		if ((((int32_t)L_48) < ((int32_t)L_50)))
-		{
-			goto IL_00c3;
-		}
-	}
-
-IL_010d:
-	{
-		bool L_51 = V_4;
-		if (!L_51)
-		{
-			goto IL_018b;
-		}
-	}
-	{
-		StringBuilder_t * L_52 = V_0;
-		if (L_52)
-		{
-			goto IL_0126;
-		}
-	}
-	{
-		String_t* L_53 = ___str0;
-		NullCheck(L_53);
-		int32_t L_54 = String_get_Length_m3847582255(L_53, /*hidden argument*/NULL);
-		StringBuilder_t * L_55 = (StringBuilder_t *)il2cpp_codegen_object_new(StringBuilder_t_il2cpp_TypeInfo_var);
-		StringBuilder__ctor_m2367297767(L_55, L_54, /*hidden argument*/NULL);
-		V_0 = L_55;
-	}
-
-IL_0126:
-	{
-		StringBuilder_t * L_56 = V_0;
-		String_t* L_57 = ___str0;
-		int32_t L_58 = V_2;
-		int32_t L_59 = V_1;
-		int32_t L_60 = V_2;
-		NullCheck(L_56);
-		StringBuilder_Append_m3214161208(L_56, L_57, L_58, ((int32_t)il2cpp_codegen_subtract((int32_t)L_59, (int32_t)L_60)), /*hidden argument*/NULL);
-		StringBuilder_t * L_61 = V_0;
-		String_t* L_62 = ___str0;
-		int32_t L_63 = V_1;
-		NullCheck(L_62);
-		Il2CppChar L_64 = String_get_Chars_m2986988803(L_62, L_63, /*hidden argument*/NULL);
-		Il2CppChar L_65 = TextInfo_ToTitleCase_m1969553686(__this, L_64, /*hidden argument*/NULL);
-		NullCheck(L_61);
-		StringBuilder_Append_m2383614642(L_61, L_65, /*hidden argument*/NULL);
-		int32_t L_66 = V_1;
-		V_2 = ((int32_t)il2cpp_codegen_add((int32_t)L_66, (int32_t)1));
-		goto IL_0179;
-	}
-
-IL_014f:
-	{
-		String_t* L_67 = ___str0;
-		int32_t L_68 = V_1;
-		NullCheck(L_67);
-		Il2CppChar L_69 = String_get_Chars_m2986988803(L_67, L_68, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Char_t3634460470_il2cpp_TypeInfo_var);
-		bool L_70 = Char_IsWhiteSpace_m2148390798(NULL /*static, unused*/, L_69, /*hidden argument*/NULL);
-		if (!L_70)
-		{
-			goto IL_0165;
-		}
-	}
-	{
-		goto IL_0189;
-	}
-
-IL_0165:
-	{
-		StringBuilder_t * L_71 = V_0;
-		String_t* L_72 = ___str0;
-		int32_t L_73 = V_1;
-		NullCheck(L_72);
-		Il2CppChar L_74 = String_get_Chars_m2986988803(L_72, L_73, /*hidden argument*/NULL);
-		Il2CppChar L_75 = VirtFuncInvoker1< Il2CppChar, Il2CppChar >::Invoke(7 /* System.Char System.Globalization.TextInfo::ToLower(System.Char) */, __this, L_74);
-		NullCheck(L_71);
-		StringBuilder_Append_m2383614642(L_71, L_75, /*hidden argument*/NULL);
-	}
-
-IL_0179:
-	{
-		int32_t L_76 = V_1;
-		int32_t L_77 = ((int32_t)il2cpp_codegen_add((int32_t)L_76, (int32_t)1));
-		V_1 = L_77;
-		String_t* L_78 = ___str0;
-		NullCheck(L_78);
-		int32_t L_79 = String_get_Length_m3847582255(L_78, /*hidden argument*/NULL);
-		if ((((int32_t)L_77) < ((int32_t)L_79)))
-		{
-			goto IL_014f;
-		}
-	}
-
-IL_0189:
-	{
-		int32_t L_80 = V_1;
-		V_2 = L_80;
-	}
-
-IL_018b:
-	{
-		int32_t L_81 = V_1;
-		String_t* L_82 = ___str0;
-		NullCheck(L_82);
-		int32_t L_83 = String_get_Length_m3847582255(L_82, /*hidden argument*/NULL);
-		if ((((int32_t)L_81) < ((int32_t)L_83)))
-		{
-			goto IL_001c;
-		}
-	}
-	{
-		StringBuilder_t * L_84 = V_0;
-		if (!L_84)
-		{
-			goto IL_01ae;
-		}
-	}
-	{
-		StringBuilder_t * L_85 = V_0;
-		String_t* L_86 = ___str0;
-		int32_t L_87 = V_2;
-		String_t* L_88 = ___str0;
-		NullCheck(L_88);
-		int32_t L_89 = String_get_Length_m3847582255(L_88, /*hidden argument*/NULL);
-		int32_t L_90 = V_2;
-		NullCheck(L_85);
-		StringBuilder_Append_m3214161208(L_85, L_86, L_87, ((int32_t)il2cpp_codegen_subtract((int32_t)L_89, (int32_t)L_90)), /*hidden argument*/NULL);
-	}
-
-IL_01ae:
-	{
-		StringBuilder_t * L_91 = V_0;
-		if (!L_91)
-		{
-			goto IL_01bf;
-		}
-	}
-	{
-		StringBuilder_t * L_92 = V_0;
-		NullCheck(L_92);
-		String_t* L_93 = StringBuilder_ToString_m3317489284(L_92, /*hidden argument*/NULL);
-		G_B35_0 = L_93;
-		goto IL_01c0;
-	}
-
-IL_01bf:
-	{
-		String_t* L_94 = ___str0;
-		G_B35_0 = L_94;
-	}
-
-IL_01c0:
-	{
-		return G_B35_0;
-	}
-}
 // System.Char System.Globalization.TextInfo::ToLower(System.Char)
 extern "C" IL2CPP_METHOD_ATTR Il2CppChar TextInfo_ToLower_m2744057472 (TextInfo_t3810425522 * __this, Il2CppChar ___c0, const RuntimeMethod* method)
 {
@@ -28540,141 +28157,6 @@ IL_0158:
 		IL2CPP_RUNTIME_CLASS_INIT(Char_t3634460470_il2cpp_TypeInfo_var);
 		Il2CppChar L_25 = Char_ToUpperInvariant_m3658711221(NULL /*static, unused*/, L_24, /*hidden argument*/NULL);
 		return L_25;
-	}
-}
-// System.Char System.Globalization.TextInfo::ToTitleCase(System.Char)
-extern "C" IL2CPP_METHOD_ATTR Il2CppChar TextInfo_ToTitleCase_m1969553686 (TextInfo_t3810425522 * __this, Il2CppChar ___c0, const RuntimeMethod* method)
-{
-	Il2CppChar V_0 = 0x0;
-	{
-		Il2CppChar L_0 = ___c0;
-		V_0 = L_0;
-		Il2CppChar L_1 = V_0;
-		switch (((int32_t)il2cpp_codegen_subtract((int32_t)L_1, (int32_t)((int32_t)452))))
-		{
-			case 0:
-			{
-				goto IL_004f;
-			}
-			case 1:
-			{
-				goto IL_004f;
-			}
-			case 2:
-			{
-				goto IL_004f;
-			}
-			case 3:
-			{
-				goto IL_0055;
-			}
-			case 4:
-			{
-				goto IL_0055;
-			}
-			case 5:
-			{
-				goto IL_0055;
-			}
-			case 6:
-			{
-				goto IL_005b;
-			}
-			case 7:
-			{
-				goto IL_005b;
-			}
-			case 8:
-			{
-				goto IL_005b;
-			}
-		}
-	}
-	{
-		Il2CppChar L_2 = V_0;
-		switch (((int32_t)il2cpp_codegen_subtract((int32_t)L_2, (int32_t)((int32_t)497))))
-		{
-			case 0:
-			{
-				goto IL_0061;
-			}
-			case 1:
-			{
-				goto IL_0061;
-			}
-			case 2:
-			{
-				goto IL_0061;
-			}
-		}
-	}
-	{
-		goto IL_0067;
-	}
-
-IL_004f:
-	{
-		return ((int32_t)453);
-	}
-
-IL_0055:
-	{
-		return ((int32_t)456);
-	}
-
-IL_005b:
-	{
-		return ((int32_t)459);
-	}
-
-IL_0061:
-	{
-		return ((int32_t)498);
-	}
-
-IL_0067:
-	{
-		Il2CppChar L_3 = ___c0;
-		if ((((int32_t)((int32_t)8560)) > ((int32_t)L_3)))
-		{
-			goto IL_007d;
-		}
-	}
-	{
-		Il2CppChar L_4 = ___c0;
-		if ((((int32_t)L_4) <= ((int32_t)((int32_t)8575))))
-		{
-			goto IL_0093;
-		}
-	}
-
-IL_007d:
-	{
-		Il2CppChar L_5 = ___c0;
-		if ((((int32_t)((int32_t)9424)) > ((int32_t)L_5)))
-		{
-			goto IL_0095;
-		}
-	}
-	{
-		Il2CppChar L_6 = ___c0;
-		if ((((int32_t)L_6) > ((int32_t)((int32_t)9449))))
-		{
-			goto IL_0095;
-		}
-	}
-
-IL_0093:
-	{
-		Il2CppChar L_7 = ___c0;
-		return L_7;
-	}
-
-IL_0095:
-	{
-		Il2CppChar L_8 = ___c0;
-		Il2CppChar L_9 = VirtFuncInvoker1< Il2CppChar, Il2CppChar >::Invoke(8 /* System.Char System.Globalization.TextInfo::ToUpper(System.Char) */, __this, L_8);
-		return L_9;
 	}
 }
 // System.String System.Globalization.TextInfo::ToLower(System.String)

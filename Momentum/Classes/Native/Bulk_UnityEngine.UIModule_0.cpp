@@ -148,7 +148,6 @@ extern const uint32_t RectTransformUtility_FlipLayoutOnAxis_m2606646065_Metadata
 extern const uint32_t RectTransformUtility_PixelAdjustPoint_m1850521440_MetadataUsageId;
 extern const uint32_t RectTransformUtility_PixelAdjustRect_m1716244231_MetadataUsageId;
 extern const uint32_t RectTransformUtility_PointInRectangle_m1879350635_MetadataUsageId;
-extern const uint32_t RectTransformUtility_RectangleContainsScreenPoint_m3246909541_MetadataUsageId;
 extern const uint32_t RectTransformUtility_RectangleContainsScreenPoint_m4031431712_MetadataUsageId;
 extern const uint32_t RectTransformUtility_ScreenPointToLocalPointInRectangle_m2327269187_MetadataUsageId;
 extern const uint32_t RectTransformUtility_ScreenPointToRay_m85042072_MetadataUsageId;
@@ -2218,8 +2217,6 @@ extern "C" IL2CPP_METHOD_ATTR void CanvasRenderer_SplitUIVertexStreamsInternal_m
 extern "C" IL2CPP_METHOD_ATTR void CanvasRenderer_SplitIndicesStreamsInternal_m2851933301 (RuntimeObject * __this /* static, unused */, RuntimeObject * ___verts0, RuntimeObject * ___indices1, const RuntimeMethod* method);
 // System.Void UnityEngine.CanvasRenderer::CreateUIVertexStreamInternal(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
 extern "C" IL2CPP_METHOD_ATTR void CanvasRenderer_CreateUIVertexStreamInternal_m543814397 (RuntimeObject * __this /* static, unused */, RuntimeObject * ___verts0, RuntimeObject * ___positions1, RuntimeObject * ___colors2, RuntimeObject * ___uv0S3, RuntimeObject * ___uv1S4, RuntimeObject * ___uv2S5, RuntimeObject * ___uv3S6, RuntimeObject * ___normals7, RuntimeObject * ___tangents8, RuntimeObject * ___indices9, const RuntimeMethod* method);
-// System.Boolean UnityEngine.RectTransformUtility::RectangleContainsScreenPoint(UnityEngine.RectTransform,UnityEngine.Vector2,UnityEngine.Camera)
-extern "C" IL2CPP_METHOD_ATTR bool RectTransformUtility_RectangleContainsScreenPoint_m4031431712 (RuntimeObject * __this /* static, unused */, RectTransform_t3704657025 * ___rect0, Vector2_t2156229523  ___screenPoint1, Camera_t4157153871 * ___cam2, const RuntimeMethod* method);
 // System.Boolean UnityEngine.RectTransformUtility::PointInRectangle(UnityEngine.Vector2,UnityEngine.RectTransform,UnityEngine.Camera)
 extern "C" IL2CPP_METHOD_ATTR bool RectTransformUtility_PointInRectangle_m1879350635 (RuntimeObject * __this /* static, unused */, Vector2_t2156229523  ___screenPoint0, RectTransform_t3704657025 * ___rect1, Camera_t4157153871 * ___cam2, const RuntimeMethod* method);
 // UnityEngine.Vector2 UnityEngine.Vector2::get_zero()
@@ -3093,31 +3090,6 @@ extern "C" IL2CPP_METHOD_ATTR void CanvasRenderer_EnableRectClipping_Injected_m1
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// System.Boolean UnityEngine.RectTransformUtility::RectangleContainsScreenPoint(UnityEngine.RectTransform,UnityEngine.Vector2)
-extern "C" IL2CPP_METHOD_ATTR bool RectTransformUtility_RectangleContainsScreenPoint_m3246909541 (RuntimeObject * __this /* static, unused */, RectTransform_t3704657025 * ___rect0, Vector2_t2156229523  ___screenPoint1, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (RectTransformUtility_RectangleContainsScreenPoint_m3246909541_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	bool V_0 = false;
-	{
-		RectTransform_t3704657025 * L_0 = ___rect0;
-		Vector2_t2156229523  L_1 = ___screenPoint1;
-		IL2CPP_RUNTIME_CLASS_INIT(RectTransformUtility_t1743242446_il2cpp_TypeInfo_var);
-		bool L_2 = RectTransformUtility_RectangleContainsScreenPoint_m4031431712(NULL /*static, unused*/, L_0, L_1, (Camera_t4157153871 *)NULL, /*hidden argument*/NULL);
-		V_0 = L_2;
-		goto IL_000f;
-	}
-
-IL_000f:
-	{
-		bool L_3 = V_0;
-		return L_3;
-	}
-}
 // System.Boolean UnityEngine.RectTransformUtility::RectangleContainsScreenPoint(UnityEngine.RectTransform,UnityEngine.Vector2,UnityEngine.Camera)
 extern "C" IL2CPP_METHOD_ATTR bool RectTransformUtility_RectangleContainsScreenPoint_m4031431712 (RuntimeObject * __this /* static, unused */, RectTransform_t3704657025 * ___rect0, Vector2_t2156229523  ___screenPoint1, Camera_t4157153871 * ___cam2, const RuntimeMethod* method)
 {

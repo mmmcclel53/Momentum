@@ -906,9 +906,6 @@ extern Il2CppGenericClass InternalEnumerator_1_t1911769025_GenericClass;
 extern Il2CppGenericClass IList_1_t2820024691_GenericClass;
 extern Il2CppGenericClass ICollection_1_t3832857142_GenericClass;
 extern Il2CppGenericClass IEnumerable_1_t4279525093_GenericClass;
-extern Il2CppGenericClass LinkedList_1_t1919752173_GenericClass;
-extern Il2CppGenericClass LinkedListNode_1_t2825281267_GenericClass;
-extern Il2CppGenericClass Enumerator_t139379724_GenericClass;
 extern Il2CppGenericClass Queue_1_t2926365658_GenericClass;
 extern Il2CppGenericClass Enumerator_t3588277760_GenericClass;
 extern Il2CppGenericClass Stack_1_t3923495619_GenericClass;
@@ -2256,16 +2253,6 @@ extern Il2CppGenericClass IEnumerable_1_t3010232044_GenericClass;
 extern Il2CppGenericClass ValueCollection_t3348751306_GenericClass;
 extern Il2CppGenericClass Enumerator_t2201600645_GenericClass;
 extern Il2CppGenericClass Enumerator_t3586889763_GenericClass;
-extern Il2CppGenericClass LinkedList_1_t2544303034_GenericClass;
-extern Il2CppGenericClass LinkedListNode_1_t3449832128_GenericClass;
-extern Il2CppGenericClass Enumerator_t763930585_GenericClass;
-extern Il2CppGenericClass U3CU3E__AnonType0_2_t1015044699_GenericClass;
-extern Il2CppGenericClass U3CU3E__AnonType0_2_t1952643823_GenericClass;
-extern Il2CppGenericClass IEnumerator_1_t2988256792_GenericClass;
-extern Il2CppGenericClass InternalEnumerator_1_t3462750441_GenericClass;
-extern Il2CppGenericClass IList_1_t76038811_GenericClass;
-extern Il2CppGenericClass ICollection_1_t1088871262_GenericClass;
-extern Il2CppGenericClass IEnumerable_1_t1535539213_GenericClass;
 extern Il2CppGenericClass IEnumerator_1_t2695205017_GenericClass;
 extern Il2CppGenericClass IEnumerator_1_t2468302629_GenericClass;
 extern Il2CppGenericClass InternalEnumerator_1_t2942796278_GenericClass;
@@ -2387,16 +2374,6 @@ extern Il2CppGenericClass IEnumerable_1_t2384670148_GenericClass;
 extern Il2CppGenericClass Collection_1_t2349173177_GenericClass;
 extern Il2CppGenericClass Getter_2_t3687196427_GenericClass;
 extern Il2CppGenericClass StaticGetter_1_t3257807389_GenericClass;
-extern Il2CppGenericClass IEnumerator_1_t3270137977_GenericClass;
-extern Il2CppGenericClass LinkedListNode_1_t2582742612_GenericClass;
-extern Il2CppGenericClass Enumerator_t4191808365_GenericClass;
-extern Il2CppGenericClass LinkedList_1_t3047552901_GenericClass;
-extern Il2CppGenericClass LinkedListNode_1_t3953081995_GenericClass;
-extern Il2CppGenericClass IEnumerator_1_t345510064_GenericClass;
-extern Il2CppGenericClass IEnumerable_1_t1817420398_GenericClass;
-extern Il2CppGenericClass ICollection_1_t1370752447_GenericClass;
-extern Il2CppGenericClass LinkedList_1_t2511176644_GenericClass;
-extern Il2CppGenericClass LinkedListNode_1_t3416705738_GenericClass;
 extern Il2CppGenericClass IEnumerator_1_t4192488238_GenericClass;
 extern Il2CppGenericClass Enumerator_t4268089366_GenericClass;
 extern Il2CppGenericClass Queue_1_t4276236934_GenericClass;
@@ -2481,9 +2458,6 @@ extern Il2CppGenericClass UnityAction_1_t3594730102_GenericClass;
 extern Il2CppGenericClass ListPool_1_t2567408410_GenericClass;
 extern Il2CppGenericClass UnityAction_1_t2124654189_GenericClass;
 extern Il2CppGenericClass Stack_1_t2383207503_GenericClass;
-extern Il2CppGenericClass U3CU3E__AnonType0_2_t734904276_GenericClass;
-extern Il2CppGenericClass EqualityComparer_1_t3452773529_GenericClass;
-extern Il2CppGenericClass EqualityComparer_1_t824380402_GenericClass;
 extern Il2CppGenericClass IComparer_1_t884274696_GenericClass;
 extern Il2CppGenericClass IComparer_1_t1188505307_GenericClass;
 extern Il2CppGenericClass IEqualityComparer_1_t2502945182_GenericClass;
@@ -2493,7 +2467,7 @@ extern Il2CppGenericClass IEqualityComparer_1_t730487731_GenericClass;
 
 
 
-extern Il2CppGenericClass* const s_Il2CppGenericTypes[2467] = 
+extern Il2CppGenericClass* const s_Il2CppGenericTypes[2441] = 
 {
 	&IEnumerator_1_t3512676632_GenericClass,
 	&InternalEnumerator_1_t3987170281_GenericClass,
@@ -3380,9 +3354,6 @@ extern Il2CppGenericClass* const s_Il2CppGenericTypes[2467] =
 	&IList_1_t2820024691_GenericClass,
 	&ICollection_1_t3832857142_GenericClass,
 	&IEnumerable_1_t4279525093_GenericClass,
-	&LinkedList_1_t1919752173_GenericClass,
-	&LinkedListNode_1_t2825281267_GenericClass,
-	&Enumerator_t139379724_GenericClass,
 	&Queue_1_t2926365658_GenericClass,
 	&Enumerator_t3588277760_GenericClass,
 	&Stack_1_t3923495619_GenericClass,
@@ -4730,16 +4701,6 @@ extern Il2CppGenericClass* const s_Il2CppGenericTypes[2467] =
 	&ValueCollection_t3348751306_GenericClass,
 	&Enumerator_t2201600645_GenericClass,
 	&Enumerator_t3586889763_GenericClass,
-	&LinkedList_1_t2544303034_GenericClass,
-	&LinkedListNode_1_t3449832128_GenericClass,
-	&Enumerator_t763930585_GenericClass,
-	&U3CU3E__AnonType0_2_t1015044699_GenericClass,
-	&U3CU3E__AnonType0_2_t1952643823_GenericClass,
-	&IEnumerator_1_t2988256792_GenericClass,
-	&InternalEnumerator_1_t3462750441_GenericClass,
-	&IList_1_t76038811_GenericClass,
-	&ICollection_1_t1088871262_GenericClass,
-	&IEnumerable_1_t1535539213_GenericClass,
 	&IEnumerator_1_t2695205017_GenericClass,
 	&IEnumerator_1_t2468302629_GenericClass,
 	&InternalEnumerator_1_t2942796278_GenericClass,
@@ -4861,16 +4822,6 @@ extern Il2CppGenericClass* const s_Il2CppGenericTypes[2467] =
 	&Collection_1_t2349173177_GenericClass,
 	&Getter_2_t3687196427_GenericClass,
 	&StaticGetter_1_t3257807389_GenericClass,
-	&IEnumerator_1_t3270137977_GenericClass,
-	&LinkedListNode_1_t2582742612_GenericClass,
-	&Enumerator_t4191808365_GenericClass,
-	&LinkedList_1_t3047552901_GenericClass,
-	&LinkedListNode_1_t3953081995_GenericClass,
-	&IEnumerator_1_t345510064_GenericClass,
-	&IEnumerable_1_t1817420398_GenericClass,
-	&ICollection_1_t1370752447_GenericClass,
-	&LinkedList_1_t2511176644_GenericClass,
-	&LinkedListNode_1_t3416705738_GenericClass,
 	&IEnumerator_1_t4192488238_GenericClass,
 	&Enumerator_t4268089366_GenericClass,
 	&Queue_1_t4276236934_GenericClass,
@@ -4955,9 +4906,6 @@ extern Il2CppGenericClass* const s_Il2CppGenericTypes[2467] =
 	&ListPool_1_t2567408410_GenericClass,
 	&UnityAction_1_t2124654189_GenericClass,
 	&Stack_1_t2383207503_GenericClass,
-	&U3CU3E__AnonType0_2_t734904276_GenericClass,
-	&EqualityComparer_1_t3452773529_GenericClass,
-	&EqualityComparer_1_t824380402_GenericClass,
 	&IComparer_1_t884274696_GenericClass,
 	&IComparer_1_t1188505307_GenericClass,
 	&IEqualityComparer_1_t2502945182_GenericClass,

@@ -9,6 +9,9 @@ public class Best : MonoBehaviour {
       Destroy(this.gameObject.transform.parent.gameObject);
       return;
     }
+  }
+
+  void Update() {
     this.gameObject.GetComponent<Text>().text = GameManager.currentBest.ToString();
   }
 }

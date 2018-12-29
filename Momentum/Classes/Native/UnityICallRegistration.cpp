@@ -436,6 +436,14 @@ void RegisterAllStrippedInternalCalls()
 
 	//End Registrations for type : UnityEngine.Collider2D
 
+	//Start Registrations for type : UnityEngine.ColorUtility
+
+		//System.Boolean UnityEngine.ColorUtility::DoTryParseHtmlColor(System.String,UnityEngine.Color32&)
+		void Register_UnityEngine_ColorUtility_DoTryParseHtmlColor();
+		Register_UnityEngine_ColorUtility_DoTryParseHtmlColor();
+
+	//End Registrations for type : UnityEngine.ColorUtility
+
 	//Start Registrations for type : UnityEngine.Component
 
 		//System.Void UnityEngine.Component::GetComponentFastPath(System.Type,System.IntPtr)

@@ -10,7 +10,7 @@ public static class GameManager {
   public static int playerExperience = 0;
   public static string playerRank = "Novice";
 
-  public static int currentBest;
+  public static int currentBest = 0;
   public static int[] currentStars;
   public static int[] easyStars;
   public static int[] mediumStars;
