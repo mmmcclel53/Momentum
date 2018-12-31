@@ -10,7 +10,7 @@ public class NextLevel : MonoBehaviour {
     int complexity = Int32.Parse(level.Split('_')[0]);
     int number = Int32.Parse(level.Split('_')[1]);
 
-    if (number == 15 && LevelManager.difficulty != "impossible") {
+    if (number == 10) {
       return (complexity+1).ToString() + "_1";
     } else {
       return complexity.ToString() + "_" + (number+1).ToString();
@@ -25,7 +25,7 @@ public class NextLevel : MonoBehaviour {
 
   void Start() {
     // If ranked or we're on the last level of a difficulty, don't display
-    if (GameManager.gameType == "ranked" || LevelManager.level == "4_15" || LevelManager.level == "9_15" || LevelManager.level == "14_15" || LevelManager.level == "19_15" || LevelManager.level == "20_33") {
+    if (GameManager.gameType == "ranked" || LevelManager.level == "3_10" || LevelManager.level == "7_10" || LevelManager.level == "11_10" || LevelManager.level == "15_10" || LevelManager.level == "19_10") {
       Destroy(this.gameObject);
     }
   }

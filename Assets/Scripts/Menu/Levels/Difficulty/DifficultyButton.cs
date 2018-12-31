@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,10 +14,10 @@ public class DifficultyButton : MonoBehaviour {
 
   private static int gridColumnCount = 0;
 
-  private int STARS_TO_UNLOCK_MEDIUM = 150;
-  private int STARS_TO_UNLOCK_HARD = 350;
-  private int STARS_TO_UNLOCK_MASTER = 550;
-  private int STARS_TO_UNLOCK_IMPOSSIBLE = 900;
+  private int STARS_TO_UNLOCK_MEDIUM = 100;
+  private int STARS_TO_UNLOCK_HARD = 200;
+  private int STARS_TO_UNLOCK_MASTER = 0;
+  private int STARS_TO_UNLOCK_IMPOSSIBLE = 0;
 
   private string EASY_BG_COLOR = "#1978D6";
   private string MEDIUM_BG_COLOR = "#00730C";
@@ -70,7 +71,7 @@ public class DifficultyButton : MonoBehaviour {
     // If the grid width hasn't been set yet
     if (gridColumnCount == 0) {
       float gridWidth = listContent.GetComponent<RectTransform>().rect.width;
-      gridColumnCount = Mathf.FloorToInt(gridWidth / (listGrid.cellSize.x + (listGrid.spacing.x * 2)) );
+      gridColumnCount = Math.Max(Mathf.FloorToInt(gridWidth / (listGrid.cellSize.x + (listGrid.spacing.x * 2)) ) + 1, 4);
     }
     
     listGrid.constraintCount = gridColumnCount;
@@ -108,11 +109,11 @@ public class DifficultyButton : MonoBehaviour {
 
   public void onDifficultyClick(string difficulty) {
 
-    if (difficulty == "medium" && GameManager.totalStars < STARS_TO_UNLOCK_MEDIUM) {
-      return;
-    } else if (difficulty == "hard" && GameManager.totalStars < STARS_TO_UNLOCK_HARD) {
-      return;
-    }
+    // if (difficulty == "medium" && GameManager.totalStars < STARS_TO_UNLOCK_MEDIUM) {
+    //   return;
+    // } else if (difficulty == "hard" && GameManager.totalStars < STARS_TO_UNLOCK_HARD) {
+    //   return;
+    // }
 
     LevelManager.difficulty = difficulty;
     GameManager.currentStars = getCurrentStars(difficulty);

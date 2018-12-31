@@ -9,22 +9,11 @@ public class LevelButton : UIBehaviour {
 
   // Kinda gross
   private string calculateLevel(int level) {
-    int prefix = Convert.ToInt32(Math.Floor((double)(level-1) / 15));
-    int suffix = (level-1) % 15 + 1;
-    switch (LevelManager.difficulty) {
-      case "easy":
-        return prefix.ToString() + "_" + suffix;
-      case "medium":
-        return (prefix+5).ToString() + "_" + suffix;
-      case "hard":
-        return (prefix+10).ToString() + "_" + suffix;
-      case "master":
-        return (prefix+15).ToString() + "_" + suffix;
-      case "impossible":
-        return "20_" + level;
-      default:
-        return prefix.ToString() + "_" + suffix;
-    }
+    int prefix = Convert.ToInt32(Math.Floor((double)(level-1) / 10));
+    int suffix = (level-1) % 10 + 1;
+
+    int index = Array.IndexOf(LevelUtility.difficulties, LevelManager.difficulty);
+    return (prefix+(index*4)).ToString() + "_" + suffix;
   }
 
   public void onLevelClick() {

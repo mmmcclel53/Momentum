@@ -19,10 +19,19 @@ public class OnLevelLoad : MonoBehaviour {
   public Tilemap eastTilemap;
   public Tilemap southTilemap;
   public Tilemap westTilemap;
+  public Tilemap gridTilemap;
 
   private Tile ship;
   private Tile asteroid;
   private Tile goal;
+
+  private static int calculateX(int tile) {
+    return tile % LevelUtility.calculateBoardSize();
+  }
+
+  private static int calculateY(int tile) {
+    return -1 * Convert.ToInt32(Math.Floor((double)(tile / LevelUtility.calculateBoardSize())));
+  }
 
   private bool hasWall(int tile, int wall) {
     return (tile & wall) != 0;
@@ -30,6 +39,17 @@ public class OnLevelLoad : MonoBehaviour {
 
   private bool isCurrentShipObj() {
     return MovingObject.getObject() == shipObj;
+  }
+
+  private void setGrid(int increment) {
+    float x = this.gameObject.transform.position.x;
+    float y = this.gameObject.transform.position.y;
+    
+    int index = Array.IndexOf(LevelUtility.difficulties, LevelManager.difficulty);
+    x += -increment*index;
+    y += increment*index;
+
+		this.gameObject.transform.position = new Vector2(x, y);
   }
 
   // Set both tile and real object positions
@@ -40,12 +60,13 @@ public class OnLevelLoad : MonoBehaviour {
 
     for (int i=0; i<movableTileStrings.Length; i++) {
       int movableInt = Int32.Parse(movableTileStrings[i]);
-      Vector3Int movableTile = new Vector3Int(LevelUtility.calculateX(movableInt), LevelUtility.calculateY(movableInt), 0);
+      Vector3Int movableTile = new Vector3Int(calculateX(movableInt), calculateY(movableInt), 0);
+      movableObjects[i].SetActive(true);
       movableObjects[i].transform.position = northTilemap.CellToWorld(movableTile);
       playersAndGoal.SetTile(movableTile, i == 0 ? ship : asteroid);
     }
     int goalInt = Int32.Parse(goalString);
-    Vector3Int goalTile = new Vector3Int(LevelUtility.calculateX(goalInt), LevelUtility.calculateY(goalInt), 0);
+    Vector3Int goalTile = new Vector3Int(calculateX(goalInt), calculateY(goalInt), 0);
     goalObj.transform.position = northTilemap.CellToWorld(goalTile);
     playersAndGoal.SetTile(goalTile, goal);
 
@@ -55,18 +76,29 @@ public class OnLevelLoad : MonoBehaviour {
   private void setTiles(string[] tiles) {
     
     // These should be children of their respective tilemap
+    Tile grid = Resources.Load <Tile> ("Tiles/Grid");
     Tile northWall = Resources.Load <Tile> ("Tiles/NorthWall");
     Tile eastWall = Resources.Load <Tile> ("Tiles/EastWall");
     Tile southWall = Resources.Load <Tile> ("Tiles/SouthWall");
     Tile westWall = Resources.Load <Tile> ("Tiles/WestWall");
 
+    int boardSize = LevelUtility.calculateBoardSize();
+    int middleSquare = boardSize / 2;
     int x = 0; int y = 0;
     foreach (string tileString in tiles) {
 
       // Start next row
-      if (x >= 16) {
+      if (x >= boardSize) {
         x = 0;
         y--;
+      }
+
+      // Set all but middle grid squares (ignore for Easy difficulty)
+      if (
+        LevelManager.difficulty == "easy" ||
+        ((x != middleSquare && x != middleSquare-1) || (Math.Abs(y) != middleSquare && Math.Abs(y) != middleSquare-1))
+      ) {
+        gridTilemap.SetTile(new Vector3Int(x, y, 0), grid);
       }
 
       int tile = Int32.Parse(tileString) % 16;
@@ -87,6 +119,7 @@ public class OnLevelLoad : MonoBehaviour {
       if (hasWall(tile, 8)) {
         westTilemap.SetTile(new Vector3Int(x, y, 0), westWall);
       }
+
       x++;
     }
   }
@@ -99,14 +132,8 @@ public class OnLevelLoad : MonoBehaviour {
     return (TextAsset)Resources.Load("Levels/Ranked/" + LevelUtility.calculateRankedDifficulty() + LevelUtility.calculateRankedLevel(), typeof(TextAsset));
   }
 
-  // Use this for initialization
   void Start() {
-
-    // Disable screen capture (you filthy cheaters!)
-    // getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);
-
     TextAsset file = getPath();
-    // TextAsset file =  (TextAsset)Resources.Load("Levels/Puzzles/easy/easy0_1", typeof(TextAsset));
 
     // Read the tiles directly from the difficulty file
     string[] separators = {" "};
@@ -120,6 +147,7 @@ public class OnLevelLoad : MonoBehaviour {
     LevelManager.solution = lines[3].Split(separators, StringSplitOptions.RemoveEmptyEntries);
     LevelManager.solved = false;
 
+    setGrid(500);
     setTiles(tiles);
     setPlayersAndGoal(players, goal);
     GameManager.loadCurrentBest();

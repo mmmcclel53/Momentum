@@ -9,12 +9,12 @@ public class OnRankedSolve : MonoBehaviour {
   private const int MAX_EXPERIENCE_POSSIBLE = 50;
 
   // Essentially add 5s more for each complexity, but bump the buffer +5 for each new difficulty
-  private int[] PAR_TIME = new int[25] {
-    5, 10, 15, 20, 25,        // Easy + 5
-    35, 45, 55, 65, 75,       // Medium + 10
-    90, 115, 130, 145, 160,   // Hard + 15
-    180, 200, 220, 240, 260,  // Master + 20
-    285, 310, 335, 360, 385   // Impossible + 25
+  private int[] PAR_TIME = new int[20] {
+    10, 15, 20, 25,        // Easy + 5
+    35, 45, 55, 65,        // Medium + 10
+    80, 95, 110, 125,      // Hard + 15
+    145, 165, 185, 205,    // Master + 20
+    230, 255, 280, 305     // Impossible + 25
   };
 
   private string[] RANKS = new string[10] {"Novice", "Apprentice", "Adept", "Veteran", "Expert", "Elite", "Ace", "Legend", "Mythic", "Transcendant"};

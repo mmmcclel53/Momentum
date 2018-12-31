@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,19 @@ public static class GameManager {
   public static int[] impossibleStars;
   public static int totalStars = 0;
 
+  public static bool[] shipUnlocks = {
+    true, // Default Ship
+    false, false, false, false, false, // Puzzle Ships
+    false, false, false, false, false, // Rank Ships
+    false // 100% Ship
+  };
+  public static string[] shipUnlockReqs = {
+    null, // Default Ship
+    "100% Easy", "100% Medium", "100% Hard", "100% Master", "100% Impossible",
+    "Apprentice Rank", "Veteran Rank", "Elite Rank", "Legend Rank", "Transcendant Rank",
+    "???"
+  };
+
   public static void Load(string sceneName) {
     SceneManager.LoadScene(sceneName);
   }
@@ -31,6 +45,16 @@ public static class GameManager {
     } else {
       playerExperience += adjustment;
     }
+  }
+
+  public static void updateShipUnlocks() {
+    const int PERFECT_STARS = 120;
+    shipUnlocks = new bool[] {
+      true, // Default Ship
+      easyStars.Sum() == PERFECT_STARS, mediumStars.Sum() == PERFECT_STARS, hardStars.Sum() == PERFECT_STARS, masterStars.Sum() == PERFECT_STARS, impossibleStars.Sum() == PERFECT_STARS,
+      playerExperience >= 500, playerExperience >= 1500, playerExperience >= 2500, playerExperience >= 3500, playerExperience >= 5000,
+      totalStars >= 600 && playerExperience >= 5000
+    };
   }
 
   public static void loadCurrentBest() {
@@ -47,7 +71,7 @@ public static class GameManager {
 
   // Total stars per difficulty, from memory
   private static int[] getStars(string difficulty) {
-    int[] stars = new int[75];
+    int[] stars = new int[40];
     DirectoryInfo directory = new DirectoryInfo(Application.persistentDataPath);
     FileInfo[] files = directory.GetFiles("*.dat");
     BinaryFormatter bf = new BinaryFormatter();

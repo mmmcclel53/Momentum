@@ -7,19 +7,15 @@ using UnityEditor;
 
 public static class LevelUtility {
 
-  // Change levels to 1-75 index. Delete this later.
-  public static int calculateIndex(string level) {
+  public static string[] difficulties = {"easy", "medium", "hard", "master", "impossible"};
 
+  // Change levels to 1-40 index. Delete this later.
+  public static int calculateIndex(string level) {
     int complexity = Int32.Parse(level.Split('_')[0]);
     int number = Int32.Parse(level.Split('_')[1]);
 
-    // Impossible difficulty
-    if (complexity >= 20) {
-      return number;
-    }
-
     // Mega gross
-    return ((complexity % 5) * 15) + number;
+    return ((complexity % 4) * 10) + number;
   }
 
   public static string calculateRankedDifficulty() {
@@ -43,53 +39,46 @@ public static class LevelUtility {
     string randomLevel = random.Next(1, 100).ToString();
 
     int exp = GameManager.playerExperience;
-    if (exp < 200) {
+    if (exp < 250) {
       return "0_" + randomLevel;
-    } else if (exp < 400) {
+    } else if (exp < 500) {
       return "1_" + randomLevel;
-    } else if (exp < 600) {
+    } else if (exp < 750) {
       return "2_" + randomLevel;
-    } else if (exp < 800) {
-      return "3_" + randomLevel;
     } else if (exp < 1000) {
+      return "3_" + randomLevel;
+    } else if (exp < 1250) {
       return "4_" + randomLevel;
-    } else if (exp < 1200) {
+    } else if (exp < 1500) {
       return "5_" + randomLevel;
-    } else if (exp < 1400) {
+    } else if (exp < 1750) {
       return "6_" + randomLevel;
-    } else if (exp < 1600) {
-      return "7_" + randomLevel;
-    } else if (exp < 1800) {
-      return "8_" + randomLevel;
     } else if (exp < 2000) {
+      return "7_" + randomLevel;
+    } else if (exp < 2250) {
+      return "8_" + randomLevel;
+    } else if (exp < 2500) {
       return "9_" + randomLevel;
-    } else if (exp < 2200) {
+    } else if (exp < 2750) {
       return "10_" + randomLevel;
-    } else if (exp < 2400) {
-      return "11_" + randomLevel;
-    } else if (exp < 2600) {
-      return "12_" + randomLevel;
-    } else if (exp < 2800) {
-      return "13_" + randomLevel;
     } else if (exp < 3000) {
+      return "11_" + randomLevel;
+    } else if (exp < 3250) {
+      return "12_" + randomLevel;
+    } else if (exp < 3500) {
+      return "13_" + randomLevel;
+    } else if (exp < 3750) {
       return "14_" + randomLevel;
-    } else if (exp < 3200) {
-      return "15_" + randomLevel;
-    } else if (exp < 3400) {
-      return "16_" + randomLevel;
-    } else if (exp < 3600) {
-      return "17_" + randomLevel;
-    } else if (exp < 3800) {
-      return "18_" + randomLevel;
     } else if (exp < 4000) {
+      return "15_" + randomLevel;
+    } else if (exp < 4250) {
+      return "16_" + randomLevel;
+    } else if (exp < 4500) {
+      return "17_" + randomLevel;
+    } else if (exp < 4750) {
+      return "18_" + randomLevel;
+    } else {
       return "19_" + randomLevel;
-    } else { // > 4000
-      int level = random.Next(1, 200);
-      DirectoryInfo directory = new DirectoryInfo("Assets/Resources/Levels/Ranked/");
-      FileInfo[] files = directory.GetFiles("impossible*.txt");
-
-      // Random impossible puzzle
-      return files[level].Name.Replace("impossible", "").Replace(".txt", "");
     }
   }
 
@@ -106,11 +95,20 @@ public static class LevelUtility {
     }
   }
 
-  public static int calculateX(int tile) {
-    return tile % 16;
-  }
-
-  public static int calculateY(int tile) {
-    return -1 * Convert.ToInt32(Math.Floor((double)(tile/16)));
+  public static int calculateBoardSize() {
+    switch (LevelManager.difficulty) {
+      case "easy":
+        return 6;
+      case "medium":
+        return 8;
+      case "hard":
+        return 10;
+      case "master":
+        return 12;
+      case "impossible":
+        return 14;
+      default:
+        return 6;
+    }
   }
 }

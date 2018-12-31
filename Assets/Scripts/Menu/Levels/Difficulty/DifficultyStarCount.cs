@@ -11,7 +11,7 @@ public class DifficultyStarCount : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     int count = 0;
-    int total = 225;
+    int total = 120;
 		switch (difficulty) {
       case "easy":
         count = GameManager.easyStars.Sum();
@@ -27,7 +27,6 @@ public class DifficultyStarCount : MonoBehaviour {
         break;
       case "impossible":
         count = GameManager.impossibleStars.Sum();
-        total = 99;
         break;
     }
     this.gameObject.GetComponent<Text>().text = (count + "/" + total).ToString();
