@@ -16,8 +16,8 @@ public class DifficultyButton : MonoBehaviour {
 
   private int STARS_TO_UNLOCK_MEDIUM = 100;
   private int STARS_TO_UNLOCK_HARD = 200;
-  private int STARS_TO_UNLOCK_MASTER = 0;
-  private int STARS_TO_UNLOCK_IMPOSSIBLE = 0;
+  private int STARS_TO_UNLOCK_MASTER = 300;
+  private int STARS_TO_UNLOCK_IMPOSSIBLE = 400;
 
   private string EASY_BG_COLOR = "#1978D6";
   private string MEDIUM_BG_COLOR = "#00730C";
@@ -109,11 +109,11 @@ public class DifficultyButton : MonoBehaviour {
 
   public void onDifficultyClick(string difficulty) {
 
-    // if (difficulty == "medium" && GameManager.totalStars < STARS_TO_UNLOCK_MEDIUM) {
-    //   return;
-    // } else if (difficulty == "hard" && GameManager.totalStars < STARS_TO_UNLOCK_HARD) {
-    //   return;
-    // }
+    if (difficulty == "medium" && GameManager.totalStars < STARS_TO_UNLOCK_MEDIUM) {
+      return;
+    } else if (difficulty == "hard" && GameManager.totalStars < STARS_TO_UNLOCK_HARD) {
+      return;
+    }
 
     LevelManager.difficulty = difficulty;
     GameManager.currentStars = getCurrentStars(difficulty);

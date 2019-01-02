@@ -1,13 +1,78 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HintsButton : MonoBehaviour {
-	void Start () {
+
+  private SwipeManager swipeManager;
+  private string[] solution = null;
+  public GameObject[] movableObjects;  
+
+  public void onHintClick() {
+
+    if (MovingObject.getIsMoving()) {
+      return;
+    }
+
+    GameManager.playerHints -= 1;
+    GameManager.savePlayerDetails();
+
+    if (solution == null) {
+      solution = LevelManager.solution;
+    }
+
+    int movingObjectIndex = Mathf.FloorToInt(Int32.Parse(solution[0]) / 16);
+    MovingObject.setObject(movableObjects[movingObjectIndex]);
+
+    Swipe swipe = getSwipeDirection(Int32.Parse(solution[0]) % 16);
+    MovingObject.setSwipeDirection(swipe);
+
+    Vector3 newPos = swipeManager.calculateNewPosition(swipe);
+    MovingObject.setPosition(newPos);
+    
+    MovingObject.setIsMoving(true);
+    LevelManager.moves++;
+
+    solution = solution.Skip(1).ToArray(); 
+  }
+
+  private Swipe getSwipeDirection(int direction) {
+    switch (direction) {
+      case 1:
+        return Swipe.Up;
+      case 2:
+        return Swipe.Right;
+      case 4:
+        return Swipe.Down;
+      case 8:
+        return Swipe.Left;
+      default:
+        return Swipe.None;
+    }
+  }
+
+  void Start() {
+    GameObject grid = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "LevelGrid").First();
+    swipeManager = grid.GetComponent<SwipeManager>();
+  }
+
+	void Update() {
     RectTransform parentRect = this.gameObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>();    
 		Text textComponent = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
-    textComponent.text = "101";
-    parentRect.sizeDelta = new Vector2(textComponent.preferredWidth, textComponent.preferredHeight) + new Vector2(5,5);
+    textComponent.text = (GameManager.playerHints).ToString();
+    parentRect.sizeDelta = new Vector2(textComponent.preferredWidth, textComponent.preferredHeight) + new Vector2(10,10);
 	}
 }
+
+
+// Debug.Log(("Move: " + solution[0]).ToString());
+
+//     solution = solution.Skip(1).ToArray();
+
+//     Debug.Log("Array: " +String.Join(" ",
+//              new List<string>(solution)
+//              .ConvertAll(i => i.ToString())
+//              .ToArray()));

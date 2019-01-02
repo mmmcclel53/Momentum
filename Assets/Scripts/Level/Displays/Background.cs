@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Background : MonoBehaviour {
-	void Start () {
+	void Start() {
     Sprite easyBG = Resources.Load <Sprite> ("Backgrounds/EasyBackground");
 		switch (LevelManager.difficulty) {
       case "easy":

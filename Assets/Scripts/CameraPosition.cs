@@ -16,7 +16,7 @@ public class CameraPosition : MonoBehaviour {
     return v3T;
   }
 
-  void Start () {
+  void Start() {
     int index = Array.IndexOf(LevelUtility.difficulties, LevelManager.difficulty);
     float width = DEFAULT_POSITION + (INCREMENT*index);
     

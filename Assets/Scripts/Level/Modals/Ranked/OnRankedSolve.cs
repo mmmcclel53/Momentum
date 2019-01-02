@@ -17,7 +17,7 @@ public class OnRankedSolve : MonoBehaviour {
     230, 255, 280, 305     // Impossible + 25
   };
 
-  private string[] RANKS = new string[10] {"Novice", "Apprentice", "Adept", "Veteran", "Expert", "Elite", "Ace", "Legend", "Mythic", "Transcendant"};
+  private string[] RANKS = new string[10] {"Novice", "Apprentice", "Adept", "Veteran", "Expert", "Elite", "Ace", "Legend", "Mythic", "Transcendent"};
   private int[] XP_TO_NEXT_RANK = new int[10] {0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000};
   
   private void updateDisplays(int newXP) {

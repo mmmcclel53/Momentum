@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using UnityEditor;
 
@@ -34,7 +36,7 @@ public class SwipeManager : MonoBehaviour {
     return tile == ship || tile == asteroid;
   }
 
-  private Vector3 calculateNewPosition(Swipe swipe) {
+  public Vector3 calculateNewPosition(Swipe swipe) {
 
     TileBase playerTile;
     TileBase northTile;
@@ -125,6 +127,28 @@ public class SwipeManager : MonoBehaviour {
     return Swipe.None;
   }
 
+  private void disableHints() {
+    GameObject hintButton = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "HintsButton").First();
+    
+    Color color = hintButton.GetComponent<Image>().color;
+    color.a = 0.5f;
+    hintButton.GetComponent<Image>().color = color;
+
+    color = hintButton.transform.GetChild(0).gameObject.GetComponent<Image>().color;
+    color.a = 0.5f;
+    hintButton.transform.GetChild(0).gameObject.GetComponent<Image>().color = color;
+
+    color = hintButton.transform.GetChild(1).gameObject.GetComponent<Text>().color;
+    color.a = 0.5f;
+    hintButton.transform.GetChild(1).gameObject.GetComponent<Text>().color = color;
+
+    color = hintButton.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().color;
+    color.a = 0.5f;
+    hintButton.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().color = color;
+
+    Destroy(hintButton.GetComponent<HintsButton>());
+  }
+
   void Start() {
     northWall = Resources.Load <Tile> ("Tiles/NorthWall");
     southWall = Resources.Load <Tile> ("Tiles/SouthWall");
@@ -161,9 +185,17 @@ public class SwipeManager : MonoBehaviour {
       // Make sure it was a legit swipe and on a movable game object
       Vector2 currentSwipe = new Vector3(endPos.x - startPos.x, endPos.y - startPos.y);
       if (currentSwipe.magnitude >= minSwipeLength && selectedObj != null) {
+
+        // If the player has moved, hints should be disabled
+        disableHints();        
+
         MovingObject.setObject(selectedObj);
 
         Swipe swipe = getSwipeDirection(currentSwipe);
+        if (swipe == Swipe.None) {
+          return;
+        }
+
         MovingObject.setSwipeDirection(swipe);
 
         Vector3 newPos = calculateNewPosition(swipe);

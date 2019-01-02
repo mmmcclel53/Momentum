@@ -9,7 +9,7 @@ public class DifficultyStarCount : MonoBehaviour {
   public string difficulty;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
     int count = 0;
     int total = 120;
 		switch (difficulty) {

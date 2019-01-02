@@ -12,6 +12,7 @@ public class ShipRotation : MonoBehaviour {
   private Vector3 rotationVector;
 
   void Start() {
+    this.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(("Ships/" + GameManager.playerShip).ToString());
     rotationVector = this.gameObject.transform.rotation.eulerAngles;
     MovingObject.setSwipeDirection(Swipe.Up);
   }

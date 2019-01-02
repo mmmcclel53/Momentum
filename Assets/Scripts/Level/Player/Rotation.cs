@@ -7,7 +7,7 @@ public class Rotation : MonoBehaviour {
   public float degreesPerSecond;
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 		this.gameObject.transform.Rotate(0, 0, degreesPerSecond * Time.deltaTime);
 	}
 }

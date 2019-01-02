@@ -9,7 +9,9 @@ public static class GameManager {
 
   // TODO: Player class/object
   public static int playerExperience = 0;
+  public static int playerHints = 0;
   public static string playerRank = "Novice";
+  public static string playerShip = "ship1";
 
   public static int currentBest = 0;
   public static int[] currentStars;
@@ -29,7 +31,7 @@ public static class GameManager {
   public static string[] shipUnlockReqs = {
     null, // Default Ship
     "100% Easy", "100% Medium", "100% Hard", "100% Master", "100% Impossible",
-    "Apprentice Rank", "Veteran Rank", "Elite Rank", "Legend Rank", "Transcendant Rank",
+    "Apprentice Rank", "Veteran Rank", "Elite Rank", "Legend Rank", "Transcendent Rank",
     "???"
   };
 
@@ -94,7 +96,9 @@ public static class GameManager {
       
     PlayerDetails player = (PlayerDetails)bf.Deserialize(file);
     playerExperience = player.experience;
+    playerHints = player.hints;
     playerRank = player.rank;
+    playerShip = player.ship;
 
     file.Close();
   }
@@ -105,7 +109,9 @@ public static class GameManager {
 
     PlayerDetails player = new PlayerDetails();
     player.experience = playerExperience;
+    player.hints = playerHints;
     player.rank = playerRank;
+    player.ship = playerShip;
 
     bf.Serialize(file, player);
     file.Close();
@@ -136,8 +142,10 @@ public static class GameManager {
 
 [System.Serializable]
 public class PlayerDetails {
-  public string rank;
   public int experience;
+  public int hints;
+  public string rank;
+  public string ship;
 }
 
 [System.Serializable]

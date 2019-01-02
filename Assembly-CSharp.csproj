@@ -85,7 +85,9 @@
      <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\Level\LevelButton.cs" />
      <Compile Include="Assets\Scripts\Menu\LevelsButton.cs" />
      <Compile Include="Assets\Scripts\Menu\PlayButton.cs" />
+     <Compile Include="Assets\Scripts\Menu\Store\BuyHintsButton.cs" />
      <Compile Include="Assets\Scripts\Menu\Store\OnStoreLoad.cs" />
+     <Compile Include="Assets\Scripts\Menu\Store\SelectButton.cs" />
      <Compile Include="Assets\Scripts\Menu\Store\ShipButton.cs" />
      <Compile Include="Assets\Scripts\Menu\Store\ShipModal.cs" />
      <Compile Include="Assets\Scripts\Utilities\ASMaterialIcon\Scripts\MaterialVectorIcon.cs" />
