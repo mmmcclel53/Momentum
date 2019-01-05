@@ -8,7 +8,9 @@ public static class GameManager {
   public static string gameType = "puzzles";
 
   // TODO: Player class/object
-  public static int playerExperience = 0;
+
+  // Player
+  public static int playerExperience = 500;
   public static int playerHints = 0;
   public static string playerRank = "Novice";
   public static string playerShip = "ship1";
@@ -22,17 +24,19 @@ public static class GameManager {
   public static int[] impossibleStars;
   public static int totalStars = 0;
 
+  // Settings
+  public static bool isMusicSoundsOn = true;
+  public static bool isGameSoundsOn = true;
+  public static float gridVisibility = 0.35f;
+
   public static bool[] shipUnlocks = {
     true, // Default Ship
     false, false, false, false, false, // Puzzle Ships
     false, false, false, false, false, // Rank Ships
     false // 100% Ship
   };
-  public static string[] shipUnlockReqs = {
-    null, // Default Ship
-    "100% Easy", "100% Medium", "100% Hard", "100% Master", "100% Impossible",
-    "Apprentice Rank", "Veteran Rank", "Elite Rank", "Legend Rank", "Transcendent Rank",
-    "???"
+  public static bool[] rewardUnlocks = {
+    false, false, false, false, false
   };
 
   public static void Load(string sceneName) {
@@ -49,7 +53,7 @@ public static class GameManager {
     }
   }
 
-  public static void updateShipUnlocks() {
+  public static void updateUnlocks() {
     const int PERFECT_STARS = 120;
     shipUnlocks = new bool[] {
       true, // Default Ship
@@ -88,6 +92,31 @@ public static class GameManager {
       }
     }
     return stars;
+  }
+
+  public static void loadSettings() {
+    BinaryFormatter bf = new BinaryFormatter();
+    FileStream file = File.Open(Application.persistentDataPath + "/settings.dat", FileMode.Open);
+      
+    Settings settings = (Settings)bf.Deserialize(file);
+    isMusicSoundsOn = settings.music;
+    isGameSoundsOn = settings.game;
+    gridVisibility = settings.gridVisibility;
+
+    file.Close();
+  }
+
+  public static void saveSettings() {
+    BinaryFormatter bf = new BinaryFormatter();
+    FileStream file = File.Create(Application.persistentDataPath + "/settings.dat");
+
+    Settings settings = new Settings();
+    settings.music = isMusicSoundsOn;
+    settings.game = isGameSoundsOn;
+    settings.gridVisibility = gridVisibility;
+
+    bf.Serialize(file, settings);
+    file.Close();
   }
 
   public static void loadPlayerDetails() {
@@ -138,6 +167,13 @@ public static class GameManager {
     bf.Serialize(file, puzzleScore);
     file.Close();
   }
+}
+
+[System.Serializable]
+public class Settings {
+  public bool music;
+  public bool game;
+  public float gridVisibility;
 }
 
 [System.Serializable]

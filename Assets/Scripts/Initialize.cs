@@ -5,13 +5,20 @@ using UnityEngine;
 
 public class Initialize : MonoBehaviour {
 
+  private void loadSettings() {
+    // Load if file exists, otherwise create it
+    try {
+      GameManager.loadSettings();
+    } catch {
+      GameManager.saveSettings();
+    }
+  }
+
   private void loadPlayerRank() {
     // Load if file exists, otherwise create it
     try {
       GameManager.loadPlayerDetails();
     } catch {
-      GameManager.playerExperience = 0;
-      GameManager.playerRank = "Novice";
       GameManager.savePlayerDetails();
     }
   }
@@ -22,6 +29,7 @@ public class Initialize : MonoBehaviour {
   }
 
 	void Start() {
+    loadSettings();
     loadPlayerRank();
     loadPlayerStars();
   }	

@@ -55,6 +55,10 @@ public class HintsButton : MonoBehaviour {
   }
 
   void Start() {
+    // if (GameManager.gameType == "ranked") {
+    //   Destroy(this.gameObject);
+    //   return;
+    // }
     GameObject grid = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "LevelGrid").First();
     swipeManager = grid.GetComponent<SwipeManager>();
   }
@@ -66,13 +70,3 @@ public class HintsButton : MonoBehaviour {
     parentRect.sizeDelta = new Vector2(textComponent.preferredWidth, textComponent.preferredHeight) + new Vector2(10,10);
 	}
 }
-
-
-// Debug.Log(("Move: " + solution[0]).ToString());
-
-//     solution = solution.Skip(1).ToArray();
-
-//     Debug.Log("Array: " +String.Join(" ",
-//              new List<string>(solution)
-//              .ConvertAll(i => i.ToString())
-//              .ToArray()));

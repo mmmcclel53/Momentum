@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class Level : MonoBehaviour {
   void Start() {
-    this.gameObject.GetComponent<Text>().text = ("Level " + LevelUtility.calculateIndex(LevelManager.level)).ToString();
+    if (GameManager.gameType == "ranked") {
+      this.gameObject.GetComponent<Text>().text = "Ranked";
+    } else {
+      this.gameObject.GetComponent<Text>().text = ("Level " + LevelUtility.calculateIndex(LevelManager.level)).ToString();
+    }
   }
 }

@@ -9,4 +9,10 @@ public class RestartButton : MonoBehaviour {
     LevelManager.time = 0;
     GameManager.Load("Game");
   }
+
+  void Start() {
+    if (GameManager.gameType == "ranked") {
+      Destroy(this.gameObject);
+    }
+  }
 }

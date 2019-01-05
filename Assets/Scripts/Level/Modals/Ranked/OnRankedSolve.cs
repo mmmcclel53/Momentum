@@ -10,15 +10,15 @@ public class OnRankedSolve : MonoBehaviour {
 
   // Essentially add 5s more for each complexity, but bump the buffer +5 for each new difficulty
   private int[] PAR_TIME = new int[20] {
-    10, 15, 20, 25,        // Easy + 5
-    35, 45, 55, 65,        // Medium + 10
-    80, 95, 110, 125,      // Hard + 15
-    145, 165, 185, 205,    // Master + 20
-    230, 255, 280, 305     // Impossible + 25
+    5, 5, 7, 10,           // Easy + ~2.5
+    15, 20, 25, 30,        // Medium + 5
+    40, 50, 60, 70,        // Hard + 10
+    85, 100, 115, 130,     // Master + 15
+    150, 170, 190, 210     // Impossible + 20
   };
 
   private string[] RANKS = new string[10] {"Novice", "Apprentice", "Adept", "Veteran", "Expert", "Elite", "Ace", "Legend", "Mythic", "Transcendent"};
-  private int[] XP_TO_NEXT_RANK = new int[10] {0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000};
+  private int[] XP_TO_NEXT_RANK = new int[10] {500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000};
   
   private void updateDisplays(int newXP) {
     // Icon and Rank
@@ -26,33 +26,32 @@ public class OnRankedSolve : MonoBehaviour {
     this.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = icon;
     this.gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<Text>().text = GameManager.playerRank;
 
-    // +XP
-    this.gameObject.transform.GetChild(1).gameObject.GetComponent<Text>().text = (newXP > 0 ? "+" : "") + newXP.ToString();
+    // NewXP
+    this.gameObject.transform.GetChild(1).gameObject.GetComponent<Text>().text = (GameManager.playerExperience + "  (" + (newXP > 0 ? "+" : "") + newXP.ToString() + ")").ToString();
 
-    int indexOfNextRank = Array.FindIndex(RANKS, x => x.Contains(GameManager.playerRank)) + 1;
-    int XP_OF_CURRENT_RANK = XP_TO_NEXT_RANK[indexOfNextRank-1];
+    int index = Array.FindIndex(RANKS, x => x.Contains(GameManager.playerRank));
+    int XP_OF_CURRENT_RANK = XP_TO_NEXT_RANK[index];
     
     // Slider
-    this.gameObject.transform.GetChild(2).gameObject.GetComponent<Slider>().value = (float)(GameManager.playerExperience-XP_OF_CURRENT_RANK) / (float)(XP_TO_NEXT_RANK[indexOfNextRank]-XP_OF_CURRENT_RANK);    
+    this.gameObject.transform.GetChild(2).gameObject.GetComponent<Slider>().value =
+      GameManager.playerRank == "Transcendent"
+      ? 1
+      : (float)(GameManager.playerExperience-XP_OF_CURRENT_RANK) / (float)(XP_TO_NEXT_RANK[index+1]-XP_OF_CURRENT_RANK);    
     
-    // Current XP
-    this.gameObject.transform.GetChild(3).gameObject.GetComponent<Text>().text = GameManager.playerExperience == 5000 ? "MAX RANK" : GameManager.playerExperience + " / " + XP_TO_NEXT_RANK[indexOfNextRank];
+    // Next Rank
+    this.gameObject.transform.GetChild(2).transform.GetChild(3).gameObject.GetComponent<Text>().text =
+      GameManager.playerRank == "Transcendent"
+      ? "MAX RANK"
+      : ("Next: " + RANKS[index+1]).ToString();
   }
 
   private string getNewRank() {
-    int index = 0;
-    int xp = GameManager.playerExperience;
-    string newRank = null;
-    bool rankFound = false;
-    while (!rankFound) {
-      if (xp >= XP_TO_NEXT_RANK[index]) {
-        newRank = RANKS[index];
-      } else {
-        rankFound = true;
+    for (int i=0; i<10; i++) {
+      if (GameManager.playerExperience < XP_TO_NEXT_RANK[i]) {
+        return RANKS[Math.Max(i-1, 0)];
       }
-      index++;
     }
-    return newRank;
+    return "Transcendent";
   }
 
   private int getParTime() {

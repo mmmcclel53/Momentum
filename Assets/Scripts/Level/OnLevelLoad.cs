@@ -76,11 +76,16 @@ public class OnLevelLoad : MonoBehaviour {
   private void setTiles(string[] tiles) {
     
     // These should be children of their respective tilemap
-    Tile grid = Resources.Load <Tile> ("Tiles/Grid");
     Tile northWall = Resources.Load <Tile> ("Tiles/NorthWall");
     Tile eastWall = Resources.Load <Tile> ("Tiles/EastWall");
     Tile southWall = Resources.Load <Tile> ("Tiles/SouthWall");
     Tile westWall = Resources.Load <Tile> ("Tiles/WestWall");
+    
+    // Set Grid Visibility from Settings
+    Tile grid = Resources.Load <Tile> ("Tiles/Grid");
+    Color color = grid.color;
+    color.a = GameManager.gridVisibility;
+    grid.color = color;
 
     int boardSize = LevelUtility.calculateBoardSize();
     int middleSquare = boardSize / 2;
@@ -129,7 +134,7 @@ public class OnLevelLoad : MonoBehaviour {
       return (TextAsset)Resources.Load("Levels/Puzzles/" + LevelManager.difficulty + "/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
     }
 
-    return (TextAsset)Resources.Load("Levels/Ranked/" + LevelUtility.calculateRankedDifficulty() + LevelUtility.calculateRankedLevel(), typeof(TextAsset));
+    return (TextAsset)Resources.Load("Levels/Ranked/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
   }
 
   void Start() {

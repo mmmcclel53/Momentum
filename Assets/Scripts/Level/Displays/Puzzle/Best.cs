@@ -7,7 +7,6 @@ public class Best : MonoBehaviour {
   void Start() {
     if (GameManager.gameType == "ranked") {
       Destroy(this.gameObject.transform.parent.gameObject);
-      return;
     }
   }
 
