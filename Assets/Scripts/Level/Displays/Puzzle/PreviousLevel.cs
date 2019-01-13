@@ -25,7 +25,7 @@ public class PreviousLevel : MonoBehaviour {
 
   void Start() {
     // If ranked or we're on the first level of a difficulty, don't display
-    if (GameManager.gameType == "ranked" || LevelManager.level == "0_1" || LevelManager.level == "4_1" || LevelManager.level == "8_1" || LevelManager.level == "12_1" || LevelManager.level == "16_1") {
+    if (GameManager.gameType == "ranked" || GameManager.gameType == "time_trials" || LevelManager.level == "0_1" || LevelManager.level == "4_1" || LevelManager.level == "8_1" || LevelManager.level == "12_1" || LevelManager.level == "16_1") {
       Destroy(this.gameObject);
     }
   }

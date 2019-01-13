@@ -55,10 +55,10 @@ public class HintsButton : MonoBehaviour {
   }
 
   void Start() {
-    // if (GameManager.gameType == "ranked") {
-    //   Destroy(this.gameObject);
-    //   return;
-    // }
+    if (GameManager.gameType == "ranked" || GameManager.gameType == "time_trials") {
+      Destroy(this.gameObject);
+      return;
+    }
     GameObject grid = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "LevelGrid").First();
     swipeManager = grid.GetComponent<SwipeManager>();
   }

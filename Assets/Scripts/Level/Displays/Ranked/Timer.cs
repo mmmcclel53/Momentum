@@ -7,19 +7,20 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-  public float time = LevelManager.time;
+  public float time = 0;
 	
   void Start() {
     if (GameManager.gameType == "puzzles") {
       Destroy(this.gameObject.transform.parent.gameObject);
       return;
     }
-    time = LevelManager.time;
+    time = 0;
+    LevelManager.paused = false;
   }
 
 	// Update is called once per frame
 	void Update() {
-    if (LevelManager.solved) {
+    if (LevelManager.solved || LevelManager.paused) {
       return;
     }
 

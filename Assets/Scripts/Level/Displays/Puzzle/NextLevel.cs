@@ -25,7 +25,7 @@ public class NextLevel : MonoBehaviour {
 
   void Start() {
     // If ranked or we're on the last level of a difficulty, don't display
-    if (GameManager.gameType == "ranked" || LevelManager.level == "3_10" || LevelManager.level == "7_10" || LevelManager.level == "11_10" || LevelManager.level == "15_10" || LevelManager.level == "19_10") {
+    if (GameManager.gameType == "ranked" || GameManager.gameType == "time_trials" || LevelManager.level == "3_10" || LevelManager.level == "7_10" || LevelManager.level == "11_10" || LevelManager.level == "15_10" || LevelManager.level == "19_10") {
       Destroy(this.gameObject);
     }
   }

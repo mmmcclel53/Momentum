@@ -184,18 +184,19 @@ public class SwipeManager : MonoBehaviour {
 
       // Make sure it was a legit swipe and on a movable game object
       Vector2 currentSwipe = new Vector3(endPos.x - startPos.x, endPos.y - startPos.y);
-      if (currentSwipe.magnitude >= minSwipeLength && selectedObj != null) {
-
-        // If the player has moved, hints should be disabled
-        disableHints();        
-
-        MovingObject.setObject(selectedObj);
+      if (currentSwipe.magnitude >= minSwipeLength && selectedObj != null) {     
 
         Swipe swipe = getSwipeDirection(currentSwipe);
-        if (swipe == Swipe.None) {
+        if ( !(swipe == Swipe.Up || swipe == Swipe.Down || swipe == Swipe.Left || swipe == Swipe.Right) ) {
           return;
         }
 
+        // If the player has moved, hints should be disabled
+        if (GameManager.gameType == "puzzles") {
+          disableHints();
+        }
+
+        MovingObject.setObject(selectedObj);
         MovingObject.setSwipeDirection(swipe);
 
         Vector3 newPos = calculateNewPosition(swipe);

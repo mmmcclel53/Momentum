@@ -9,7 +9,7 @@ public class LevelButton : UIBehaviour {
 
   // Kinda gross
   private string calculateLevel(int level) {
-    int prefix = Convert.ToInt32(Math.Floor((double)(level-1) / 10));
+    int prefix = Mathf.FloorToInt((level-1) / 10);
     int suffix = (level-1) % 10 + 1;
 
     int index = Array.IndexOf(LevelUtility.difficulties, LevelManager.difficulty);

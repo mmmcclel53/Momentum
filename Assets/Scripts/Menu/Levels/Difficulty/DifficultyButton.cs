@@ -10,14 +10,11 @@ public class DifficultyButton : MonoBehaviour {
   public GameObject DifficultyListView;
   public GameObject LevelsListView;
   public GameObject Level;
-  public string difficulty;
 
   private static int gridColumnCount = 0;
 
   private int STARS_TO_UNLOCK_MEDIUM = 100;
   private int STARS_TO_UNLOCK_HARD = 200;
-  private int STARS_TO_UNLOCK_MASTER = 300;
-  private int STARS_TO_UNLOCK_IMPOSSIBLE = 400;
 
   private string EASY_BG_COLOR = "#1978D6";
   private string MEDIUM_BG_COLOR = "#00730C";
@@ -126,19 +123,4 @@ public class DifficultyButton : MonoBehaviour {
     DifficultyListView.SetActive(false);
     LevelsListView.SetActive(true);
 	}
-
-  void Start() {
-    if (difficulty == "medium" && GameManager.totalStars >= STARS_TO_UNLOCK_MEDIUM) {
-      this.gameObject.transform.GetChild(2).gameObject.SetActive(false);
-    } else if (difficulty == "hard" && GameManager.totalStars >= STARS_TO_UNLOCK_HARD) {
-      this.gameObject.transform.GetChild(2).gameObject.SetActive(false);
-    }
-    
-    if (GameManager.totalStars >= STARS_TO_UNLOCK_MASTER) {
-      this.gameObject.transform.parent.gameObject.transform.GetChild(3).gameObject.SetActive(true);
-    }
-    if (GameManager.totalStars >= STARS_TO_UNLOCK_IMPOSSIBLE) {
-      this.gameObject.transform.parent.gameObject.transform.GetChild(4).gameObject.SetActive(true);
-    }
-  }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class OnRankedSolve : MonoBehaviour {
 
@@ -16,52 +17,46 @@ public class OnRankedSolve : MonoBehaviour {
     85, 100, 115, 130,     // Master + 15
     150, 170, 190, 210     // Impossible + 20
   };
-
-  private string[] RANKS = new string[10] {"Novice", "Apprentice", "Adept", "Veteran", "Expert", "Elite", "Ace", "Legend", "Mythic", "Transcendent"};
-  private int[] XP_TO_NEXT_RANK = new int[10] {500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000};
   
   private void updateDisplays(int newXP) {
     // Icon and Rank
     Sprite icon = Resources.Load <Sprite> (("Ranks/" + GameManager.playerRank).ToString());
     this.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = icon;
-    this.gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<Text>().text = GameManager.playerRank;
+    this.gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = GameManager.playerRank;
 
     // NewXP
     this.gameObject.transform.GetChild(1).gameObject.GetComponent<Text>().text = (GameManager.playerExperience + "  (" + (newXP > 0 ? "+" : "") + newXP.ToString() + ")").ToString();
 
-    int index = Array.FindIndex(RANKS, x => x.Contains(GameManager.playerRank));
-    int XP_OF_CURRENT_RANK = XP_TO_NEXT_RANK[index];
+    int index = Array.FindIndex(GameManager.RANKS, x => x.Contains(GameManager.playerRank));
+    int XP_OF_CURRENT_RANK = GameManager.RANK_XP[index];
     
     // Slider
     this.gameObject.transform.GetChild(2).gameObject.GetComponent<Slider>().value =
       GameManager.playerRank == "Transcendent"
       ? 1
-      : (float)(GameManager.playerExperience-XP_OF_CURRENT_RANK) / (float)(XP_TO_NEXT_RANK[index+1]-XP_OF_CURRENT_RANK);    
+      : (float)(GameManager.playerExperience-XP_OF_CURRENT_RANK) / (float)(GameManager.RANK_XP[index+1]-XP_OF_CURRENT_RANK);    
     
     // Next Rank
     this.gameObject.transform.GetChild(2).transform.GetChild(3).gameObject.GetComponent<Text>().text =
       GameManager.playerRank == "Transcendent"
       ? "MAX RANK"
-      : ("Next: " + RANKS[index+1]).ToString();
-  }
-
-  private string getNewRank() {
-    for (int i=0; i<10; i++) {
-      if (GameManager.playerExperience < XP_TO_NEXT_RANK[i]) {
-        return RANKS[Math.Max(i-1, 0)];
-      }
-    }
-    return "Transcendent";
+      : ("Next: " + GameManager.RANKS[index+1]).ToString();
   }
 
   private int getParTime() {
+    // Boi you good
+    if (GameManager.playerExperience > 5000) {
+      int ratio = Mathf.FloorToInt(GameManager.playerExperience / PAR_TIME[19]);
+      return Mathf.FloorToInt(GameManager.playerExperience / ratio);
+    }
+
     int complexity = Int32.Parse(LevelUtility.calculateRankedLevel().Split('_')[0]);
     return PAR_TIME[complexity];
   }
 
   private int getStarXP() {
-    double starEfficiency = (double)LevelUtility.calculateStarScore() / 3;
-    return Convert.ToInt32(Math.Floor(starEfficiency * MAX_EXPERIENCE_POSSIBLE));
+    float starEfficiency = LevelUtility.calculateStarScore() / 3;
+    return Mathf.FloorToInt(starEfficiency * MAX_EXPERIENCE_POSSIBLE);
   }
 
   private int getTimeXP() {
@@ -79,7 +74,6 @@ public class OnRankedSolve : MonoBehaviour {
   void Start() {
     int newXP = getStarXP() + getTimeXP();
     GameManager.adjustPlayerExperience(newXP);
-    GameManager.playerRank = getNewRank();
     GameManager.savePlayerDetails();
 
     updateDisplays(newXP);

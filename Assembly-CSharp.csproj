@@ -69,9 +69,11 @@
      <Compile Include="Assets\Scripts\Level\Displays\RestartButton.cs" />
      <Compile Include="Assets\Scripts\Level\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Level\LevelUtility.cs" />
+     <Compile Include="Assets\Scripts\Level\Modals\BackButton.cs" />
      <Compile Include="Assets\Scripts\Level\Modals\MainMenuButton.cs" />
      <Compile Include="Assets\Scripts\Level\Modals\Puzzle\OnPuzzleSolve.cs" />
      <Compile Include="Assets\Scripts\Level\Modals\Ranked\Continue.cs" />
+     <Compile Include="Assets\Scripts\Level\Modals\Ranked\OnRankedQuit.cs" />
      <Compile Include="Assets\Scripts\Level\Modals\Ranked\OnRankedSolve.cs" />
      <Compile Include="Assets\Scripts\Level\OnLevelLoad.cs" />
      <Compile Include="Assets\Scripts\Level\Player\MovingObject.cs" />
@@ -81,6 +83,7 @@
      <Compile Include="Assets\Scripts\Menu\Displays\Rank.cs" />
      <Compile Include="Assets\Scripts\Menu\Displays\StarsTotal.cs" />
      <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\DifficultyButton.cs" />
+     <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\DifficultyPanel.cs" />
      <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\DifficultyStarCount.cs" />
      <Compile Include="Assets\Scripts\Menu\Levels\Difficulty\Level\LevelButton.cs" />
      <Compile Include="Assets\Scripts\Menu\LevelsButton.cs" />
@@ -279,10 +282,12 @@
      <None Include="Assets\Resources\Levels\Ranked\impossible17_33.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy2_99.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master12_51.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\Resources\Levels\Ranked\hard11_16.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master12_78.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master15_98.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master15_4.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard8_19.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard10_44.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy1_31.txt" />
@@ -657,6 +662,7 @@
      <None Include="Assets\Resources\Levels\Ranked\master13_12.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard10_82.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard9_59.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\Resources\Levels\Ranked\impossible16_60.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master15_89.txt" />
      <None Include="Assets\Resources\Levels\Ranked\medium6_95.txt" />
@@ -846,6 +852,7 @@
      <None Include="Assets\Resources\Levels\Ranked\master14_67.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy0_88.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard10_53.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\Resources\Levels\Ranked\master14_5.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master12_36.txt" />
      <None Include="Assets\Resources\Levels\Ranked\medium6_40.txt" />
@@ -1330,6 +1337,7 @@
      <None Include="Assets\Resources\Levels\Ranked\easy2_47.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard9_67.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard10_48.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\Resources\Levels\Ranked\medium6_36.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\medium\medium7_3.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\easy\easy3_8.txt" />
@@ -1347,6 +1355,7 @@
      <None Include="Assets\Resources\Levels\Ranked\hard11_71.txt" />
      <None Include="Assets\Resources\Levels\Ranked\medium6_7.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy0_41.txt" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard10_94.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\impossible\impossible16_8.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master12_88.txt" />
@@ -1376,6 +1385,7 @@
      <None Include="Assets\Resources\Levels\Ranked\medium6_50.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard11_70.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard11_78.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\Resources\Levels\Ranked\medium7_7.txt" />
      <None Include="Assets\Resources\Levels\Ranked\medium6_41.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible16_78.txt" />
@@ -1552,6 +1562,7 @@
      <None Include="Assets\Resources\Levels\Ranked\master13_37.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\hard\hard10_3.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible18_9.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\Resources\Levels\Ranked\hard9_8.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master13_77.txt" />
      <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
@@ -1661,6 +1672,7 @@
      <None Include="Assets\Resources\Levels\Ranked\medium4_56.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible16_35.txt" />
      <None Include="Assets\Resources\Levels\Ranked\medium5_44.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\Resources\Levels\Ranked\easy0_40.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master12_46.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible19_70.txt" />
@@ -1752,6 +1764,7 @@
      <None Include="Assets\Resources\Levels\Puzzles\impossible\impossible19_7.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master14_81.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy2_11.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\Resources\Levels\Ranked\impossible17_70.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\easy\easy0_10.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master13_92.txt" />
@@ -1820,6 +1833,7 @@
      <None Include="Assets\Resources\Levels\Ranked\medium6_34.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master13_50.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible19_37.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Resources\Levels\Ranked\master14_89.txt" />
      <None Include="Assets\Resources\Levels\Ranked\medium4_55.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\hard\hard10_9.txt" />
@@ -1963,10 +1977,12 @@
      <None Include="Assets\Resources\Levels\Ranked\easy1_62.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible18_16.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard11_41.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\Resources\Levels\Ranked\easy1_61.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master13_84.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible19_50.txt" />
      <None Include="Assets\Resources\Levels\Ranked\medium7_3.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\Resources\Levels\Ranked\easy3_16.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible16_66.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\impossible\impossible17_4.txt" />
@@ -2064,6 +2080,7 @@
      <None Include="Assets\Resources\Levels\Ranked\medium7_20.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master13_100.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible16_20.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
      <None Include="Assets\Resources\Levels\Ranked\easy1_71.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\master\master15_1.txt" />
      <None Include="Assets\Resources\Levels\Ranked\medium7_25.txt" />
@@ -2145,6 +2162,7 @@
      <None Include="Assets\Resources\Levels\Ranked\master12_22.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master14_11.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master13_29.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\Resources\Levels\Ranked\impossible18_6.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible18_33.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master13_38.txt" />
@@ -2215,6 +2233,7 @@
      <None Include="Assets\Resources\Levels\Ranked\medium7_87.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\master\master15_3.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy2_67.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\Resources\Levels\Puzzles\hard\hard10_2.txt" />
      <None Include="Assets\Resources\Levels\Ranked\master14_17.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard9_52.txt" />
@@ -2244,6 +2263,7 @@
      <None Include="Assets\Resources\Levels\Ranked\impossible18_44.txt" />
      <None Include="Assets\Resources\Levels\Ranked\impossible18_48.txt" />
      <None Include="Assets\Resources\Levels\Ranked\hard11_9.txt" />
+     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\Resources\Levels\Ranked\impossible16_61.txt" />
      <None Include="Assets\Resources\Levels\Ranked\easy1_57.txt" />
      <None Include="Assets\Resources\Levels\Puzzles\medium\medium4_6.txt" />

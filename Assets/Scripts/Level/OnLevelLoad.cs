@@ -30,7 +30,7 @@ public class OnLevelLoad : MonoBehaviour {
   }
 
   private static int calculateY(int tile) {
-    return -1 * Convert.ToInt32(Math.Floor((double)(tile / LevelUtility.calculateBoardSize())));
+    return -1 * Mathf.FloorToInt(tile / LevelUtility.calculateBoardSize());
   }
 
   private bool hasWall(int tile, int wall) {
@@ -173,6 +173,8 @@ public class OnLevelLoad : MonoBehaviour {
         LevelManager.solved = true;
         if (GameManager.gameType == "ranked") {
           rankedSolvedModal.SetActive(true);
+        } else if (GameManager.gameType == "time_trials") {
+          GameManager.Load("Game");
         } else {
           puzzleSolvedModal.SetActive(true);
         }

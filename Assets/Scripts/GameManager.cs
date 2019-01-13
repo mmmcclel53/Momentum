@@ -1,10 +1,15 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public static class GameManager {
+  
+  public static string[] RANKS = new string[10] {"Novice", "Apprentice", "Adept", "Veteran", "Expert", "Elite", "Ace", "Legend", "Mythic", "Transcendent"};
+  public static int[] RANK_XP = new int[10] {500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000};
+
   public static string gameType = "puzzles";
 
   // TODO: Player class/object
@@ -43,14 +48,23 @@ public static class GameManager {
     SceneManager.LoadScene(sceneName);
   }
 
+  private static string getNewRank() {
+    for (int i=0; i<10; i++) {
+      if (playerExperience < RANK_XP[i]) {
+        return RANKS[Math.Max(i-1, 0)];
+      }
+    }
+    return "Transcendent";
+  }
+
   public static void adjustPlayerExperience(int adjustment) {
     if (playerExperience + adjustment < 0) {
       playerExperience = 0;
-    } else if (playerExperience + adjustment >= 5000) {
-      playerExperience = 5000;
     } else {
       playerExperience += adjustment;
     }
+
+    playerRank = getNewRank();
   }
 
   public static void updateUnlocks() {
