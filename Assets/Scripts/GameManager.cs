@@ -143,6 +143,8 @@ public static class GameManager {
     playerRank = player.rank;
     playerShip = player.ship;
 
+    Debug.Log(player.ship);
+
     file.Close();
   }
 

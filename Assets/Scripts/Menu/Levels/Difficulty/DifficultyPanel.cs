@@ -28,7 +28,7 @@ public class DifficultyPanel : MonoBehaviour {
 
 	void Start() {
 
-    float fillAmount = GameManager.totalStars < STARS_TO_UNLOCK_IMPOSSIBLE ? GameManager.totalStars / 100f : 1;    
+    float fillAmount = GameManager.totalStars < STARS_TO_UNLOCK_IMPOSSIBLE ? (GameManager.totalStars % 100) / 100f : 1;    
     loadingBar.GetComponent<Image>().fillAmount = fillAmount;
 
     if (GameManager.totalStars < STARS_TO_UNLOCK_IMPOSSIBLE) {

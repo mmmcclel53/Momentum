@@ -10,7 +10,6 @@ public class BackButton : MonoBehaviour {
 
   void OnDisable() {
     if (GameManager.gameType == "ranked" && !LevelManager.solved) {
-      Debug.Log("Gotcha bitch!");
       GameManager.adjustPlayerExperience(rankedPenalty);
       GameManager.savePlayerDetails();
     }
