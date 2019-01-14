@@ -2102,7 +2102,7 @@ GameObject:
   - component: {fileID: 103550593}
   - component: {fileID: 103550595}
   m_Layer: 5
-  m_Name: Momentum
+  m_Name: Slidey Ships
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2147,18 +2147,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 72
+    m_FontSize: 60
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 72
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Momentum
+    m_LineSpacing: 0.75
+  m_Text: Slidey Ships
 --- !u!222 &103550594
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8111,6 +8111,7 @@ GameObject:
   - component: {fileID: 508480857}
   - component: {fileID: 508480856}
   - component: {fileID: 508480855}
+  - component: {fileID: 508480858}
   m_Layer: 5
   m_Name: Leaderboards
   m_TagString: Untagged
@@ -8213,6 +8214,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 508480853}
   m_CullTransparentMesh: 0
+--- !u!114 &508480858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 508480853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e35abd56f8827428f1d3b9b8fe9188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &513466209
 GameObject:
   m_ObjectHideFlags: 0
@@ -24848,6 +24860,7 @@ GameObject:
   - component: {fileID: 1752478814}
   - component: {fileID: 1752478813}
   - component: {fileID: 1752478817}
+  - component: {fileID: 1752478818}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -24948,6 +24961,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b053c091a1bb9047a572e9f931835a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1752478818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752478812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9cbee2052be1944a62dbcb0ced7aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudSaveEnabled: 1
+  autoSignIn: 1
+  autoCloudLoad: 1
 --- !u!1 &1757886577
 GameObject:
   m_ObjectHideFlags: 0

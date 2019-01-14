@@ -1,6 +1,32 @@
 {
 	"AchievementIDs":[],
-	"LeaderboardIDs":[],
+	"LeaderboardIDs":[
+		{
+			"InternalID":"RankedLeaderboard",
+			"AppleID":"Ranked",
+			"GoogleID":""
+		},
+		{
+			"InternalID":"LevelsLeaderboard",
+			"AppleID":"Levels",
+			"GoogleID":""
+		},
+		{
+			"InternalID":"TimeTrialsEasyLeaderboard",
+			"AppleID":"TimeTrialsEasy",
+			"GoogleID":""
+		},
+		{
+			"InternalID":"TimeTrialsMediumLeaderboard",
+			"AppleID":"TimeTrialsMedium",
+			"GoogleID":""
+		},
+		{
+			"InternalID":"TimeTrialsHardLeaderboard",
+			"AppleID":"TimeTrialsHard",
+			"GoogleID":""
+		}
+	],
 	"CloudVariables":[],
 	"AppleSupported":true,
 	"GoogleSupported":false,

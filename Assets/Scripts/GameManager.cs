@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CloudOnce;
+using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -143,8 +144,6 @@ public static class GameManager {
     playerRank = player.rank;
     playerShip = player.ship;
 
-    Debug.Log(player.ship);
-
     file.Close();
   }
 
@@ -160,6 +159,8 @@ public static class GameManager {
 
     bf.Serialize(file, player);
     file.Close();
+
+    Leaderboards.Ranked.SubmitScore(playerExperience);
   }
 
   public static void loadStars() {
@@ -182,6 +183,9 @@ public static class GameManager {
 
     bf.Serialize(file, puzzleScore);
     file.Close();
+
+    totalStars = easyStars.Sum() + mediumStars.Sum() + hardStars.Sum() + masterStars.Sum() + impossibleStars.Sum();
+    Leaderboards.Levels.SubmitScore(totalStars);
   }
 }
 

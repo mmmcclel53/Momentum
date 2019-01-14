@@ -27,6 +27,105 @@ namespace CloudOnce
         /// </summary>
         public static class LeaderboardIDs
         {
+            public static string RankedLeaderboard
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "Ranked";
+#elif UNITY_EDITOR
+                    return "RankedLeaderboard";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string LevelsLeaderboard
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "Levels";
+#elif UNITY_EDITOR
+                    return "LevelsLeaderboard";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string TimeTrialsEasyLeaderboard
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "TimeTrialsEasy";
+#elif UNITY_EDITOR
+                    return "TimeTrialsEasyLeaderboard";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string TimeTrialsMediumLeaderboard
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "TimeTrialsMedium";
+#elif UNITY_EDITOR
+                    return "TimeTrialsMediumLeaderboard";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string TimeTrialsHardLeaderboard
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "TimeTrialsHard";
+#elif UNITY_EDITOR
+                    return "TimeTrialsHardLeaderboard";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
         }
     }
 }
