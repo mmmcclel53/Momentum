@@ -19,7 +19,7 @@ public static class LevelUtility {
   }
 
   public static string calculateRankedDifficulty() {
-    int exp = GameManager.playerExperience;
+    int exp = GameManager.rankedExperience;
     if (exp < 1000) {
       return "easy";
     } else if (exp < 2000) {
@@ -34,11 +34,10 @@ public static class LevelUtility {
   }
 
   public static string calculateRankedLevel() {
-
     System.Random random = new System.Random();
     string randomLevel = random.Next(1, 100).ToString();
 
-    int exp = GameManager.playerExperience;
+    int exp = GameManager.rankedExperience;
     if (exp < 250) {
       return "0_" + randomLevel;
     } else if (exp < 500) {
@@ -80,6 +79,34 @@ public static class LevelUtility {
     } else {
       return "19_" + randomLevel;
     }
+  }
+
+  public static string calculateTimeTrialLevel() {
+    System.Random random = new System.Random();
+
+    int complexity = 0;
+    int complexityBuffer = Mathf.FloorToInt(LevelManager.currentSolved / 2);
+    if (LevelManager.difficulty == "easy") {
+      complexity = Mathf.Min(complexityBuffer, 3);
+    } else if (LevelManager.difficulty == "medium") {
+      complexity = Mathf.Min(4 + complexityBuffer, 7);
+    } else if (LevelManager.difficulty == "hard") {
+      complexity = Mathf.Min(8 + complexityBuffer, 11);
+    }
+    
+    int randomLevel = random.Next(1, 100);
+    return (complexity + "_" + randomLevel).ToString();
+  }
+
+  public static int getTimeTrialSecondsToComplete() {
+    if (LevelManager.difficulty == "easy") {
+      return 60;
+    } else if (LevelManager.difficulty == "medium") {
+      return 90;
+    } else if (LevelManager.difficulty == "hard") {
+      return 120;
+    }
+    return 60;
   }
 
   public static int calculateStarScore() {

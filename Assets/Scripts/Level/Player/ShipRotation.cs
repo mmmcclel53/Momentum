@@ -21,16 +21,16 @@ public class ShipRotation : MonoBehaviour {
 	void Update() {
 		if (MovingObject.getObject() == this.gameObject) {
       switch (MovingObject.getSwipeDirection()) {
-        case Swipe.Up:
-          rotationVector.z = 0f;         
-          break;
-        case Swipe.Left:
-          rotationVector.z = 90f;
-          break;
         case Swipe.Down:
-          rotationVector.z = 180f;
+          rotationVector.z = 0f;
           break;
         case Swipe.Right:
+          rotationVector.z = 90f;
+          break;
+        case Swipe.Up:
+          rotationVector.z = 180f;         
+          break;
+        case Swipe.Left:
           rotationVector.z = 270f;
           break;
       }

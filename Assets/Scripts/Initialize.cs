@@ -5,6 +5,35 @@ using UnityEngine;
 
 public class Initialize : MonoBehaviour {
 
+  private void loadPlayerDetails() {
+    // Load if file exists, otherwise create it
+    try {
+      GameManager.loadPlayerDetails();
+    } catch {
+      GameManager.savePlayerDetails();
+    }
+  }
+
+  private void loadRankedScore() {
+    // Load if file exists, otherwise create it
+    try {
+      GameManager.loadRankedScore();
+    } catch {
+      GameManager.saveRankedScore();
+    }
+  }
+
+  private void loadPlayerStars() {
+    GameManager.loadStars();
+    GameManager.totalStars = GameManager.easyStars.Sum() + GameManager.mediumStars.Sum() + GameManager.hardStars.Sum() + GameManager.masterStars.Sum() + GameManager.impossibleStars.Sum();
+  }
+
+  private void loadTimeTrialScores() {
+    GameManager.timeTrialsEasy = GameManager.loadTimeTrialsCurrentBest("easy");
+    GameManager.timeTrialsMedium = GameManager.loadTimeTrialsCurrentBest("medium");
+    GameManager.timeTrialsHard = GameManager.loadTimeTrialsCurrentBest("hard");
+  }
+
   private void loadSettings() {
     // Load if file exists, otherwise create it
     try {
@@ -14,23 +43,11 @@ public class Initialize : MonoBehaviour {
     }
   }
 
-  private void loadPlayerRank() {
-    // Load if file exists, otherwise create it
-    try {
-      GameManager.loadPlayerDetails();
-    } catch {
-      GameManager.savePlayerDetails();
-    }
-  }
-
-  private void loadPlayerStars() {
-    GameManager.loadStars();
-    GameManager.totalStars = GameManager.easyStars.Sum() + GameManager.mediumStars.Sum() + GameManager.hardStars.Sum() + GameManager.masterStars.Sum() + GameManager.impossibleStars.Sum();
-  }
-
 	void Start() {
-    loadSettings();
-    loadPlayerRank();
+    loadPlayerDetails();
+    loadRankedScore();
     loadPlayerStars();
+    loadTimeTrialScores();
+    loadSettings();
   }	
 }

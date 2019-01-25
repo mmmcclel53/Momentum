@@ -5,16 +5,15 @@ using UnityEngine.UI;
 
 public class BackButton : MonoBehaviour {
 
-  private const int rankedPenalty = -15;
   public GameObject rankedPenaltyWarningScreen;
+  // private const int rankedPenalty = -15;
 
-  void OnDisable() {
-    if (GameManager.gameType == "ranked" && !LevelManager.solved) {
-      Debug.Log("Gotcha bitch!");
-      GameManager.adjustPlayerExperience(rankedPenalty);
-      GameManager.savePlayerDetails();
-    }
-  }
+  // void OnDisable() {
+  //   if (GameManager.gameType == "ranked" && !LevelManager.solved) {
+  //     GameManager.adjustRankedExperience(rankedPenalty);
+  //     GameManager.saveRankedScore();
+  //   }
+  // }
 
   public void onBackButton() {
     if (GameManager.gameType == "ranked") {

@@ -7,7 +7,7 @@ public class OnRankedQuit : MonoBehaviour {
 	private const int rankedPenalty = -15;
 
 	public void onRankedQuit() {
-		GameManager.adjustPlayerExperience(rankedPenalty);
+		GameManager.adjustRankedExperience(rankedPenalty);
 		GameManager.Load("MainMenu");
 	}
 

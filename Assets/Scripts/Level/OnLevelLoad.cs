@@ -130,11 +130,16 @@ public class OnLevelLoad : MonoBehaviour {
   }
 
   private TextAsset getPath() {
-    if (GameManager.gameType == "puzzles") {
-      return (TextAsset)Resources.Load("Levels/Puzzles/" + LevelManager.difficulty + "/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
+    switch(GameManager.gameType) {
+      case "ranked":
+        return (TextAsset)Resources.Load("Levels/Ranked/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
+      case "levels":
+        return (TextAsset)Resources.Load("Levels/Puzzles/" + LevelManager.difficulty + "/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
+      case "time_trials":
+        return (TextAsset)Resources.Load("Levels/Ranked/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
+      default:
+        return (TextAsset)Resources.Load("Levels/Ranked/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
     }
-
-    return (TextAsset)Resources.Load("Levels/Ranked/" + LevelManager.difficulty + LevelManager.level, typeof(TextAsset));
   }
 
   void Start() {
@@ -155,7 +160,6 @@ public class OnLevelLoad : MonoBehaviour {
     setGrid(500);
     setTiles(tiles);
     setPlayersAndGoal(players, goal);
-    GameManager.loadCurrentBest();
   }
 
   // Win condition 
@@ -173,11 +177,13 @@ public class OnLevelLoad : MonoBehaviour {
         LevelManager.solved = true;
         if (GameManager.gameType == "ranked") {
           rankedSolvedModal.SetActive(true);
-        } else if (GameManager.gameType == "time_trials") {
-          GameManager.Load("Game");
-        } else {
+        } else if (GameManager.gameType == "levels") {
           puzzleSolvedModal.SetActive(true);
-        }
+        } else if (GameManager.gameType == "time_trials") {
+          LevelManager.currentSolved += 1;
+          LevelManager.level = LevelUtility.calculateTimeTrialLevel();
+          GameManager.Load("Game");
+        } 
       }
       playersAndGoal.SetTile(tilePos, isCurrentShipObj() ? ship : asteroid);
       MovingObject.setIsMoving(false);

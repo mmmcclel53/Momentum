@@ -3,19 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class UnlockButton : MonoBehaviour {
 
+  private int STARS_TO_UNLOCK_MASTER = 300;
+  private int STARS_TO_UNLOCK_IMPOSSIBLE = 400;
+
+  private int XP_TO_SEE_VETERAN = 1500;
+  private int XP_TO_SEE_ELITE = 2500;
+  private int XP_TO_SEE_LEGEND = 3500;
+  private int XP_TO_SEE_TRANSCENDENT = 4500;
+
+
   public GameObject unlockInfo;
-  private static string[] shipUnlockReqs = {
-    null, // Default Ship
-    "100% Easy", "100% Medium", "100% Hard", "100% Master", "100% Impossible",
-    "Apprentice Rank", "Veteran Rank", "Elite Rank", "Legend Rank", "Transcendent Rank",
-    "???"
-  };
-  private static string[] rewardUnlockReqs = {
-    "Complete the Easy Time Trials", "Complete the Medium Time Trials", "Complete the Hard Time Trials", "Complete the Master Time Trials", "Complete the Impossible Time Trials"
-  };
+  private static string[] shipUnlockReqs;
+  private static string[] rewardUnlockReqs;
+
+  void Start() {
+    shipUnlockReqs = new string[] {
+      null, // Default Ship
+      "Obtain ALL Easy Stars", "Obtain ALL Medium Stars", "Obtain ALL Hard Stars",
+      GameManager.totalStars >= STARS_TO_UNLOCK_MASTER ? "Obtain ALL Master Stars" : "???",
+      GameManager.totalStars >= STARS_TO_UNLOCK_IMPOSSIBLE ? "Obtain ALL Impossible Stars" : "???",
+      "Earn the Apprentice title in Ranked",
+      GameManager.bestRankedExperience >= XP_TO_SEE_VETERAN ? "Earn the Veteran title in Ranked" : "???",
+      GameManager.bestRankedExperience >= XP_TO_SEE_ELITE ? "Earn the Elite title in Ranked" : "???",
+      GameManager.bestRankedExperience >= XP_TO_SEE_LEGEND ? "Earn the Legend title in Ranked" : "???",
+      GameManager.bestRankedExperience >= XP_TO_SEE_TRANSCENDENT ? "Earn the Transcendent title in Ranked" : "???",
+      "???"
+    };
+    rewardUnlockReqs = new string[] {
+      "Clear 10 levels in Time Trials Easy", "Clear 5 levels in Time Trials Medium", "Clear 3 levels in Time Trials Hard",
+      "Clear 15 levels in Time Trials Easy", "Clear 10 levels in Time Trials Medium", "Clear 5 levels in Time Trials Hard"
+    };
+  }
 
   private void setImage() {
     GameObject unlockImage = Instantiate(this.gameObject, unlockInfo.transform);
@@ -35,13 +58,18 @@ public class UnlockButton : MonoBehaviour {
     } else {
       unlockInfo.transform.GetChild(1).gameObject.SetActive(false);
       unlockInfo.transform.GetChild(2).gameObject.SetActive(true);
-      unlockInfo.transform.GetChild(2).gameObject.GetComponent<Text>().text = ("Requirement:\n" + shipUnlockReqs[index]).ToString();
+      unlockInfo.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = ("REQUIREMENT:\n" + shipUnlockReqs[index]).ToString();
     }
     setImage();
   }
 
   public void onRewardClick(int index) {
-    setImage();
+    if (!GameManager.rewardUnlocks[index]) {
+      unlockInfo.transform.parent.gameObject.SetActive(true);
+      unlockInfo.transform.GetChild(1).gameObject.SetActive(false);
+      unlockInfo.transform.GetChild(2).gameObject.SetActive(true);
+      unlockInfo.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = ("REQUIREMENT:\n" + rewardUnlockReqs[index]).ToString();
+      setImage();
+    }
   }
-
 }

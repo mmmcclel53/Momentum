@@ -192,7 +192,7 @@ public class SwipeManager : MonoBehaviour {
         }
 
         // If the player has moved, hints should be disabled
-        if (GameManager.gameType == "puzzles") {
+        if (GameManager.gameType == "levels") {
           disableHints();
         }
 

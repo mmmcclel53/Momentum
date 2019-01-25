@@ -7,47 +7,25 @@ using TMPro;
 
 public class OnRankedSolve : MonoBehaviour {
 
+  private static float animateXP;
+  private static int newXP;
+  private static int oldXP;
   private const int MAX_EXPERIENCE_POSSIBLE = 50;
 
   // Essentially add 5s more for each complexity, but bump the buffer +5 for each new difficulty
   private int[] PAR_TIME = new int[20] {
-    5, 5, 7, 10,           // Easy + ~2.5
+    3, 5, 7, 10,           // Easy + ~2.5
     15, 20, 25, 30,        // Medium + 5
     40, 50, 60, 70,        // Hard + 10
     85, 100, 115, 130,     // Master + 15
     150, 170, 190, 210     // Impossible + 20
   };
-  
-  private void updateDisplays(int newXP) {
-    // Icon and Rank
-    Sprite icon = Resources.Load <Sprite> (("Ranks/" + GameManager.playerRank).ToString());
-    this.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = icon;
-    this.gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = GameManager.playerRank;
-
-    // NewXP
-    this.gameObject.transform.GetChild(1).gameObject.GetComponent<Text>().text = (GameManager.playerExperience + "  (" + (newXP > 0 ? "+" : "") + newXP.ToString() + ")").ToString();
-
-    int index = Array.FindIndex(GameManager.RANKS, x => x.Contains(GameManager.playerRank));
-    int XP_OF_CURRENT_RANK = GameManager.RANK_XP[index];
-    
-    // Slider
-    this.gameObject.transform.GetChild(2).gameObject.GetComponent<Slider>().value =
-      GameManager.playerRank == "Transcendent"
-      ? 1
-      : (float)(GameManager.playerExperience-XP_OF_CURRENT_RANK) / (float)(GameManager.RANK_XP[index+1]-XP_OF_CURRENT_RANK);    
-    
-    // Next Rank
-    this.gameObject.transform.GetChild(2).transform.GetChild(3).gameObject.GetComponent<Text>().text =
-      GameManager.playerRank == "Transcendent"
-      ? "MAX RANK"
-      : ("Next: " + GameManager.RANKS[index+1]).ToString();
-  }
 
   private int getParTime() {
     // Boi you good
-    if (GameManager.playerExperience > 5000) {
-      int ratio = Mathf.FloorToInt(GameManager.playerExperience / PAR_TIME[19]);
-      return Mathf.FloorToInt(GameManager.playerExperience / ratio);
+    if (GameManager.rankedExperience > 5000) {
+      int ratio = Mathf.FloorToInt(GameManager.rankedExperience / PAR_TIME[19]);
+      return Mathf.FloorToInt(GameManager.rankedExperience / ratio);
     }
 
     int complexity = Int32.Parse(LevelUtility.calculateRankedLevel().Split('_')[0]);
@@ -71,13 +49,50 @@ public class OnRankedSolve : MonoBehaviour {
     }
   }
 
-  void Start() {
-    int newXP = getStarXP() + getTimeXP();
-    GameManager.adjustPlayerExperience(newXP);
-    GameManager.savePlayerDetails();
+  private void animateDisplays(int newExperience) {
+    // NewXP
+    this.gameObject.transform.GetChild(1).gameObject.GetComponent<Text>().text = ((oldXP+newExperience) + "  (" + (newExperience > 0 ? "+" : "") + newExperience.ToString() + ")").ToString();
 
-    updateDisplays(newXP);
+    int index = Array.FindIndex(GameManager.RANKS, x => x.Contains(GameManager.rankedTitle));
+    int XP_OF_CURRENT_RANK = GameManager.RANK_XP[index];
+    
+    // Slider
+    this.gameObject.transform.GetChild(2).gameObject.GetComponent<Slider>().value =
+      GameManager.rankedTitle == "Transcendent"
+      ? 1
+      : (float)(oldXP+newExperience-XP_OF_CURRENT_RANK) / (float)(GameManager.RANK_XP[index+1]-XP_OF_CURRENT_RANK);
+  }
+
+  void Start() {
+    animateXP = 0;
+    newXP = getStarXP() + getTimeXP();
+    oldXP = GameManager.rankedExperience;
+    GameManager.adjustRankedExperience(newXP);
+    GameManager.saveRankedScore();
+
+    // Icon and Rank
+    Sprite icon = Resources.Load <Sprite> (("Ranks/" + GameManager.rankedTitle).ToString());
+    this.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = icon;
+    this.gameObject.transform.GetChild(0).transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = GameManager.rankedTitle;
+
+    int index = Array.FindIndex(GameManager.RANKS, x => x.Contains(GameManager.rankedTitle));
+
+    // Next Rank
+    this.gameObject.transform.GetChild(2).transform.GetChild(3).gameObject.GetComponent<Text>().text =
+      GameManager.rankedTitle == "Transcendent"
+      ? "MAX RANK"
+      : ("Next: " + GameManager.RANKS[index+1]).ToString();
 
     LevelManager.time = 0;
+  }
+
+  void Update() {
+    if (newXP - animateXP > 0.5f) {
+      animateXP += (newXP - animateXP) / 20f;
+      animateDisplays(Mathf.FloorToInt(animateXP));
+    } else if (animateXP != newXP) {
+      animateXP = newXP;
+      animateDisplays(Mathf.FloorToInt(animateXP));
+    }
   }
 }
