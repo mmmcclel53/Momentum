@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CloudOnce;
+using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -141,6 +142,8 @@ public static class GameManager {
 
     bf.Serialize(file, player);
     file.Close();
+
+    // Leaderboards.Ranked.SubmitScore(playerExperience);
   }
 
   public static void loadRankedScore() {
@@ -223,6 +226,9 @@ public static class GameManager {
 
     bf.Serialize(file, levelScore);
     file.Close();
+
+    totalStars = easyStars.Sum() + mediumStars.Sum() + hardStars.Sum() + masterStars.Sum() + impossibleStars.Sum();
+    // Leaderboards.Levels.SubmitScore(totalStars);
   }
 
   public static int loadTimeTrialsCurrentBest(string difficulty) {
