@@ -106,22 +106,36 @@ public class OnLevelLoad : MonoBehaviour {
         gridTilemap.SetTile(new Vector3Int(x, y, 0), grid);
       }
 
+      // Set outer wall
+      if (y == -boardSize+1) {
+        northTilemap.SetTile(new Vector3Int(x, y-1, 0), northWall);
+      }
+      if (x == 0) {
+        eastTilemap.SetTile(new Vector3Int(x-1, y, 0), eastWall);
+      }
+      if (y == 0) {
+        southTilemap.SetTile(new Vector3Int(x, y+1, 0), southWall);
+      }
+      if (x == boardSize-1) {
+        westTilemap.SetTile(new Vector3Int(x+1, y, 0), westWall);
+      }
+
       int tile = Int32.Parse(tileString) % 16;
       if (tile == 0) {
         x++;
         continue;
       }
 
-      if (hasWall(tile, 1)) {
+      if (hasWall(tile, 1) || y == 0) {
         northTilemap.SetTile(new Vector3Int(x, y, 0), northWall);
       }
-      if (hasWall(tile, 2)) {
+      if (hasWall(tile, 2) || x == boardSize-1) {
         eastTilemap.SetTile(new Vector3Int(x, y, 0), eastWall);
       }
-      if (hasWall(tile, 4)) {
+      if (hasWall(tile, 4) || y == -boardSize+1) {
         southTilemap.SetTile(new Vector3Int(x, y, 0), southWall);
       }
-      if (hasWall(tile, 8)) {
+      if (hasWall(tile, 8) || x == 0) {
         westTilemap.SetTile(new Vector3Int(x, y, 0), westWall);
       }
 

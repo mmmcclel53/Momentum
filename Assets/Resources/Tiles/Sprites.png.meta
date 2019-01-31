@@ -127,7 +127,7 @@ TextureImporter:
         x: 15
         y: 601
         width: 512
-        height: 506
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,8 +204,8 @@ TextureImporter:
       name: Asteroid
       rect:
         serializedVersion: 2
-        x: 600
-        y: 30
+        x: 586
+        y: 32
         width: 512
         height: 512
       alignment: 0
@@ -224,8 +224,8 @@ TextureImporter:
       name: Goal
       rect:
         serializedVersion: 2
-        x: 1761
-        y: 24
+        x: 1747
+        y: 10
         width: 512
         height: 512
       alignment: 0

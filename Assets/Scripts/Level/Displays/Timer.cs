@@ -12,6 +12,10 @@ public class Timer : MonoBehaviour {
 
   private float time = 0;
 
+  void OnDisable() {
+    LevelManager.time = 0;
+  }
+
   void Start() {
     if (GameManager.gameType == "levels") {
       Destroy(this.gameObject.transform.parent.gameObject);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuyHintsButton : MonoBehaviour {
 	public void onHintClick(int hintsToAdd) {
-    GameManager.playerHints += hintsToAdd;
-    GameManager.savePlayerDetails();
+    // GameManager.playerHints += hintsToAdd;
+    // GameManager.savePlayerDetails();
   }
 }

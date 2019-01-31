@@ -25,13 +25,13 @@ public class UnlockButton : MonoBehaviour {
     shipUnlockReqs = new string[] {
       null, // Default Ship
       "Obtain ALL Easy Stars", "Obtain ALL Medium Stars", "Obtain ALL Hard Stars",
-      GameManager.totalStars >= STARS_TO_UNLOCK_MASTER ? "Obtain ALL Master Stars" : "???",
-      GameManager.totalStars >= STARS_TO_UNLOCK_IMPOSSIBLE ? "Obtain ALL Impossible Stars" : "???",
+      GameManager.totalStars >= STARS_TO_UNLOCK_MASTER ? "Obtain ALL Master Stars" : "Undiscovered",
+      GameManager.totalStars >= STARS_TO_UNLOCK_IMPOSSIBLE ? "Obtain ALL Impossible Stars" : "Undiscovered",
       "Earn the Apprentice title in Ranked",
-      GameManager.bestRankedExperience >= XP_TO_SEE_VETERAN ? "Earn the Veteran title in Ranked" : "???",
-      GameManager.bestRankedExperience >= XP_TO_SEE_ELITE ? "Earn the Elite title in Ranked" : "???",
-      GameManager.bestRankedExperience >= XP_TO_SEE_LEGEND ? "Earn the Legend title in Ranked" : "???",
-      GameManager.bestRankedExperience >= XP_TO_SEE_TRANSCENDENT ? "Earn the Transcendent title in Ranked" : "???",
+      GameManager.bestRankedExperience >= XP_TO_SEE_VETERAN ? "Earn the Veteran title in Ranked" : "Undiscovered",
+      GameManager.bestRankedExperience >= XP_TO_SEE_ELITE ? "Earn the Elite title in Ranked" : "Undiscovered",
+      GameManager.bestRankedExperience >= XP_TO_SEE_LEGEND ? "Earn the Legend title in Ranked" : "Undiscovered",
+      GameManager.bestRankedExperience >= XP_TO_SEE_TRANSCENDENT ? "Earn the Transcendent title in Ranked" : "Undiscovered",
       "???"
     };
     rewardUnlockReqs = new string[] {

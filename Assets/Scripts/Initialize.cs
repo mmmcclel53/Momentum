@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using CloudOnce;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -49,5 +50,17 @@ public class Initialize : MonoBehaviour {
     loadPlayerStars();
     loadTimeTrialScores();
     loadSettings();
+
+    // Achievements & Leaderboards
+    Achievements.MeteorMazeWelcome.Unlock();
+    if (
+      GameManager.totalStars >= 600 && GameManager.bestRankedExperience >= 5000 &&
+      GameManager.timeTrialsEasy >= 15 &&
+      GameManager.timeTrialsMedium >= 10 &&
+      GameManager.timeTrialsHard >= 5 &&
+      (GameManager.timeTrialsEasy + GameManager.timeTrialsMedium + GameManager.timeTrialsHard) >= 30
+    ) {
+      Achievements.Completionist.Unlock();
+    }
   }	
 }

@@ -24,6 +24,10 @@ public class Background : MonoBehaviour {
       case "impossible":
         Sprite impossibleBG = Resources.Load <Sprite> ("Backgrounds/ImpossibleBackground");
         this.gameObject.GetComponent<SpriteRenderer>().sprite = impossibleBG;
+
+        // Center blackhole
+        float x = this.gameObject.transform.position.x;
+        this.gameObject.transform.position = new Vector2(x, -2150f);
         break;
       default:
         this.gameObject.GetComponent<SpriteRenderer>().sprite = easyBG;

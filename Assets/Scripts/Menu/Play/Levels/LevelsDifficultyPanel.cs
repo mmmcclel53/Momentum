@@ -11,8 +11,6 @@ public class LevelsDifficultyPanel : MonoBehaviour {
   private int STARS_TO_UNLOCK_IMPOSSIBLE = 400;
   private int TOTAL_STARS = 600;
 
-  private string[] difficultyUnlocks = {"", "", ""};
-
   public GameObject percentageText;
   public GameObject loadingBar;
   public GameObject nextDifficultyUnlock;

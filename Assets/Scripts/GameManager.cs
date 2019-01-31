@@ -142,8 +142,6 @@ public static class GameManager {
 
     bf.Serialize(file, player);
     file.Close();
-
-    // Leaderboards.Ranked.SubmitScore(playerExperience);
   }
 
   public static void loadRankedScore() {
@@ -172,6 +170,28 @@ public static class GameManager {
 
     bf.Serialize(file, rankedScore);
     file.Close();
+
+    // Achievements & Leaderboards
+    if (rankedExperience >= 1000) {
+      Achievements.ApprenticeRank.Unlock();
+    } else if (rankedExperience >= 1500) {
+      Achievements.AdeptRank.Unlock();
+    } else if (rankedExperience >= 2000) {
+      Achievements.VeteranRank.Unlock();
+    } else if (rankedExperience >= 2500) {
+      Achievements.ExpertRank.Unlock();
+    } else if (rankedExperience >= 3000) {
+      Achievements.EliteRank.Unlock();
+    } else if (rankedExperience >= 3500) {
+      Achievements.AceRank.Unlock();
+    } else if (rankedExperience >= 4000) {
+      Achievements.LegendRank.Unlock();
+    } else if (rankedExperience >= 4500) {
+      Achievements.MythicRank.Unlock();
+    } else if (rankedExperience >= 5000) {
+      Achievements.TranscendentRank.Unlock();
+    }
+    Leaderboards.RankedLeaderboard.SubmitScore(rankedExperience);
   }
 
   public static void loadStars() {
@@ -228,7 +248,22 @@ public static class GameManager {
     file.Close();
 
     totalStars = easyStars.Sum() + mediumStars.Sum() + hardStars.Sum() + masterStars.Sum() + impossibleStars.Sum();
-    // Leaderboards.Levels.SubmitScore(totalStars);
+    
+    // Achievements & Leaderboards
+    if (totalStars >= 100) {
+      Achievements.Stars100.Unlock();
+    } else if (totalStars >= 200) {
+      Achievements.Stars200.Unlock();
+    } else if (totalStars >= 300) {
+      Achievements.Stars300.Unlock();
+    } else if (totalStars >= 400) {
+      Achievements.Stars400.Unlock();
+    } else if (totalStars >= 500) {
+      Achievements.Stars500.Unlock();
+    } else if (totalStars >= 600) {
+      Achievements.Stars600.Unlock();
+    }
+    Leaderboards.LevelsLeaderboard.SubmitScore(totalStars);
   }
 
   public static int loadTimeTrialsCurrentBest(string difficulty) {
@@ -256,6 +291,32 @@ public static class GameManager {
 
     bf.Serialize(file, timeTrialsScore);
     file.Close();
+
+    // Achievements & Leaderboards
+    if (difficulty == "easy") {
+      if (best >= 15) {
+        Achievements.Easy15TimeTrials.Unlock();
+      }
+      Leaderboards.TimeTrialsEasyLeaderboard.SubmitScore(best);
+    } else if (difficulty == "medium") {
+      if (best >= 10) {
+        Achievements.Medium10TimeTrials.Unlock();
+      }
+      Leaderboards.TimeTrialsMediumLeaderboard.SubmitScore(best);
+    } else if (difficulty == "hard") {
+      if (best >= 5) {
+        Achievements.Hard5TimeTrials.Unlock();
+      }
+      Leaderboards.TimeTrialsHardLeaderboard.SubmitScore(best);
+    }
+
+    timeTrialsEasy = loadTimeTrialsCurrentBest("easy");
+    timeTrialsMedium = loadTimeTrialsCurrentBest("medium");
+    timeTrialsHard = loadTimeTrialsCurrentBest("hard");
+
+    if ((timeTrialsEasy + timeTrialsMedium + timeTrialsHard) >= 30) {
+      Achievements.TimeTrials30.Unlock();
+    }
   }
 
 

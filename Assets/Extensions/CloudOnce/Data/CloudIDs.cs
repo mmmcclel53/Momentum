@@ -20,6 +20,445 @@ namespace CloudOnce
         /// </summary>
         public static class AchievementIDs
         {
+            public static string MeteorMazeWelcome
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "MeteorMazeWelcome";
+#elif UNITY_EDITOR
+                    return "MeteorMazeWelcome";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string CustomizeShip
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "CustomizeShip";
+#elif UNITY_EDITOR
+                    return "CustomizeShip";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string ApprenticeRank
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "ApprenticeRank";
+#elif UNITY_EDITOR
+                    return "ApprenticeRank";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string AdeptRank
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "AdeptRank";
+#elif UNITY_EDITOR
+                    return "AdeptRank";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string VeteranRank
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "VeteranRank";
+#elif UNITY_EDITOR
+                    return "VeteranRank";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string ExpertRank
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "ExpertRank";
+#elif UNITY_EDITOR
+                    return "ExpertRank";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string EliteRank
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "EliteRank";
+#elif UNITY_EDITOR
+                    return "EliteRank";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string AceRank
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "AceRank";
+#elif UNITY_EDITOR
+                    return "AceRank";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string LegendRank
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "LegendRank";
+#elif UNITY_EDITOR
+                    return "LegendRank";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string MythicRank
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "MythicRank";
+#elif UNITY_EDITOR
+                    return "MythicRank";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string TranscendentRank
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "TranscendentRank";
+#elif UNITY_EDITOR
+                    return "TranscendentRank";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Stars100
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "100Stars";
+#elif UNITY_EDITOR
+                    return "Stars100";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Stars200
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "200Stars";
+#elif UNITY_EDITOR
+                    return "Stars200";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Stars300
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "300Stars";
+#elif UNITY_EDITOR
+                    return "Stars300";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Stars400
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "400Stars";
+#elif UNITY_EDITOR
+                    return "Stars400";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Stars500
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "500Stars";
+#elif UNITY_EDITOR
+                    return "Stars500";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Stars600
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "600Stars";
+#elif UNITY_EDITOR
+                    return "Stars600";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Easy15TimeTrials
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "Easy15TimeTrials";
+#elif UNITY_EDITOR
+                    return "Easy15TimeTrials";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Medium10TimeTrials
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "Medium10TimeTrials";
+#elif UNITY_EDITOR
+                    return "Medium10TimeTrials";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Hard5TimeTrials
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "Hard5TimeTrials";
+#elif UNITY_EDITOR
+                    return "Hard5TimeTrials";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string TimeTrials30
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "TimeTrials30";
+#elif UNITY_EDITOR
+                    return "TimeTrials30";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Completionist
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "Completionist";
+#elif UNITY_EDITOR
+                    return "Completionist";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
         }
 
         /// <summary>

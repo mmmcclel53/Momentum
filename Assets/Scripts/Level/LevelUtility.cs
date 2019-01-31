@@ -100,13 +100,13 @@ public static class LevelUtility {
 
   public static int getTimeTrialSecondsToComplete() {
     if (LevelManager.difficulty == "easy") {
-      return 60;
+      return 75;
     } else if (LevelManager.difficulty == "medium") {
-      return 90;
+      return 150;
     } else if (LevelManager.difficulty == "hard") {
-      return 120;
+      return 240;
     }
-    return 60;
+    return 75;
   }
 
   public static int calculateStarScore() {
