@@ -68,7 +68,7 @@ public class LevelsDifficultyButton : MonoBehaviour {
     // If the grid width hasn't been set yet
     if (gridColumnCount == 0) {
       float gridWidth = listContent.GetComponent<RectTransform>().rect.width;
-      gridColumnCount = Math.Max(Mathf.FloorToInt(gridWidth / (listGrid.cellSize.x + (listGrid.spacing.x * 2)) ) + 1, 4);
+      gridColumnCount = Math.Max(Mathf.FloorToInt(gridWidth / (listGrid.cellSize.x + (listGrid.spacing.x * 2)) ), 4);
     }
     
     listGrid.constraintCount = gridColumnCount;

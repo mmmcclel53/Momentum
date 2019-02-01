@@ -45,6 +45,8 @@ public class Initialize : MonoBehaviour {
   }
 
 	void Start() {
+    Achievements.MeteorMazeWelcome.Unlock();
+
     loadPlayerDetails();
     loadRankedScore();
     loadPlayerStars();
@@ -52,7 +54,6 @@ public class Initialize : MonoBehaviour {
     loadSettings();
 
     // Achievements & Leaderboards
-    Achievements.MeteorMazeWelcome.Unlock();
     if (
       GameManager.totalStars >= 600 && GameManager.bestRankedExperience >= 5000 &&
       GameManager.timeTrialsEasy >= 15 &&

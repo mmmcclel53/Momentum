@@ -58,6 +58,7 @@ public class OnPuzzleSolve : MonoBehaviour {
       GameManager.currentBest = (currentBest == 0 || currentBest > LevelManager.moves) ? LevelManager.moves : currentBest;
       GameManager.currentStars[level] = newScore > currentScore ? newScore : currentScore;
       GameManager.saveLevelScore(GameManager.currentBest, GameManager.currentStars[level]);
+      GameManager.totalStars += (newScore - currentScore);
     }
 
     // On New High Score, give hints for perfect solutions

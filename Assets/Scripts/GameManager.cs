@@ -46,7 +46,7 @@ public static class GameManager {
   // Settings
   public static bool isMusicSoundsOn = true;
   public static bool isGameSoundsOn = true;
-  public static float gridVisibility = 0.35f;
+  public static float gridVisibility = 0.3f;
 
   public static bool[] shipUnlocks = {
     true, // Default Ship
@@ -77,7 +77,6 @@ public static class GameManager {
     } else {
       rankedExperience += adjustment;
     }
-
     rankedTitle = getNewRank();
   }
 
@@ -86,7 +85,7 @@ public static class GameManager {
     shipUnlocks = new bool[] {
       true, // Default Ship
       easyStars.Sum() == PERFECT_STARS, mediumStars.Sum() == PERFECT_STARS, hardStars.Sum() == PERFECT_STARS, masterStars.Sum() == PERFECT_STARS, impossibleStars.Sum() == PERFECT_STARS,
-      bestRankedExperience >= 500, bestRankedExperience >= 1500, bestRankedExperience >= 2500, bestRankedExperience >= 3500, bestRankedExperience >= 5000,
+      bestRankedExperience >= 1000, bestRankedExperience >= 2000, bestRankedExperience >= 3000, bestRankedExperience >= 4000, bestRankedExperience >= 5000,
       totalStars >= 600 && bestRankedExperience >= 5000
     };
 
@@ -174,21 +173,29 @@ public static class GameManager {
     // Achievements & Leaderboards
     if (rankedExperience >= 1000) {
       Achievements.ApprenticeRank.Unlock();
-    } else if (rankedExperience >= 1500) {
+    }
+    if (rankedExperience >= 1500) {
       Achievements.AdeptRank.Unlock();
-    } else if (rankedExperience >= 2000) {
+    }
+    if (rankedExperience >= 2000) {
       Achievements.VeteranRank.Unlock();
-    } else if (rankedExperience >= 2500) {
+    }
+    if (rankedExperience >= 2500) {
       Achievements.ExpertRank.Unlock();
-    } else if (rankedExperience >= 3000) {
+    }
+    if (rankedExperience >= 3000) {
       Achievements.EliteRank.Unlock();
-    } else if (rankedExperience >= 3500) {
+    }
+    if (rankedExperience >= 3500) {
       Achievements.AceRank.Unlock();
-    } else if (rankedExperience >= 4000) {
+    }
+    if (rankedExperience >= 4000) {
       Achievements.LegendRank.Unlock();
-    } else if (rankedExperience >= 4500) {
+    }
+    if (rankedExperience >= 4500) {
       Achievements.MythicRank.Unlock();
-    } else if (rankedExperience >= 5000) {
+    }
+    if (rankedExperience >= 5000) {
       Achievements.TranscendentRank.Unlock();
     }
     Leaderboards.RankedLeaderboard.SubmitScore(rankedExperience);
@@ -246,21 +253,24 @@ public static class GameManager {
 
     bf.Serialize(file, levelScore);
     file.Close();
-
-    totalStars = easyStars.Sum() + mediumStars.Sum() + hardStars.Sum() + masterStars.Sum() + impossibleStars.Sum();
     
     // Achievements & Leaderboards
     if (totalStars >= 100) {
       Achievements.Stars100.Unlock();
-    } else if (totalStars >= 200) {
+    }
+    if (totalStars >= 200) {
       Achievements.Stars200.Unlock();
-    } else if (totalStars >= 300) {
+    }
+    if (totalStars >= 300) {
       Achievements.Stars300.Unlock();
-    } else if (totalStars >= 400) {
+    }
+    if (totalStars >= 400) {
       Achievements.Stars400.Unlock();
-    } else if (totalStars >= 500) {
+    }
+    if (totalStars >= 500) {
       Achievements.Stars500.Unlock();
-    } else if (totalStars >= 600) {
+    }
+    if (totalStars >= 600) {
       Achievements.Stars600.Unlock();
     }
     Leaderboards.LevelsLeaderboard.SubmitScore(totalStars);

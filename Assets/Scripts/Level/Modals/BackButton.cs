@@ -16,6 +16,7 @@ public class BackButton : MonoBehaviour {
   // }
 
   public void onBackButton() {
+    LevelManager.time = 0;
     if (GameManager.gameType == "ranked") {
       LevelManager.paused = true;
       rankedPenaltyWarningScreen.SetActive(true);

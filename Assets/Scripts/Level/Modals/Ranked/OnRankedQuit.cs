@@ -8,6 +8,7 @@ public class OnRankedQuit : MonoBehaviour {
 
 	public void onRankedQuit() {
 		GameManager.adjustRankedExperience(rankedPenalty);
+		GameManager.saveRankedScore();
 		GameManager.Load("MainMenu");
 	}
 

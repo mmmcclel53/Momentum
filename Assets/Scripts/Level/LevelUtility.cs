@@ -102,9 +102,9 @@ public static class LevelUtility {
     if (LevelManager.difficulty == "easy") {
       return 75;
     } else if (LevelManager.difficulty == "medium") {
-      return 150;
+      return 120;
     } else if (LevelManager.difficulty == "hard") {
-      return 240;
+      return 180;
     }
     return 75;
   }

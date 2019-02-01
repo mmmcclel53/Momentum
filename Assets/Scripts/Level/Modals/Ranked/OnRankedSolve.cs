@@ -14,7 +14,7 @@ public class OnRankedSolve : MonoBehaviour {
 
   // Essentially add 5s more for each complexity, but bump the buffer +5 for each new difficulty
   private int[] PAR_TIME = new int[20] {
-    3, 5, 7, 10,           // Easy + ~2.5
+    10, 10, 10, 10,        // Easy 10
     15, 20, 25, 30,        // Medium + 5
     40, 50, 60, 70,        // Hard + 10
     85, 100, 115, 130,     // Master + 15
