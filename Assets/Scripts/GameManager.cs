@@ -46,7 +46,7 @@ public static class GameManager {
   // Settings
   public static bool isMusicSoundsOn = true;
   public static bool isGameSoundsOn = true;
-  public static float gridVisibility = 0.3f;
+  public static float gridVisibility = 0.2f;
 
   public static bool[] shipUnlocks = {
     true, // Default Ship

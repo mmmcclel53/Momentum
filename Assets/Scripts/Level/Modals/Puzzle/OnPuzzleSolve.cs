@@ -39,7 +39,7 @@ public class OnPuzzleSolve : MonoBehaviour {
         star.transform.localScale = new Vector3(2f-(intervalTime*2f), 2f-(intervalTime*2f), 1);
       }
 
-      star.transform.Rotate(0, 0, -15 * intervalTime);
+      star.transform.Rotate(0, 0, -20*intervalTime);
       if (star.transform.localEulerAngles.z <= 288) {
         star.transform.rotation = Quaternion.Euler(0, 0, 288);
       }
