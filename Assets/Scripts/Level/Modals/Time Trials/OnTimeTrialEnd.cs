@@ -13,6 +13,7 @@ public class OnTimeTrialEnd : MonoBehaviour {
   void Start() {
 
     LevelManager.time = 0;
+    LevelManager.paused = true;
     int completed = LevelManager.currentSolved;
     int best = GameManager.currentBest;
     string difficulty = LevelManager.difficulty;
@@ -26,7 +27,7 @@ public class OnTimeTrialEnd : MonoBehaviour {
       if (best < levelsToUnlockReward[1] && completed >= levelsToUnlockReward[1]) {
         GameManager.playerHints += 10;
       }
-    } else if (difficulty == "medium" ) {
+    } else if (difficulty == "medium") {
       if (best < levelsToUnlockReward[2] && completed >= levelsToUnlockReward[2]) {
         GameManager.playerHints += 15;
       }
@@ -42,7 +43,7 @@ public class OnTimeTrialEnd : MonoBehaviour {
       }
     }
 
-    if (completed > best) {
+    if (completed >= best) {
       best = completed;
       GameManager.currentBest = best;
       GameManager.saveTimeTrialsBest(best, difficulty);

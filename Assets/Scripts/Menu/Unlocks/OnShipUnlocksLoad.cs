@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class OnShipUnlocksLoad : MonoBehaviour {
   void Start() {
-    GameManager.updateUnlocks();
 		for (int i=1; i<12; i++) {
       if (GameManager.shipUnlocks[i]) {
         this.gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).gameObject.SetActive(true);

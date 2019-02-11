@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class OnRewardUnlocksLoad : MonoBehaviour {
   void Start() {
-    GameManager.updateUnlocks();
 		for (int i=0; i<6; i++) {
       if (GameManager.rewardUnlocks[i]) {
         this.gameObject.transform.GetChild(i).gameObject.transform.GetChild(1).gameObject.SetActive(false);

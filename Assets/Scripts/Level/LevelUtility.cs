@@ -138,4 +138,22 @@ public static class LevelUtility {
         return 6;
     }
   }
+
+  // Possibly Delete?
+  // public static Vector3 calculateShipTouchScaleSize() {
+  //   switch (LevelManager.difficulty) {
+  //     case "easy":
+  //       return new Vector3(1, 1, 1);
+  //     case "medium":
+  //       return new Vector3(1.5f, 1.5f, 1);
+  //     case "hard":
+  //       return new Vector3(2, 2, 1);
+  //     case "master":
+  //       return new Vector3(2.5f, 2.5f, 1);
+  //     case "impossible":
+  //       return new Vector3(3, 3, 1);
+  //     default:
+  //       return new Vector3(1, 1, 1);
+  //   }
+  // }
 }

@@ -36,7 +36,7 @@ public class SwipeManager : MonoBehaviour {
     return tile == ship || tile == asteroid;
   }
 
-  public Vector3 calculateNewPosition(Swipe swipe) {
+  public Vector3 calculateNewPosition(Vector3 currentPos, Swipe direction) {
 
     TileBase playerTile;
     TileBase northTile;
@@ -44,7 +44,7 @@ public class SwipeManager : MonoBehaviour {
     TileBase eastTile;
     TileBase westTile;
 
-    Vector3Int pos = playersAndGoal.WorldToCell(MovingObject.getObject().transform.position);
+    Vector3Int pos = playersAndGoal.WorldToCell(currentPos);
     Vector3Int newPos;
 
     if (pos == LevelManager.goalTile) {
@@ -55,7 +55,7 @@ public class SwipeManager : MonoBehaviour {
 
     bool newPositionFound = false;
     while (!newPositionFound) {
-      switch (swipe) {
+      switch (direction) {
         case Swipe.Up:
           newPos = new Vector3Int(pos.x, pos.y+1, 0);
           northTile = northTilemap.GetTile(pos);
@@ -161,33 +161,54 @@ public class SwipeManager : MonoBehaviour {
   }
 
   void Update() {
-    if (Input.touches.Length > 0) {
+    if (Input.touches.Length > 0 && !LevelManager.solved && !LevelManager.paused && !MovingObject.getIsMoving()) {
       Touch touch = Input.GetTouch(0);
       Vector3 screenPoint = new Vector3(touch.position.x, touch.position.y, -Camera.main.transform.position.z);
       Vector3 touchPosWorld = Camera.main.ScreenToWorldPoint(screenPoint);
       Vector2 touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
       RaycastHit2D hitInformation = Physics2D.Raycast(touchPosWorld2D, Camera.main.transform.forward);
 
-      // Select object to move (could add highlighter here)
-      if (hitInformation.collider != null) {
+      // Selected object has not been set (could add highlighter here)
+      if (selectedObj == null && hitInformation.collider != null) {
         selectedObj = hitInformation.transform.gameObject;
+        // Held Swipe Effect
+        // selectedObj.transform.localScale = LevelUtility.calculateShipTouchScaleSize();
       }
 
       // Detect swipe direction
       if (touch.phase == TouchPhase.Began) {
         startPos = touch.position;
-        endPos = touch.position;
       }
       if (touch.phase == TouchPhase.Ended) {
         endPos = touch.position;
       }
 
+      // Held Swipe Effect
+      Vector2 heldSwipe = new Vector3(touch.position.x - startPos.x, touch.position.y - startPos.y);
+      if (selectedObj != null && heldSwipe.magnitude >= minSwipeLength) {
+        Swipe direction = getSwipeDirection(heldSwipe);
+        MovingObject.setSwipeDirection(direction);
+        MovingObject.setPosition(selectedObj.transform.position);
+        MovingObject.setObject(selectedObj);
+      }
+
+      if (startPos == new Vector2(0, 0) || endPos == new Vector2(0, 0)) {
+        return;
+      }
+
       // Make sure it was a legit swipe and on a movable game object
       Vector2 currentSwipe = new Vector3(endPos.x - startPos.x, endPos.y - startPos.y);
-      if (currentSwipe.magnitude >= minSwipeLength && selectedObj != null) {     
+      startPos = new Vector2(0, 0);
+      endPos = new Vector2(0, 0);
 
-        Swipe swipe = getSwipeDirection(currentSwipe);
-        if ( !(swipe == Swipe.Up || swipe == Swipe.Down || swipe == Swipe.Left || swipe == Swipe.Right) ) {
+      if (selectedObj != null && currentSwipe.magnitude >= minSwipeLength) {
+        // Held Swipe Effect
+        // selectedObj.transform.localScale = new Vector3(0.8f, 0.8f, 1);
+
+        Swipe direction = getSwipeDirection(currentSwipe);
+
+        // If invalid swipe, return
+        if ( !(direction == Swipe.Up || direction == Swipe.Down || direction == Swipe.Left || direction == Swipe.Right) ) {
           return;
         }
 
@@ -197,15 +218,26 @@ public class SwipeManager : MonoBehaviour {
         }
 
         MovingObject.setObject(selectedObj);
-        MovingObject.setSwipeDirection(swipe);
+        MovingObject.setSwipeDirection(direction);
 
-        Vector3 newPos = calculateNewPosition(swipe);
+        Vector3 currentPos = MovingObject.getObject().transform.position;
+        Vector3 newPos = calculateNewPosition(currentPos, direction);
+
+        // Only increase counter if new location
+        if (currentPos != newPos) {
+          LevelManager.moves++;
+        }
+
         MovingObject.setPosition(newPos);
-
         MovingObject.setIsMoving(true);
-        LevelManager.moves++;
         selectedObj = null;
       }
+      
+      // Held Swipe Effect
+      // else if (selectedObj != null && currentSwipe.magnitude <= minSwipeLength) {
+      //   selectedObj.transform.localScale = new Vector3(0.8f, 0.8f, 1);
+      //   selectedObj = null;
+      // }
     }
   }
 }

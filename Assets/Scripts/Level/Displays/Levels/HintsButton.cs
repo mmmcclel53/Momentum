@@ -27,10 +27,11 @@ public class HintsButton : MonoBehaviour {
     int movingObjectIndex = Mathf.FloorToInt(Int32.Parse(solution[0]) / 16);
     MovingObject.setObject(movableObjects[movingObjectIndex]);
 
-    Swipe swipe = getSwipeDirection(Int32.Parse(solution[0]) % 16);
-    MovingObject.setSwipeDirection(swipe);
-
-    Vector3 newPos = swipeManager.calculateNewPosition(swipe);
+    Swipe direction = getSwipeDirection(Int32.Parse(solution[0]) % 16);
+    MovingObject.setSwipeDirection(direction);
+    
+    Vector3 currentPos = MovingObject.getObject().transform.position;
+    Vector3 newPos = swipeManager.calculateNewPosition(currentPos, direction);
     MovingObject.setPosition(newPos);
     
     MovingObject.setIsMoving(true);

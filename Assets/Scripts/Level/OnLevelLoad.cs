@@ -41,7 +41,7 @@ public class OnLevelLoad : MonoBehaviour {
     return MovingObject.getObject() == shipObj;
   }
 
-  private void setGrid(int increment) {
+  private void setLevelGridOffset(int increment) {
     float x = this.gameObject.transform.position.x;
     float y = this.gameObject.transform.position.y;
     
@@ -171,7 +171,7 @@ public class OnLevelLoad : MonoBehaviour {
     LevelManager.solution = lines[3].Split(separators, StringSplitOptions.RemoveEmptyEntries);
     LevelManager.solved = false;
 
-    setGrid(500);
+    setLevelGridOffset(510);
     setTiles(tiles);
     setPlayersAndGoal(players, goal);
   }

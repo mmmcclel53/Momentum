@@ -53,6 +53,8 @@ public class Initialize : MonoBehaviour {
     loadTimeTrialScores();
     loadSettings();
 
+    GameManager.updateUnlocks();
+
     // Achievements & Leaderboards
     if (
       GameManager.totalStars >= 600 && GameManager.bestRankedExperience >= 5000 &&

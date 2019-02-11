@@ -21,20 +21,33 @@ public class OnRankedSolve : MonoBehaviour {
     150, 170, 190, 210     // Impossible + 20
   };
 
+  private int getParSolution() {
+    int bestSolution = LevelManager.solution.Length;
+    return Mathf.FloorToInt(bestSolution*1.5f); // 1.5x best solution
+  }
+
+  private int getSolutionXP() {
+    double solutionEfficiency = getParSolution() / LevelManager.moves;
+    if (solutionEfficiency > 1) {
+      int bestSolution = LevelManager.solution.Length;
+      double solutionBonus = (LevelManager.moves / bestSolution);
+      return Convert.ToInt32(Math.Round(solutionBonus * MAX_EXPERIENCE_POSSIBLE, 0));
+    } else if (solutionEfficiency == 1) {
+      return 0;
+    } else {  
+      return Convert.ToInt32(Math.Max(Math.Round((1 - solutionEfficiency) * -MAX_EXPERIENCE_POSSIBLE, 0), -MAX_EXPERIENCE_POSSIBLE));
+    }
+  }
+
   private int getParTime() {
-    // Boi you good
+    // If Transcendent, begin calculating actual ranked score by slowly lowering time to complete
     if (GameManager.rankedExperience > 5000) {
-      int ratio = Mathf.FloorToInt(GameManager.rankedExperience / PAR_TIME[19]);
-      return Mathf.FloorToInt(GameManager.rankedExperience / ratio);
+      int handicap = Mathf.FloorToInt((GameManager.rankedExperience - 5000) / 10);
+      return PAR_TIME[19] - handicap;
     }
 
     int complexity = Int32.Parse(LevelUtility.calculateRankedLevel().Split('_')[0]);
     return PAR_TIME[complexity];
-  }
-
-  private int getStarXP() {
-    float starEfficiency = LevelUtility.calculateStarScore() / 3;
-    return Mathf.FloorToInt(starEfficiency * MAX_EXPERIENCE_POSSIBLE);
   }
 
   private int getTimeXP() {
@@ -65,7 +78,7 @@ public class OnRankedSolve : MonoBehaviour {
 
   void Start() {
     animateXP = 0;
-    newXP = getStarXP() + getTimeXP();
+    newXP = getSolutionXP() + getTimeXP();
     oldXP = GameManager.rankedExperience;
     GameManager.adjustRankedExperience(newXP);
     GameManager.saveRankedScore();

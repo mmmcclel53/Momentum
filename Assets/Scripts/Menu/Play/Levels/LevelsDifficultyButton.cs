@@ -106,11 +106,11 @@ public class LevelsDifficultyButton : MonoBehaviour {
 
   public void onDifficultyClick(string difficulty) {
 
-    // if (difficulty == "medium" && GameManager.totalStars < STARS_TO_UNLOCK_MEDIUM) {
-    //   return;
-    // } else if (difficulty == "hard" && GameManager.totalStars < STARS_TO_UNLOCK_HARD) {
-    //   return;
-    // }
+    if (difficulty == "medium" && GameManager.totalStars < STARS_TO_UNLOCK_MEDIUM) {
+      return;
+    } else if (difficulty == "hard" && GameManager.totalStars < STARS_TO_UNLOCK_HARD) {
+      return;
+    }
 
     LevelManager.difficulty = difficulty;
     GameManager.currentStars = getCurrentStars(difficulty);
