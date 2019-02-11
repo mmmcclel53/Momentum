@@ -27,7 +27,7 @@ public class OnRankedSolve : MonoBehaviour {
   }
 
   private int getSolutionXP() {
-    double solutionEfficiency = getParSolution() / LevelManager.moves;
+    double solutionEfficiency = (double) getParSolution() / LevelManager.moves;
     if (solutionEfficiency > 1) {
       int bestSolution = LevelManager.solution.Length;
       double solutionBonus = (LevelManager.moves / bestSolution);
