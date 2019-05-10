@@ -13,8 +13,8 @@ public class LevelsDifficultyButton : MonoBehaviour {
 
   private static int gridColumnCount = 0;
 
-  private int STARS_TO_UNLOCK_MEDIUM = 100;
-  private int STARS_TO_UNLOCK_HARD = 200;
+  private int STARS_TO_UNLOCK_MEDIUM = 25;
+  private int STARS_TO_UNLOCK_HARD = 100;
 
   private string EASY_BG_COLOR = "#1978D6";
   private string MEDIUM_BG_COLOR = "#00730C";

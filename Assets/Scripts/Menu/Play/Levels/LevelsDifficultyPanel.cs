@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class LevelsDifficultyPanel : MonoBehaviour {
 
-  private int STARS_TO_UNLOCK_MEDIUM = 100;
-  private int STARS_TO_UNLOCK_HARD = 200;
-  private int STARS_TO_UNLOCK_MASTER = 300;
+  private int STARS_TO_UNLOCK_MEDIUM = 25;
+  private int STARS_TO_UNLOCK_HARD = 100;
+  private int STARS_TO_UNLOCK_MASTER = 250;
   private int STARS_TO_UNLOCK_IMPOSSIBLE = 400;
   private int TOTAL_STARS = 600;
 

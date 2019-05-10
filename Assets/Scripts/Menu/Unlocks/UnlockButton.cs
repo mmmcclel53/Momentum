@@ -8,7 +8,7 @@ using TMPro;
 
 public class UnlockButton : MonoBehaviour {
 
-  private int STARS_TO_UNLOCK_MASTER = 300;
+  private int STARS_TO_UNLOCK_MASTER = 250;
   private int STARS_TO_UNLOCK_IMPOSSIBLE = 400;
 
   private int XP_TO_SEE_VETERAN = 1500;

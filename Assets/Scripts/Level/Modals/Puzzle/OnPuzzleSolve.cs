@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -61,9 +62,16 @@ public class OnPuzzleSolve : MonoBehaviour {
       GameManager.saveLevelScore(GameManager.currentBest, GameManager.currentStars[level]);
     }
 
-    // On New High Score, give hints for perfect solutions
-    if (newScore > currentScore && newScore == 3) {
-      GameManager.playerHints += 1;
+    // On New High Score, give hints
+    if (newScore > currentScore) {
+      int hints = newScore - currentScore;
+      if ((LevelManager.difficulty == "easy" || LevelManager.difficulty == "medium") && newScore == 3) {
+        GameManager.playerHints += 1;
+      } else if ((LevelManager.difficulty == "hard" || LevelManager.difficulty == "master") && newScore >= 2) {
+        GameManager.playerHints += Math.Min(hints, 2);
+      } else if (LevelManager.difficulty == "impossible") {
+        GameManager.playerHints += hints;
+      }
       GameManager.savePlayerDetails();
     }
 
