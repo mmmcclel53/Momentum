@@ -35,7 +35,9 @@ public class HintsButton : MonoBehaviour {
     MovingObject.setPosition(newPos);
     
     MovingObject.setIsMoving(true);
-    LevelManager.moves++;
+
+    Move move = new Move(MovingObject.getObject(), direction, currentPos, newPos);
+    LevelManager.moves.Add(move);
 
     solution = solution.Skip(1).ToArray(); 
   }
@@ -65,8 +67,8 @@ public class HintsButton : MonoBehaviour {
   }
 
 	void Update() {
-    RectTransform parentRect = this.gameObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>();    
-		Text textComponent = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
+    RectTransform parentRect = this.gameObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>();    
+		Text textComponent = this.gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
     textComponent.text = (GameManager.playerHints).ToString();
     parentRect.sizeDelta = new Vector2(textComponent.preferredWidth, textComponent.preferredHeight) + new Vector2(10,10);
 	}

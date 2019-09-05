@@ -11,10 +11,10 @@ public class Moves : MonoBehaviour {
     if (GameManager.gameType == "time_trials") {
       Destroy(this.gameObject.transform.parent.gameObject);
     }
-    LevelManager.moves = 0;
+    LevelManager.moves.Clear();
   }
 
   void Update() {
-    this.gameObject.GetComponent<TextMeshProUGUI>().text = LevelManager.moves.ToString();
+    this.gameObject.GetComponent<TextMeshProUGUI>().text = LevelManager.moves.Count.ToString();
 	}
 }

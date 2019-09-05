@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using UnityEditor;
+using ASMaterialIcon;
 
 public enum Swipe { None, Up, Down, Left, Right };
 
@@ -134,17 +135,13 @@ public class SwipeManager : MonoBehaviour {
     color.a = 0.5f;
     hintButton.GetComponent<Image>().color = color;
 
-    color = hintButton.transform.GetChild(0).gameObject.GetComponent<Image>().color;
+    color = hintButton.transform.GetChild(0).gameObject.GetComponent<MaterialVectorIcon>().color;
     color.a = 0.5f;
-    hintButton.transform.GetChild(0).gameObject.GetComponent<Image>().color = color;
+    hintButton.transform.GetChild(0).gameObject.GetComponent<MaterialVectorIcon>().color = color;
 
-    color = hintButton.transform.GetChild(1).gameObject.GetComponent<Text>().color;
+    color = hintButton.transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().color;
     color.a = 0.5f;
-    hintButton.transform.GetChild(1).gameObject.GetComponent<Text>().color = color;
-
-    color = hintButton.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().color;
-    color.a = 0.5f;
-    hintButton.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().color = color;
+    hintButton.transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().color = color;
 
     Destroy(hintButton.GetComponent<HintsButton>());
   }
@@ -225,7 +222,8 @@ public class SwipeManager : MonoBehaviour {
 
         // Only increase counter if new location
         if (currentPos != newPos) {
-          LevelManager.moves++;
+          Move move = new Move(MovingObject.getObject(), direction, currentPos, newPos);
+          LevelManager.moves.Add(move);
         }
 
         MovingObject.setPosition(newPos);

@@ -55,23 +55,16 @@ public class OnPuzzleSolve : MonoBehaviour {
     int currentScore = GameManager.currentStars[level];
     
     // New High Score OR New Best Move Solution
-    if (newScore > currentScore || (currentBest == 0 || currentBest > LevelManager.moves)) {
-      GameManager.currentBest = (currentBest == 0 || currentBest > LevelManager.moves) ? LevelManager.moves : currentBest;
+    if (newScore > currentScore || (currentBest == 0 || currentBest > LevelManager.moves.Count)) {
+      GameManager.currentBest = (currentBest == 0 || currentBest > LevelManager.moves.Count) ? LevelManager.moves.Count : currentBest;
       GameManager.currentStars[level] = newScore > currentScore ? newScore : currentScore;
       GameManager.totalStars += (newScore - currentScore);
       GameManager.saveLevelScore(GameManager.currentBest, GameManager.currentStars[level]);
     }
 
     // On New High Score, give hints
-    if (newScore > currentScore) {
-      int hints = newScore - currentScore;
-      if ((LevelManager.difficulty == "easy" || LevelManager.difficulty == "medium") && newScore == 3) {
-        GameManager.playerHints += 1;
-      } else if ((LevelManager.difficulty == "hard" || LevelManager.difficulty == "master") && newScore >= 2) {
-        GameManager.playerHints += Math.Min(hints, 2);
-      } else if (LevelManager.difficulty == "impossible") {
-        GameManager.playerHints += hints;
-      }
+    if (newScore > currentScore && newScore == 3) {
+      GameManager.playerHints += 1;
       GameManager.savePlayerDetails();
     }
 

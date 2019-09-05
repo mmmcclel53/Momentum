@@ -315,6 +315,7 @@
      <Compile Include="Assets\Scripts\Level\Displays\Levels\NextLevel.cs" />
      <Compile Include="Assets\Scripts\Level\Displays\Levels\PreviousLevel.cs" />
      <Compile Include="Assets\Scripts\Level\Displays\Levels\RestartButton.cs" />
+     <Compile Include="Assets\Scripts\Level\Displays\Levels\UndoButton.cs" />
      <Compile Include="Assets\Scripts\Level\Displays\Moves.cs" />
      <Compile Include="Assets\Scripts\Level\Displays\Stars.cs" />
      <Compile Include="Assets\Scripts\Level\Displays\Timer.cs" />

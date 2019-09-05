@@ -111,8 +111,8 @@ public static class LevelUtility {
 
   public static int calculateStarScore() {
     int bestSolution = LevelManager.solution.Length;
-    int moves = LevelManager.moves;
-    int twoStarSolution = Mathf.FloorToInt(bestSolution*0.85f) + bestSolution;
+    int twoStarSolution = Mathf.CeilToInt(bestSolution*1.1f);
+    int moves = LevelManager.moves.Count;
     if (moves <= bestSolution) {
       return 3;
     } else if (moves <= twoStarSolution) {

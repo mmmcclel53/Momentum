@@ -1,4 +1,18 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+
+public class Move {
+  public GameObject movingObj;
+  public Swipe swipeDirection;
+  public Vector3 start;
+  public Vector3 end;
+  public Move(GameObject mo, Swipe dir, Vector3 startPos, Vector3 endPos) {
+    movingObj = mo;
+    swipeDirection = dir;
+    start = startPos;
+    end = endPos;
+  }
+}
 
 // Getters/Setters
 public static class LevelManager {
@@ -8,7 +22,7 @@ public static class LevelManager {
   public static string level = "0_1";
 
   public static float time = 0;
-  public static int moves = 0;
+  public static List<Move> moves = new List<Move>();
 
   // Time Trials
   public static int currentSolved = 0;

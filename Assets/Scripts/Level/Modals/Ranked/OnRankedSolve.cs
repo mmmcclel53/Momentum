@@ -27,10 +27,10 @@ public class OnRankedSolve : MonoBehaviour {
   }
 
   private int getSolutionXP() {
-    double solutionEfficiency = (double) getParSolution() / LevelManager.moves;
+    double solutionEfficiency = (double) getParSolution() / LevelManager.moves.Count;
     if (solutionEfficiency > 1) {
       int bestSolution = LevelManager.solution.Length;
-      double solutionBonus = (LevelManager.moves / bestSolution);
+      double solutionBonus = (LevelManager.moves.Count / bestSolution);
       return Convert.ToInt32(Math.Round(solutionBonus * MAX_EXPERIENCE_POSSIBLE, 0));
     } else if (solutionEfficiency == 1) {
       return 0;
