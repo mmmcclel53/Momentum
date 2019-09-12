@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15799,19 +15799,19 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 869643140}
-    characterCount: 10
+    characterCount: 5
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -29021,6 +29021,7 @@ GameObject:
   - component: {fileID: 1752478815}
   - component: {fileID: 1752478814}
   - component: {fileID: 1752478813}
+  - component: {fileID: 1752478819}
   - component: {fileID: 1752478817}
   - component: {fileID: 1752478818}
   m_Layer: 5
@@ -29139,6 +29140,17 @@ MonoBehaviour:
   cloudSaveEnabled: 1
   autoSignIn: 1
   autoCloudLoad: 1
+--- !u!114 &1752478819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752478812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b508130508a02e4b8b7927c19257072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1757886577
 GameObject:
   m_ObjectHideFlags: 0
@@ -29323,9 +29335,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1778370353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb9ca1bf7fd826f4eaf464ec252bc872, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f191372347ad2b4c9d0b57c4976f30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameId: 3288234
+  myPlacementId: rewardedVideo
+  adButton: {fileID: 1778370356}
 --- !u!114 &1778370356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29364,18 +29379,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2004481503}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: onHintClick
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1778370357
